@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url(../imgs/bloom.jpg);
+    background-image: url(../images/bloom.jpg);
     background-repeat: repeat;
     position: relative;
     font-family: Pacifico, sans-serif;
@@ -11,7 +11,6 @@ body {
 
 p ::before  {
     content:" \270F";
-
 }
 
 h1 {
@@ -19,7 +18,6 @@ h1 {
     text-transform: uppercase;
     margin: 100px;
     text-shadow: 2px 2px 3px #FFEFD5;
-
 }
 
 h3 {
@@ -30,7 +28,6 @@ h3 {
     text-shadow: 2px 2px 3px #FFEFD5;
     text-indent: 40px;
     white-space: nowrap;
-
 }
 
 p span {
@@ -63,7 +60,6 @@ tr :last-child {
     background-color: #fb8498;
 }
 
-
 .kids {
     height: 228px;
     width: 343px;
@@ -75,7 +71,7 @@ tr :last-child {
 }
 
 .ol_decor > ol :nth-child(odd) {
-    list-style-image: url("../imgs/super-mario.png");
+    list-style-image: url("../images/super-mario.png");
     list-style-position: inside;
     transform: rotate(180deg);
 }
@@ -117,7 +113,6 @@ tr :last-child {
     animation-timing-function: linear;
     animation-delay: 0.5s;
     animation-iteration-count: 5;
-
 }
 
 .par_decoration {
@@ -129,6 +124,7 @@ tr :last-child {
     text-shadow: 2px 2px 3px #fb8498;
     text-align: center;
 }
+
 .ol_decor :only-child {
     overflow: auto;
 }
@@ -141,13 +137,12 @@ tr :last-child {
 }
 
 .wrap {
-    background-image: linear-gradient(60deg,#fff0f1,#fb8498);
+    background-image: linear-gradient(60deg, #fff0f1, #fb8498);
     border: 2px solid #fff0f1;
     border-radius: 5px;
     box-shadow: 5px 0 5px 10px #fff0f1;
     padding: 30px;
     margin: 40px 20px;
-
 }
 
 .container {
@@ -159,16 +154,19 @@ tr :last-child {
     justify-content: space-around;
     align-items: center;
 }
+
 .school_name + th {
     outline: 1px solid #4fc3f7;
 }
+
 .elements {
     width: 20%;
     height: 50%;
     border-radius: 10px;
-    background-image: linear-gradient(60deg,#fff0f1,#fb8498);
+    background-image: linear-gradient(60deg, #fff0f1, #fb8498);
     box-shadow: 10px 0 10px 10px #fff0f1;
 }
+
 .container .elements :hover {
     font-size: 25px;
     transition-property: all;
@@ -189,7 +187,6 @@ tr :last-child {
     border-radius: 5px;
     box-shadow: inset 0 0 17px 18px #fb8498;
     background-color: #fff0f1;
-
 }
 
 [class="school_name"] {
@@ -233,6 +230,7 @@ input[value] {
     font-family: "Pacifico";
     src: url("../fonts/Pacifico-Regular.ttf");
 }
+
 /*---------Animation*/
 
 @keyframes duckSwimming {
@@ -250,5 +248,4 @@ input[value] {
         left: 100%;
         transform: translate(-100%, 0) scale(1);
     }
-
 }

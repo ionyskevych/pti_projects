@@ -55,7 +55,7 @@ form {
     margin: 20px 50px;
 }
 
-ul{
+ul {
     background-color: #ffff00b8;
     border: 3px solid #191970;
     border-radius: 15px;
@@ -80,7 +80,7 @@ tr :first-child {
 }
 
 tr :nth-child(2)::after {
-    content: url("../imgs/trekking_.png");
+    content: url("../images/trekking_.png");
 }
 
 p > b {
@@ -138,7 +138,6 @@ button ~ button {
     text-decoration: underline;
 }
 
-
 h1,
 p,
 [id="price"],
@@ -164,7 +163,7 @@ form,
 }
 
 .background {
-    background-image: url(../imgs/santiago.jpg);
+    background-image: url(../images/santiago.jpg);
     background-size: contain;
     padding: 30px;
     margin-bottom: 5px;

@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url("../imgs/plitka.jpg");
+    background-image: url("../images/plitka.jpg");
     background-repeat: repeat;
     position: relative;
     font-family: Ubuntu, sans-serif;
@@ -85,7 +85,7 @@ a {
     color: inherit;
 }
 
-p ~h3 {
+p ~ h3 {
     color: #af2d2d;
 }
 
@@ -104,7 +104,6 @@ dl {
     margin: 30px;
     color: #FFEFD5;
     word-break: break-all;
-
 }
 
 [id="sup"] {
@@ -211,7 +210,7 @@ dl {
 
 input[type="text"],
 input[type="email"],
-[value]{
+[value] {
     font-style: italic;
     color: #008080;
 }
@@ -229,37 +228,37 @@ label[for] {
 }
 
 label[for="m"]::after {
-    content: url("../imgs/icons8-cheburashka-16.png");
+    content: url("../images/icons8-cheburashka-16.png");
 }
 
 label[for="f"]::after {
-    content: url("../imgs/bender_icon.png");
+    content: url("../images/bender_icon.png");
 }
 
 .parent li {
-    list-style-image:url("../imgs/olive.png");
+    list-style-image:url("../images/olive.png");
     font-size: 15px;
 }
 
 ul > li {
-    list-style-image:url("../imgs/jamon.png");
+    list-style-image:url("../images/jamon.png");
     font-size: 30px;
     list-style-position: inside;
     cursor: default;
 }
 
- dt::after {
-     content: " \265B";
- }
-
- :focus {
-     background-color: #fb8498;
+dt::after {
+    content: " \265B";
 }
 
- input:checked {
-     width: 20px;
-     box-shadow: 1px 1px 1px 1px #fb8498;
- }
+:focus {
+    background-color: #fb8498;
+}
+
+input:checked {
+    width: 20px;
+    box-shadow: 1px 1px 1px 1px #fb8498;
+}
 
 [type="submit"] + button {
     background-color: #fb8498;
@@ -269,14 +268,14 @@ ul > li {
 
 .red_bottom {
     border:2px solid #CD5C5C;
-    background-color: #FF0000FF;
+    background-color: #FF0000;
     margin: 0;
     height: 25%;
 }
 
 a:hover {
     font-size: 70px;
-    background-color: #FF0000FF;
+    background-color: #FF0000;
     border: 5px dotted #032e64;
     transition-property: all;
     transition-duration: 2s;
@@ -293,12 +292,14 @@ a:hover {
     flex-direction: column;
     justify-content: flex-start;
 }
+
 .red_top {
     border:2px solid #CD5C5C;
     background-color: #FF0000FF;
     margin: 0;
     height: 25%;
 }
+
 .yellow {
     border:2px solid #f1c107;
     background-color: #f1c107;
@@ -306,6 +307,7 @@ a:hover {
     height: 50%;
     position: relative;
 }
+
 .ox {
     position: absolute;
     top: 80px;
@@ -349,4 +351,3 @@ a:hover {
     font-family: "Ubuntu";
     src: url("../fonts/Ubuntu-Regular.ttf");
 }
-

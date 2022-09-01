@@ -1,11 +1,11 @@
 * {
     box-sizing: border-box;
 }
+
 body {
-    background-image: url("../imgs/paint.jpg");
+    background-image: url("../images/paint.jpg");
     background-size: contain;
     font-family: Amatic, sans-serif;
-
 }
 
 h1 {
@@ -42,7 +42,6 @@ em {
     animation-delay: 2s;
     animation-duration: 5.5s;
     animation-iteration-count: 3;
-
 }
 
 p {
@@ -74,6 +73,7 @@ ol :nth-child(odd){
     outline:1px solid #fb8498;
     list-style-type: upper-alpha;
 }
+
 ol :first-child {
     list-style-type: none;
     color: #2F4F4F;
@@ -82,16 +82,17 @@ ol :first-child {
 
 ol :nth-child(even) {
     list-style-position: inside;
-    list-style-image: url("../imgs/gizmo_icon.png");
+    list-style-image: url("../images/gizmo_icon.png");
 }
+
 table :nth-child(7) :last-child {
     background: #fb8498;
 }
+
 .fixed {
     position: fixed;
     top: 39%;
     right: 40px;
-
 }
 
 .fixed :hover {
@@ -114,16 +115,14 @@ table :nth-child(7) :last-child {
     justify-content: space-evenly;
     align-items: stretch;
     border-radius: 10px;
-
 }
 
 .button_color_s {
-    background-image:linear-gradient(50deg, #2F4F4F, #d7eafab0);
-
+    background-image: linear-gradient(50deg, #2F4F4F, #d7eafab0);
 }
 
 .button_color_r {
-    background-image:linear-gradient(50deg, #d7eafab0, #1f344f);
+    background-image: linear-gradient(50deg, #d7eafab0, #1f344f);
 }
 
 .wrap {
@@ -168,8 +167,7 @@ label[for] {
 }
 
 ul {
-    list-style-image: url("../imgs/icons_palette.png");
-
+    list-style-image: url("../images/icons_palette.png");
 }
 
 [for="mail"]::before {
@@ -181,12 +179,11 @@ ul {
 }
 
 [for="male"]::before {
-    content: url("../imgs/man_artist.png");
-
+    content: url("../images/man_artist.png");
 }
 
 [for="female"]::before {
-    content: url("../imgs/woman_artist.png");
+    content: url("../images/woman_artist.png");
 }
 
 :focus,
@@ -194,7 +191,6 @@ ul {
     border: 3px solid #00CED1;
     background: #fff0f1;
 }
-
 
 img:hover {
     cursor: pointer;
@@ -204,7 +200,6 @@ img:hover {
     transition-property: all;
     transition-duration: 2s;
     transition-timing-function: ease;
-
 }
 
 /*------Animation*/

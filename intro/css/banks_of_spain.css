@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url("../imgs/white_wall.jpg");
+    background-image: url("../images/white_wall.jpg");
     background-repeat: repeat;
     position: relative;
     font-family: Dosis, monospace;
@@ -22,7 +22,6 @@ h1 {
     box-shadow: -10px -15px 60px 10px #8e99a24a;
     letter-spacing: 3px;
     white-space: nowrap;
-
 }
 
 p {
@@ -45,7 +44,6 @@ img {
 
 td {
     outline: 2px solid #808080FF;
-
 }
 
 span {
@@ -58,7 +56,7 @@ span {
 }
 
 h3 > i::before {
-    content: url("../imgs/coins.png");
+    content: url("../images/coins.png");
 }
 
 p + p {
@@ -103,13 +101,11 @@ p + p {
     padding: 30px;
     margin: 40px 20px;
     overflow: auto;
-
 }
 
 .table {
     margin: 20px 450px;
     overflow: hidden;
-
 }
 
 .table :nth-child(3) {
@@ -141,7 +137,6 @@ p + p {
     color: #006400FF;
     text-decoration: underline;
     font-weight: bold;
-
 }
 
 .par {
@@ -185,7 +180,7 @@ button:hover {
 }
 
 ul > li:nth-child(odd) {
-    list-style-image: url("../imgs/cash.png");
+    list-style-image: url("../images/cash.png");
 }
 
 .table :nth-child(2) {
@@ -194,7 +189,7 @@ ul > li:nth-child(odd) {
 }
 
 li:nth-child(even) {
-    list-style-image: url("../imgs/euro.png");
+    list-style-image: url("../images/euro.png");
 }
 
 li ~ li,
@@ -202,7 +197,6 @@ ul :first-child {
     font-weight: bold;
     font-size: 30px;
     list-style-position: inside;
-
 }
 
 .element > p :not(i) {
@@ -234,7 +228,6 @@ ul :first-child {
     animation-iteration-count: 5;
     animation-direction: alternate;
     z-index: 2;
-
 }
 
 ::placeholder {
@@ -244,7 +237,6 @@ ul :first-child {
 
 :focus {
     box-shadow: 1px 0 0 11px #0c44714a;
-
 }
 
 @font-face {
