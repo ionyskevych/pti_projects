@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url("../imgs/paint.jpg");
+    background-size: contain;
+    font-family: Amatic, sans-serif;
+
+}
+
+h1 {
+    color: #1f344f;
+    text-decoration: underline;
+    line-height: 50px;
+    text-transform: uppercase;
+    max-height: 85px;
+    width: 600px;
+    background-color: #d7eafab0;
+    margin: 30px 471px;
+    padding: 20px;
+    border: 2px solid #1f344f;
+    border-radius: 5px;
+    box-shadow: inset 10px 10px 10px 10px #1f344f;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+img {
+    width: 50%;
+    height: 25%;
+}
+
+em {
+    font-weight: bold;
+    color: darkslategrey;
+    line-height: 50px;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-shadow: -9px 11px 3px #1f344f;
+    animation-name: text;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-duration: 5.5s;
+    animation-iteration-count: 3;
+
+}
+
+p {
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-indent: 15px;
+    text-align: justify;
+}
+
+span {
+    vertical-align:middle;
+}
+
+table {
+    text-align: center;
+    border: 1px solid #2F4F4F;
+    margin: 20px 250px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    height: 100%;
+}
+
+td {
+    border: 1px solid #2F4F4F;
+}
+
+
+ol :nth-child(odd){
+    outline:1px solid #fb8498;
+    list-style-type: upper-alpha;
+}
+ol :first-child {
+    list-style-type: none;
+    color: #2F4F4F;
+    font-weight: bold;
+}
+
+ol :nth-child(even) {
+    list-style-position: inside;
+    list-style-image: url("../imgs/gizmo_icon.png");
+}
+table :nth-child(7) :last-child {
+    background: #fb8498;
+}
+.fixed {
+    position: fixed;
+    top: 39%;
+    right: 40px;
+
+}
+
+.fixed :hover {
+    cursor: pointer;
+    width: 100px;
+    transform: rotate(45deg);
+}
+
+.button_decor {
+    letter-spacing: 2px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    border-radius: 10px;
+
+}
+
+.button_color_s {
+    background-image:linear-gradient(50deg, #2F4F4F, #d7eafab0);
+
+}
+
+.button_color_r {
+    background-image:linear-gradient(50deg, #d7eafab0, #1f344f);
+}
+
+.wrap {
+    background-color: #d7eafab0;
+    margin: 30px;
+    padding: 20px;
+    border: 2px solid #1f344f;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px 10px #1f344f;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+[id="th_decor"] {
+    color: darkred;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#par_one {
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 40px;
+}
+
+.price {
+    color: darkred;
+    text-transform: uppercase;
+}
+
+label[for] {
+    color: darkred;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+[type="text"] {
+    color: darkred;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+ul {
+    list-style-image: url("../imgs/icons_palette.png");
+
+}
+
+[for="mail"]::before {
+    content: " \2709";
+}
+
+[for="phone"]::before {
+    content: " \260F";
+}
+
+[for="male"]::before {
+    content: url("../imgs/man_artist.png");
+
+}
+
+[for="female"]::before {
+    content: url("../imgs/woman_artist.png");
+}
+
+:focus,
+:disabled {
+    border: 3px solid #00CED1;
+    background: #fff0f1;
+}
+
+
+img:hover {
+    cursor: pointer;
+    transform: scale(0.5);
+    opacity: 0.5;
+    z-index: 1;
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+
+}
+
+/*------Animation*/
+
+@keyframes text {
+    0% {
+        color: #191970FF;
+        margin-bottom: -40px;
+    }
+    30% {
+        letter-spacing: 30px;
+        margin-bottom: -40px;
+    }
+    85% {
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
+}
+
+/*------Font*/
+
+@font-face {
+    font-family: "Amatic";
+    src: url("../fonts/AmaticSC-Regular.ttf");
+}

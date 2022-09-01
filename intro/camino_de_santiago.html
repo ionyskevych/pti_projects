@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Camino de Santiago</title>
+    <link href="css\camino_de_santiago.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Camino de Santiago</h1>
+    <div class="fixed">
+        <img src="imgs/wide-left.png">
+    </div>
+    <div class="background">
+        <h1>Camino de Santiago</h1>
+    </div>
     <hr>
-    <p>
+    <p id="par_one">
         <b><em>Camino de Santiago</em></b> es la denominación que tiene un conjunto de rutas de peregrinación cristiana de origen medieval que se dirigen a la tumba de Santiago el Mayor, situada en la catedral de Santiago de Compostela (Galicia, España).nota 1​ Históricamente se ha conocido como «Camino de Santiago» (hoy denominado «Camino de Santiago francés») al itinerario principal que, partiendo de los Pirineos occidentales, recorre España hasta llegar a la ciudad gallega; no obstante, actualmente el término se utiliza para referirse a todas las rutas jacobeas existentes.6​ Se trata de un «camino sembrado de numerosas manifestaciones de fervor, de arrepentimiento, de hospitalidad, de arte y de cultura, que nos habla de manera elocuente de las raíces espirituales del Viejo Continente.
     </p>
     <ol>
@@ -60,68 +66,89 @@
             </p>
         </li>
     </ol>
-    <h3>Table</h3>
-    <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Duracion</th>
-            <th>Precio desde</th>
-            <th>Dificultad</th>
-        </tr>
-        <tr>
-            <td>Camino Inglés</td>
-            <td>7 días / 6 noches</td>
-            <td>385 €</td>
-            <td>&#9734;</td>
-        </tr>
-        <tr>
-            <td>Camino Francés</td>
-            <td>39 días / 38 noches</td>
-            <td>2000 €</td>
-            <td>&#9734; &#9734; &#9734;</td>
-        </tr>
-        <tr>
-            <td>Camino del Norte</td>
-            <td>34 días / 33 noches</td>
-            <td>1800 €</td>
-            <td>&#9734; &#9734; &#9734; &#9734;</td>
-        </tr>
-        <tr>
-            <td>Camino Portugués</td>
-            <td>10 días / 9 noches</td>
-            <td>525 €</td>
-            <td>&#9734;</td>
-        </tr>
-        <tr>
-            <td>Camino Primitivo</td>
-            <td>14 días / 13 noches</td>
-            <td>845 €</td>
-            <td>&#9734; &#9734;</td>
-        </tr>
-    </table>
-    <hr>
-    <h3>&rarr; Camino Inglés</h3>
-    <img src="camino_ingles.jpg">
-    <hr>
-    <h3>&rarr; Camino Francés</h3>
-    <img src="frances.jpg">
-    <hr>
-    <h3>&rarr; Camino del Norte</h3>
-    <img src="del_norte.jpg">
-    <hr>
-    <h3>&rarr; Camino Portugués</h3>
-    <img src="portugues.jpg">
-    <hr>
-    <h3>&rarr; Camino Primitivo</h3>
-    <img src="primitivo.jpg">
-    <hr>
-
-    <ul>
-        <li><a href="spain.html">Spain</a></li>
-        <li><a href="private_schools.html">Приватні школи Києва</a></li>
-        <li><a href="banks_of_spain.html">Банки Іспанії</a></li>
-        <li><a href="pictures.html">10 Самых дорогих картин</a></li>
-    </ul>
+    <div class="animation">
+        <div class="fixed">
+            <img src="imgs/turn-right.png">
+        </div>
+    </div>
+    <div class="background">
+        <div class="wrap">
+            <span class="display_block">Table</span>
+            <table>
+                <tr>
+                    <th class="th_color">Nombre</th>
+                    <th>Duracion</th>
+                    <th class="th_color">Precio desde</th>
+                    <th>Dificultad</th>
+                </tr>
+                <tr>
+                    <td>Camino Inglés</td>
+                    <td>7 días / 6 noches</td>
+                    <td>385 €</td>
+                    <td class="stars">&#9734;</td>
+                </tr>
+                <tr>
+                    <td>Camino Francés</td>
+                    <td>39 días / 38 noches</td>
+                    <td id="price">2000 €</td>
+                    <td class="stars">&#9734; &#9734; &#9734;</td>
+                </tr>
+                <tr>
+                    <td>Camino del Norte</td>
+                    <td>34 días / 33 noches</td>
+                    <td>1800 €</td>
+                    <td class="stars">&#9734; &#9734; &#9734; &#9734;</td>
+                </tr>
+                <tr>
+                    <td>Camino Portugués</td>
+                    <td>10 días / 9 noches</td>
+                    <td>525 €</td>
+                    <td class="stars">&#9734;</td>
+                </tr>
+                <tr>
+                    <td>Camino Primitivo</td>
+                    <td>14 días / 13 noches</td>
+                    <td>845 €</td>
+                    <td class="stars">&#9734; &#9734;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="element">
+            <h3>&rarr; Camino Inglés</h3>
+            <img src="imgs\camino_ingles.jpg">
+            <hr>
+        </div>
+        <div class="element">
+            <h3>&rarr; Camino Francés</h3>
+            <img src="imgs\frances.jpg">
+            <hr>
+        </div>
+        <div class="element">
+            <h3 id="h_color">&rarr; Camino del Norte</h3>
+            <img src="imgs\del_norte.jpg">
+            <hr>
+        </div>
+        <div class="element">
+            <h3>&rarr; Camino Portugués</h3>
+            <img src="imgs\portugues.jpg">
+            <hr>
+        </div>
+        <div class="element">
+            <h3>&rarr; Camino Primitivo</h3>
+            <img src="imgs\primitivo.jpg">
+            <hr>
+        </div>
+    </div>
+    <div class="background">
+        <ul>
+            <li><a href="spain.html">Spain</a></li>
+            <li><a href="private_schools.html">Приватні школи Києва</a></li>
+            <li><a href="banks_of_spain.html">Банки Іспанії</a></li>
+            <li><a href="pictures.html">10 Самых дорогих картин</a></li>
+        </ul>
+    </div>
     <hr>
     <form>
         <legend><b>Registro</b></legend>
@@ -137,15 +164,19 @@
         <label for="quatro">4 dosis</label><input id="quatro" type="radio"><br>
         <label for="password">Password</label><input id="password" type="password"><br>
         <label for="certificato">Сovid-19 certificato</label><input id="certificato" type="file"><br>
-        <label for="camino">Elige una ruta</label><select id="camino">
-        <option>Camino Primitivo</option>
-        <option>Camino Portugués</option>
-        <option>Camino del Norte</option>
-        <option>Camino Francés</option>
-        <option>Camino Inglés</option>
+        <label for="camino">Elige una ruta</label>
+        <select id="camino">
+            <option>Camino Primitivo</option>
+            <option>Camino Portugués</option>
+            <option>Camino del Norte</option>
+            <option>Camino Francés</option>
+            <option>Camino Inglés</option>
         </select><br>
         <label for="massage">Deseos</label><textarea id="massage"></textarea>
-        <button>Enviar</button>
+        <div class="button">
+            <button type="submit">Enviar</button>
+            <button type="reset">Reset</button>
+        </div>
     </form>
 </body>
 </html>

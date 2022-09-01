@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Jose, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    line-height: 100px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    background-color: #ffff0082;
+    padding: 10px 10px 10px 75px;
+    width: 500px;
+    border: 3px solid #191970;
+    border-radius: 15px;
+    white-space: nowrap;
+}
+
+hr {
+    border: 2px solid yellow;
+    margin: 10px 0 10px 0;
+}
+
+p {
+    font-style: italic;
+    text-indent: 30px;
+    word-spacing: 2px;
+    word-break: break-word;
+}
+
+img {
+    width: 100%;
+}
+
+table {
+    margin: 20px 450px;
+    border-collapse: collapse;
+    border-spacing: 10px;
+}
+
+strong {
+    text-transform: uppercase;
+    color: #B22222FF;
+}
+
+form {
+    background-color: #ffff00b8;
+    border: 3px solid #191970;
+    border-radius: 15px;
+    padding: 10px 10px 10px 75px;
+    margin: 20px 50px;
+}
+
+ul{
+    background-color: #ffff00b8;
+    border: 3px solid #191970;
+    border-radius: 15px;
+    padding: 10px 10px 10px 75px;
+    width: 250px;
+    height: 80px;
+}
+
+span {
+    color: #FFEFD5;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px #0000CD;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+tr :first-child {
+    background-color: #FFEFD5;
+    opacity: 0.5;
+    z-index: 1;
+    border-bottom: 1px dotted #191970FF;
+}
+
+tr :nth-child(2)::after {
+    content: url("../imgs/trekking_.png");
+}
+
+p > b {
+    color: #af2d2d;
+    font-weight: bold;
+}
+
+button ~ button {
+    border-radius: 30px;
+}
+
+.fixed :only-child {
+    position: fixed;
+    width: 100px;
+    z-index: 1;
+}
+
+.fixed :hover {
+    width: 50px;
+    transform: rotate(180deg);
+    opacity: 0.8;
+}
+
+#par_one {
+    text-transform: uppercase;
+    line-height: 70px;
+    border: 3px solid #191970;
+    background-color: #ffff0082;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 50px;
+    text-align: justify;
+}
+
+.animation {
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+}
+
+.animation :first-child {
+    position: absolute;
+    width: 20%;
+    animation-name: turnRight;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+[id="price"] {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+h1,
+p,
+[id="price"],
+#par_one,
+#h_color {
+    color: #191970;
+}
+
+#h_color {
+    font-weight: normal;
+}
+
+h1,
+ul,
+form,
+:focus,
+#par_one {
+    box-shadow: 7px 7px 7px 7px #191970bd;
+}
+
+.container h3 {
+    font-weight: bold;
+}
+
+.background {
+    background-image: url(../imgs/santiago.jpg);
+    background-size: contain;
+    padding: 30px;
+    margin-bottom: 5px;
+}
+
+.background :only-child {
+    overflow: auto;
+}
+
+[class="wrap"] {
+    background-color: #ffff00b8;
+    border: 3px solid #191970;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 7px 7px 7px 7px #191970bd;
+}
+
+.th_color {
+    color: #8B0000FF;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.stars {
+    color: black;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+body > ol {
+    list-style-type: ' \21E7';
+}
+
+.display_block {
+    display: block;
+    background-image: linear-gradient(60deg, #191970, #f1c107);
+    text-align: center;
+    border-radius: 40px;
+    width: 80%;
+    margin: 30px;
+}
+
+.element {
+    width: 15%;
+    height: 100%;
+    align-self: flex-start;
+    border: 2px solid #808080FF;
+    box-shadow:  -10px -10px 10px 10px #ffc60096;;
+}
+
+.element :hover {
+    cursor: pointer;
+    border: 2px dot-dash #808080FF;
+    transform: scale(0.5);
+    opacity: 0.5;
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+}
+
+.element > hr {
+    visibility: hidden;
+}
+
+[href] {
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+}
+
+input[value],
+input[placeholder] {
+    font-weight: bold;
+    color: #663399FF;
+}
+
+.button > button {
+    border: 1px solid #8B0000FF;
+}
+
+
+@font-face {
+    font-family: Jose;
+    src: url("../fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+@keyframes turnRight {
+    0% {
+
+        left: 10%;
+        transform: translate(0) scale(1);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        left: 50%;
+        transform: translate(100%, 0) scale(1);
+
+    }
+    75% {
+        transform: rotate(90deg);
+    }
+}

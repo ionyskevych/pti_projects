@@ -1,0 +1,259 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../imgs/white_wall.jpg");
+    background-repeat: repeat;
+    position: relative;
+    font-family: Dosis, monospace;
+}
+
+h1 {
+    color: #000080FF;
+    text-decoration: underline;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #8e99a24a;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: -10px -15px 60px 10px #8e99a24a;
+    letter-spacing: 3px;
+    white-space: nowrap;
+
+}
+
+p {
+    text-decoration: underline;
+    text-indent: 30px;
+    text-align: left;
+    word-break: break-all;
+}
+
+a {
+    font-weight: normal;
+    text-decoration: none;
+    color: #4B0082FF;
+}
+
+img {
+    height: 30%;
+    width: 50%;
+}
+
+td {
+    outline: 2px solid #808080FF;
+
+}
+
+span {
+    color: darkslategrey;
+    font-weight: bold;
+    word-spacing: 2px;
+    text-shadow: 1px 1px 2px #CD5C5C;
+    display: block;
+    text-align: center;
+}
+
+h3 > i::before {
+    content: url("../imgs/coins.png");
+}
+
+p + p {
+    color: #0000CDFF;
+}
+
+#par_one {
+    text-transform: uppercase;
+    font-style: italic;
+    color: #8B0000FF;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+#sabadell {
+    margin-top: 33px;
+    margin-bottom: 48px;
+    margin-left: 20px;
+
+}
+
+#par_one ::before {
+    content: " \26FD";
+}
+
+[id="city"] {
+    text-transform: uppercase;
+    color: #0000CDFF;
+}
+
+.container {
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    border: 2px solid #f0f8ff6e;
+    border-radius: 10px;
+    background-color: #f0f8ff6e;
+    box-shadow: 10px -15px 30px 10px #8e99a24a;
+    height: 100%;
+    padding: 30px;
+    margin: 40px 20px;
+    overflow: auto;
+
+}
+
+.table {
+    margin: 20px 450px;
+    overflow: hidden;
+
+}
+
+.table :nth-child(3) {
+    visibility: hidden;
+}
+
+[class="wrap"] {
+    background-color: #f0f8ff6e;
+    border: 2px solid #f0f8ff6e;
+    border-radius: 20px;
+    box-shadow: 10px -15px 30px 10px #8e99a24a;
+    height: 100%;
+    padding: 30px;
+    margin: 40px 20px;
+}
+
+.element {
+    width: 30%;
+    min-height: 524px;
+    border: 2px solid #CD5C5C;
+    padding: 10px;
+}
+
+[id="display_inline"] {
+    display: inline;
+}
+
+.td_color {
+    color: #006400FF;
+    text-decoration: underline;
+    font-weight: bold;
+
+}
+
+.par {
+    color: #0000CD;
+    text-transform: uppercase;
+}
+
+[for] {
+    color: #00008BFF;
+    font-weight: bold;
+}
+
+input[placeholder] {
+    color: #006400FF;
+    font-weight: bold;
+}
+
+input[value] {
+    font-weight: bold;
+    color: green;
+}
+
+[type="reset"] {
+    background-image: linear-gradient(180deg, #0000CD, #FF0000FF);
+    color: #FFEFD5;
+}
+
+[type="reset"] + button {
+    background-image: linear-gradient(180deg, #FF0000FF, #0000CD);
+    color: #FFEFD5;
+    border-radius: 34px 80px;
+}
+
+button:hover {
+    box-shadow: 1px 0 0 11px #0c44714a;
+    transform: translate(10px, 10px);
+    transition-property: all;
+    transition-duration: 3ms;
+    transition-timing-function: linear;
+    cursor: wait;
+}
+
+ul > li:nth-child(odd) {
+    list-style-image: url("../imgs/cash.png");
+}
+
+.table :nth-child(2) {
+    border-collapse: collapse;
+    border-spacing: 10px;
+}
+
+li:nth-child(even) {
+    list-style-image: url("../imgs/euro.png");
+}
+
+li ~ li,
+ul :first-child {
+    font-weight: bold;
+    font-size: 30px;
+    list-style-position: inside;
+
+}
+
+.element > p :not(i) {
+    color: #af2d2d;
+}
+
+.web {
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    top: 9%;
+    right: 1%;
+    transform: rotate(90deg);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.fixed {
+    position: fixed;
+    width: 100px;
+    top: 33%;
+    right: 0;
+    transform: scale(0.5);
+    opacity: 1;
+    animation-name: spider;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 5s;
+    animation-iteration-count: 5;
+    animation-direction: alternate;
+    z-index: 2;
+
+}
+
+::placeholder {
+    background-color: #FFEFD5;
+    border: #0000CD;
+}
+
+:focus {
+    box-shadow: 1px 0 0 11px #0c44714a;
+
+}
+
+@font-face {
+    font-family: Dosis;
+    src: url("../fonts/Dosis-VariableFont_wght.ttf");
+}
+
+@keyframes spider {
+    50% {
+        transform: translate(0, 500px);
+    }
+}
