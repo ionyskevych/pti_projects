@@ -1,6 +1,181 @@
-/*
-    Этот комментарий удалить в конце разработки
-    Семейство шрифтов используемых на сайте:
-    font: 11px Tahoma, sans-serif;
-    font: 14px "Times New Roman", serif;
-*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e7e5c8;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    color: #6e6b3d;
+    margin: 10px auto 0 auto;
+    width: 706px;
+}
+
+a {
+    text-decoration: underline;
+    color: #90aa1f;
+}
+
+h1,
+h2 {
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+}
+
+h1 {
+    margin: auto 40px;
+}
+
+span {
+    color: #90aa1f;
+}
+
+ul {
+    list-style-image: url("../images/dot.gif");
+    list-style-position: outside;
+    padding-left: 25px;
+    text-decoration: underline;
+}
+
+footer {
+    background-image: url("../images/welcome.jpg");
+    background-repeat: no-repeat;
+    background-position: 22px 22px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.footerContent {
+    background-image: url("../images/map.jpg");
+    background-repeat: no-repeat;
+    background-position: top left;
+    width: 253px;
+    margin: 6px;
+}
+
+.footerContent > h2 {
+    margin-left: 70px;
+}
+
+.footerContent > p {
+    margin-left: 60px;
+}
+
+.menuNavigation {
+    background-image: url("../images/phone.png");
+    background-repeat: no-repeat;
+    background-position: top 3px right 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 88px;
+    position: relative;
+}
+
+.menuItemContacts {
+    position: absolute;
+    right: 65px;
+    top: 18px;
+    color: #f9f9f2;
+    text-indent: -10px;
+}
+
+.logo {
+    position: absolute;
+    left: 29px;
+    top: 28px;
+}
+
+.decorationElement {
+    border-top: 1px solid #c0bd9a;
+    border-bottom: 1px solid #f1f0e0;
+    width: 706px;
+}
+
+.mainElement1 {
+    border-right: 1px solid #f1f0e0;
+    width: 243px;
+}
+
+.containerContentElements {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #dedbbb;
+    border-radius: 5px;
+    margin-top: 2px;
+    padding: 8px;
+}
+
+.mainElement1 > h2 {
+    margin: 2px 10px;
+}
+
+.mainElementImages {
+    border: 3px solid #b7b192;
+    border-right: 18px solid #b7b192;
+    border-radius: 5px;
+}
+
+.element1 {
+    margin: 15px 3px 4px 10px;
+}
+
+.element2 {
+    margin: 15px 12px 4px 2px;;
+}
+
+.element3 {
+    margin: 4px 3px 4px 10px;
+}
+
+.element4 {
+    margin: 4px 12px 4px 2px;
+}
+
+.mainElement2 {
+    border-left: 1px solid #c0bd9a;
+    border-right: 1px solid #f1f0e0;
+    width: 240px;
+}
+
+.mainElement2 > img {
+    border-radius: 5px;
+    border: 3px solid #b7b192;
+    margin: 15px 16px;
+    width: 205px;
+    height: 48px;
+}
+
+.mainElement2 > h2,
+.mainElement3 > h2,
+.mainElement2 > p,
+.mainElement3 > p {
+    margin: 2px 16px;
+}
+
+.mainElement3 {
+    border-left: 1px solid #c0bd9a;
+    width: 219px;
+}
+
+.mainElement3 {
+    background-image: url("../images/elephant.jpg");
+    background-repeat: no-repeat;
+    background-position:bottom right;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    margin: 30px auto;
+}
+
+.mainContent::before {
+    content: url("../images/ho.jpg");
+}
