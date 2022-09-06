@@ -7,13 +7,16 @@ body {
     font-family: Tahoma, sans-serif;
     font-size: 11px;
     color: #6e6b3d;
-    margin: 10px auto 0 auto;
+    margin: 0 auto;
     width: 706px;
 }
 
 a {
-    text-decoration: underline;
     color: #90aa1f;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 h1,
@@ -37,47 +40,19 @@ ul {
     text-decoration: underline;
 }
 
-footer {
-    background-image: url("../images/welcome.jpg");
-    background-repeat: no-repeat;
-    background-position: 22px 22px;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.footerContent {
-    background-image: url("../images/map.jpg");
-    background-repeat: no-repeat;
-    background-position: top left;
-    width: 253px;
-    margin: 6px;
-}
-
-.footerContent > h2 {
-    margin-left: 70px;
-}
-
-.footerContent > p {
-    margin-left: 60px;
-}
-
-.menuNavigation {
-    background-image: url("../images/phone.png");
-    background-repeat: no-repeat;
-    background-position: top 3px right 1px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 88px;
+/* --------------------------------------------- Header */
+header {
     position: relative;
+    height: 88px;
 }
 
-.menuItemContacts {
+header::after {
     position: absolute;
-    right: 65px;
-    top: 18px;
-    color: #f9f9f2;
-    text-indent: -10px;
+    bottom: 0;
+    width: 100%;
+    content: '';
+    border-top: 1px solid #c0bd9a;
+    border-bottom: 1px solid #f1f0e0;
 }
 
 .logo {
@@ -86,12 +61,21 @@ footer {
     top: 28px;
 }
 
-.decorationElement {
-    border-top: 1px solid #c0bd9a;
-    border-bottom: 1px solid #f1f0e0;
-    width: 706px;
+.phones {
+    background: url("../images/phone.png") no-repeat;
+    width: 274px;
+    height: 88px;
+    position: absolute;
+    right: -25px;
+    top: -8px;
+    z-index: 1;
+    color: #f9f9f2;
+    text-indent: -10px;
+    padding: 23px 0 0 113px;
+    font-weight: bold;
 }
 
+/* --------------------------------------------- Main */
 .mainElement1 {
     border-right: 1px solid #f1f0e0;
     width: 243px;
@@ -99,12 +83,20 @@ footer {
 
 .containerContentElements {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     background-color: #dedbbb;
     border-radius: 5px;
-    margin-top: 2px;
     padding: 8px;
+    position: relative;
+}
+
+.containerContentElements::before {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    content: '';
+    border-top: 1px solid #c0bd9a;
+    border-bottom: 1px solid #f1f0e0;
 }
 
 .mainElement1 > h2 {
@@ -165,11 +157,6 @@ footer {
     background-position:bottom right;
 }
 
-a:hover {
-    cursor: pointer;
-    text-decoration: none;
-}
-
 .mainContent {
     display: flex;
     flex-direction: row;
@@ -178,4 +165,27 @@ a:hover {
 
 .mainContent::before {
     content: url("../images/ho.jpg");
+}
+
+/* --------------------------------------------- Footer */
+footer {
+    background: url("../images/welcome.jpg") no-repeat 22px 22px;
+    display: flex;
+    flex-direction: row-reverse;
+    min-height: 100px;
+}
+
+.address {
+    background: url("../images/map.jpg") no-repeat 0 0;
+    width: 253px;
+    margin: 6px;
+    padding: 20px 0 0 60px;
+}
+
+.address h2 {
+    margin: 0 0 5px 10px;
+}
+
+.address p {
+    margin: 0;
 }
