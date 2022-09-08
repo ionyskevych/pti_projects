@@ -10,64 +10,82 @@
 <body>
     <header>
         <div class="linksContainer">
-            <a href="#">Сайт в избранное</a>
-            <a href="#">Рекомендовать сайт</a>
-            <a href="#">Баннеры и гаджеты</a>
-            <a href="#">Установить счетчики</a>
-            <a href="#">Подписаться на новости</a>
-            <a href="#">RSS</a>
-            <a class="link" href="#">Помощь</a>
-        </div>
-        <div class="navigation">
-            <a class="logo" href="#"><img alt="logo" src="images/logo.gif"></a>
-            <div class="news">
-                <div class="arrowLeft"></div>
-                <a class="newsAnchor" href="#">Сегодня открылась новая версия нашего сайта...</a>
-                <div class="arrowRight"></div>
+            <div class="grid">
+                <a href="#">Сайт в избранное</a>
+                <a href="#">Рекомендовать сайт</a>
+                <a href="#">Баннеры и гаджеты</a>
+                <a href="#">Установить счетчики</a>
+                <a href="#">Подписаться на новости</a>
+                <a href="#">RSS</a>
+                <a href="#">Помощь</a>
             </div>
-            <button class="buttonSignIn" type="button"><a href="#">Войти</a></button>
-            <button class="buttonSignUp" type="button"><a href="#">Регистрация</a></button>
+        </div>
+
+        <div class="navigation">
+            <div class="grid">
+                <a class="logo" href="#"><img alt="logo" src="images/logo.gif"></a>
+
+                <div class="moduleNews">
+                    <button class="previous"></button>
+                    <a href="#">Сегодня открылась новая версия нашего сайта...</a>
+                    <button class="next"></button>
+                </div>
+
+                <a href="#" class="buttonSignIn">Войти</a>
+                <a href="#" class="buttonSignUp">Регистрация</a>
+            </div>
         </div>
     </header>
 
-    <main>
+    <main class="grid">
         <div class="menu">
-            <a class="pages mainPage" href="#">Главная</a>
-            <a class="pages" href="#">Рейтинги</a>
-            <a class="pages" href="#">Новости</a>
-            <a class="pages" href="#">База знаний</a>
-            <a class="pages" href="#">Форум</a>
-            <a class="pages personalPage" href="#">Личный кабинет</a>
-            <a class="pages exitPage" href="#">Выйти</a>
+            <a class="active" href="#">Главная</a>
+            <a href="#">Рейтинги</a>
+            <a href="#">Новости</a>
+            <a href="#">База знаний</a>
+            <a href="#">Форум</a>
+            <a class="menuItemPersonalPage" href="#">Личный кабинет</a>
+            <a class="menuItemExitPage" href="#">Выйти</a>
         </div>
+
         <div class="mainContainer">
-            <div class="banner">
-                <div class="navigationElement"><div class="arrowUp"></div></div>
-                <h1>Карта рынка труда России</h1>
-                <div class="buttons">
-                    <button class="buttonHover">1</button>
+            <div class="moduleBanner">
+                <button class="bannerToggler"></button>
+
+                <div class="pagination">
+                    <button class="active">1</button>
                     <button>2</button>
                     <button>3</button>
                     <button>4</button>
                     <button>5</button>
                 </div>
-                <p>Интернет-проект, объединяющий в рамках одного портала все самые необходимые соискателю ресурсы по поиску работы и <br>
-                    предоставляющий прямой доступ к лучшим компаниям-работодателям, кадровым агентствам, сайтам по поиску работы, ярмаркам вакансий, газетам и журналам по карьере в любом городе России.</p>
-                <p>Интернет-проект, объединяющий в рамках одного портала все самые необходимые соискателю ресурсы по поиску работы и <br>
-                    предоставляющий прямой доступ к лучшим компаниям-работодателям, кадровым агентствам, сайтам по поиску работы, ярмаркам вакансий, газетам и журналам по карьере в любом городе России.</p>
-                <div class="bannerNavElement"><div class="mainArrowLeft"></div></div>
-                <div><div class="mainArrowRight"></div></div>
+
+                <div class="bannerItem">
+                    <h1>Карта рынка труда России</h1>
+                    <p>
+                        Интернет-проект, объединяющий в рамках одного портала все самые необходимые соискателю ресурсы по поиску работы и <br>
+                        предоставляющий прямой доступ к лучшим компаниям-работодателям, кадровым агентствам, сайтам по поиску работы, ярмаркам вакансий, газетам и журналам по карьере в любом городе России.
+                    </p>
+                    <p>
+                        Интернет-проект, объединяющий в рамках одного портала все самые необходимые соискателю ресурсы по поиску работы и <br>
+                        предоставляющий прямой доступ к лучшим компаниям-работодателям, кадровым агентствам, сайтам по поиску работы, ярмаркам вакансий, газетам и журналам по карьере в любом городе России.
+                    </p>
+                </div>
+
+                <button class="previous">Previous</button>
+                <button class="next">Next</button>
             </div>
-            <div class="field"></div>
+
+            <div class="moduleXxx"></div>
         </div>
     </main>
 
-    <footer>
-        <a class="footerElements" href="#">О проекте</a>
-        <a class="footerElements" href="#">Обратная связь</a>
-        <a class="footerElements" href="#">Статистика проекта</a>
-        <a class="footerElements" href="#">Партнерская программа</a>
-        <a class="footerLastElements" href="#">Юридические соглашения</a>
+    <footer class="grid">
+        <a href="#">О проекте</a>
+        <a href="#">Обратная связь</a>
+        <a href="#">Статистика проекта</a>
+        <a href="#">Партнерская программа</a>
+        <a href="#">Юридические соглашения</a>
     </footer>
 </body>
 </html>
