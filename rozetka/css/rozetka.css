@@ -9,7 +9,6 @@ body {
 
 .hidden {
     visibility: hidden;
-    min-height: 16px;
 }
 
 a {
@@ -88,6 +87,11 @@ h2 {
     margin: 0;
 }
 
+.productPriceOld,
+.productAvailability {
+    min-height: 16px;
+}
+
 .productPrice {
     color: #221f1f;
     text-transform: uppercase;
@@ -113,15 +117,7 @@ h2 {
         width: 50%;
     }
 
-    .product:nth-child(3) {
-    display: none;
-    }
-
-    .product:nth-child(4) {
-        display: none;
-    }
-
-    .product:nth-child(5) {
+    .product:nth-child(2) ~ .product {
         display: none;
     }
 }
