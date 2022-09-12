@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px auto;
+    width: 650px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/*---------------------------Table Education*/
+.education {
+    border-right: 1px solid #858585;
+    border-bottom: 1px solid #858585;
+    border-top: 1px solid #cecece;
+    border-left: 1px solid #cecece;
+    border-spacing: 1px;
+    font-family: serif;
+    font-size: 18px;
+    margin: 10px auto;
+    overflow: auto;
+}
+
+.education th,
+.education td {
+    border-left: 1px solid #858585;
+    border-top: 1px solid #858585;
+    border-bottom: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    padding: 10px;
+    text-align: left;
+}
+
+.education th:not(.educationType),
+.education td:not(.educationType) {
+    text-align: center;
+}
+
+.educationType {
+    width: 313px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+/*---------------------------Table Web PageW*/
+.webPage {
+    border: 1px solid #838486;
+    border-collapse: collapse;
+    width: 490px;
+    margin: 10px auto;
+}
+
+.webPage ul {
+    margin-top: 0;
+}
+
+.webPage th,
+.webPage td {
+    border: 1px solid #838486;
+    padding: 4px;
+}
+
+.webPageHeader {
+    width: 60%;
+}
+
+.links {
+    padding: 0;
+}
+
+.webContent,
+.webSubContent {
+    vertical-align: baseline;
+}
+
+/*--------------------------------Table Jewelry*/
+.jewelry {
+    border-right: 1px solid #2c2c2c;
+    border-bottom: 1px solid #2c2c2c;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-spacing: 2px;
+    font-family: serif;
+    font-size: 18px;
+    margin: 10px auto;
+}
+
+.jewelry td,
+.jewelry th {
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    border-top: 1px solid #2c2c2c;
+    border-left: 1px solid #2c2c2c;
+    padding: 10px 5px;
+}
+.jewelry th {
+    width: 80px;
+}
+.jewelryType {
+    width: 160px
+}
+
+.jewelryPrice {
+    text-align: center;
+}
+
+/*--------------------------Table Table*/
+.table {
+    border: 10px solid #d3d3d3;
+    width: 419px;
+    margin: 10px auto;
+}
+
+.table td {
+    border: 1px solid #d3d3d3;
+}
+
+/*------------------------Table Produktname*/
+.produktnameTable {
+    width: 600px;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin: 10px auto;
+}
+
+.produktnameTable .produktnameTableHeader {
+    color: #fffff8;
+    background-color: #706d97;
+    text-align: left;
+    padding: 10px 15px;
+}
+
+.produktnameTable .produktnameTableHeader:nth-child(3) {
+    text-align: right;
+}
+
+.produktnameTable .produktnameTableData {
+    color: #696969;
+    border-spacing: 0;
+    padding: 10px 15px;
+}
+
+.produktnameTable .produktnameTableData:nth-child(3) {
+    text-align: right;
+}
+
+.produktnameTable tr:nth-child(odd) {
+    background: #eeeeee;
+}
+
+.produktnameTable tr:last-child {
+    border-bottom: 1px solid #eeeeee;
+}
+
+/*----------------------------------------Table Cuisine*/
+.cuisine {
+    background: radial-gradient(#fdfefe, #d8edf9);
+    color: #001b39;
+    border-collapse: collapse;
+    text-align: left;
+    table-layout: fixed;
+    font-family: sans-serif;
+    margin: 10px auto;
+}
+
+.cuisine .dishType {
+    text-align: center;
+}
+
+.dish {
+    border: 1px solid #8ce3cc;
+    width: 100px;
+    padding: 10px 15px;
+}
+

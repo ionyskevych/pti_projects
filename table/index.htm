@@ -3,207 +3,265 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Таблицы</title>
+    <title>Tables</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <h2>Таблица №1</h2>
-    
-    Выберите курс обучения
-    HTML CSS
-    JavaScript
-    PHP
+    <main>
+        <h2>Таблица №1</h2>
+        <table class="education">
+            <tr>
+                <th class="educationType">Выберите курс обучения</th>
+                <th>HTML CSS</th>
+                <th>JavaScript</th>
+                <th>PHP</th>
+            </tr>
+            <tr>
+                <td class="educationType">В офисе</td>
+                <td><img src="images/yes.png"></td>
+                <td><img src="images/yes.png"></td>
+                <td><img src="images/yes.png"></td>
+            </tr>
+            <tr>
+                <td class="educationType">Онлайн</td>
+                <td><img src="images/yes.png"></td>
+                <td><img src="images/yes.png"></td>
+                <td><img src="images/no.png"></td>
+            </tr>
+            <tr>
+                <td class="educationType">Самому</td>
+                <td><img src="images/yes.png"></td>
+                <td><img src="images/no.png"></td>
+                <td><img src="images/no.png"></td>
+            </tr>
+            <tr>
+                <td rowspan="2"></td>
+                <td class="price">150$</td>
+                <td class="price">200$</td>
+                <td class="price">300$</td>
+            </tr>
+            <tr>
+                <td><a href="#">Записаться</a></td>
+                <td><a href="#">Записаться</a></td>
+                <td ><a href="#">Записаться</a></td>
+            </tr>
+        </table>
 
-    В офисе
-    <img src="images/yes.png">
-    <img src="images/yes.png">
-    <img src="images/yes.png">
+        <h2>Таблица №2</h2>
+        <table class="webPage">
+            <tr>
+                <th colspan="3">логотип</th>
+            </tr>
+            <tr>
+                <th class="navigation">навигация</th>
+                <th class="webPageHeader">заголовок 1</th>
+                <th>заголовок 2</th>
+            </tr>
+            <tr>
+                <td class="links">
+                    <ul>
+                        <li><a href="#">Ссылка</a></li>
+                        <li><a href="#">Ссылка</a></li>
+                        <li><a href="#">Ссылка</a></li>
+                    </ul>
+                </td>
+                <td class="webContent">контент</td>
+                <td class="webSubContent">cуб-контент</td>
+            </tr>
+            <tr>
+                <th colspan="3">подвал (банеры, счетчики)</th>
+            </tr>
+        </table>
 
-    Онлайн
-    <img src="images/yes.png">
-    <img src="images/yes.png">
-    <img src="images/no.png">
+        <h2>Таблица №3</h2>
+        <table class="jewelry">
+            <tr>
+                <th class="jewelryType"></th>
+                <th>2010</th>
+                <th>2012</th>
+                <th>2014</th>
+            </tr>
+            <tr>
+                <td class="jewelryType">Сапфиры</td>
+                <td rowspan="2">1483</td>
+                <td>4532</td>
+                <td>6743</td>
+            </tr>
+            <tr>
+                <td class="jewelryType">Рубины</td>
+                <td>3835</td>
+                <td>7482</td>
+            </tr>
+            <tr>
+                <td class="jewelryType">Алмазы</td>
+                <td>683</td>
+                <td class="jewelryPrice" colspan="2">238</td>
+            </tr>
+        </table>
 
-    Самому
-    <img src="images/yes.png">
-    <img src="images/no.png">
-    <img src="images/no.png">
+        <h2>Таблица №4</h2>
+        <table class="table">
+            <tr>
+                <td colspan="2">Ячейка 1 и 2</td>
+                <td>Ячейка 3</td>
+                <td rowspan="3">Ячейка 4, 8, 12</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Ячейка 5 и 9</td>
+                <td colspan="2">Ячейка 6 и 7</td>
+            </tr>
+            <tr>
+                <td>Ячейка 10</td>
+                <td>Ячейка 11</td>
+            </tr>
+        </table>
 
-    150$
-    200$
-    300$
+        <h2>Таблица №5</h2>
+        <table class="produktnameTable">
+            <tr>
+                <th class="produktnameTableHeader">Artikel</th>
+                <th class="produktnameTableHeader">Produktname</th>
+                <th class="produktnameTableHeader">Preis, &euro;</th>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+            <tr>
+                <td class="produktnameTableData">12345678</td>
+                <td class="produktnameTableData">Grobstrickpullover</td>
+                <td class="produktnameTableData">49.90</td>
+            </tr>
+        </table>
 
-    <a href="#">Записаться</a>
-    <a href="#">Записаться</a>
-    <a href="#">Записаться</a>
-    
-    <h2>Таблица №2</h2>
-
-    логотип
-
-    навигация
-    заголовок 1
-    заголовок 2
-
-    <ul>
-        <li><a href="#">Ссылка</a></li>
-        <li><a href="#">Ссылка</a></li>
-        <li><a href="#">Ссылка</a></li>
-    </ul>
-    контент
-    cуб-контент
-
-    подвал (банеры, счетчики)
-
-    <h2>Таблица №3</h2>
-    
-    2010
-    2012
-    2014
-
-    Сапфиры
-    1483
-    4532
-    6743
-
-    Рубины
-    3835
-    7482
-
-    Алмазы
-    683
-    238
-
-    <h2>Таблица №4</h2>
-
-    Ячейка 1 и 2
-    Ячейка 3
-    Ячейка 4, 8, 12
-
-    Ячейка 5 и 9
-    Ячейка 6 и 7
-
-    Ячейка 10
-    Ячейка 11
-
-    <h2>Таблица №5</h2>
-
-    Artikel
-    Produktname
-    Preis, &euro;
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    12345678
-    Grobstrickpullover
-    49.90
-
-    <h2>Таблица №6</h2>
-
-    Кухня
-    Холодные блюда
-    Горячие блюда
-    Десерты
-
-    Салаты
-    Закуски
-    Первые блюда
-    Вторые блюда
-
-    Русская
-    Винегрет
-    Язык с хреном
-    Щи с квашеной капустой
-    Вареники с картошкой
-    Печеные яблоки с медом
-
-    Оливье
-    Студень говяжий
-    Рассольник домашний
-    Караси запеченые в сметане
-    Блинчатый пирог
-
-    Сельдь под шубой
-    Судак заливной
-    Мясная солянка
-    Котлеты пожарские
-    Пирожное "Картошка"
-
-    Испанская
-    Севиче из гребешков
-    Эмпанадас
-    Хлебный суп с чесноком
-    Паэлья с морепродуктами
-    Чуррос
-
-    Тимбал из авокадо и тунца
-    Ахотомате
-    Астурийская фабада
-    Свиное раксо
-    Альмойшавена
-
-    Фасоль с ветчиной
-    Чанфайна
-    Рыбный суп с манными клецками
-    Тортилья картофельная
-    Бунуэлос
-
-    Французкая
-    Вогезский салат
-    Рийет из курицы
-    Баклажанный суп "Ренуар"
-    Картофельный огратен
-    Бриоши
-
-    Салат "Панзанелла"
-    Делисьез из сыра
-    Французский тыквенный суп
-    Гратин из птицы
-    Лигурийский лимонный пирог
-
-    Тар-тар
-    Марнованный лосось
-    Суп "Конти"
-    Тартифлетт
-    Саварен "Триумф"
+        <h2>Таблица №6</h2>
+        <table class="cuisine">
+            <tr>
+                <th class="dish" rowspan="2">Кухня</th>
+                <th class="dish dishType" colspan="2">Холодные блюда</th>
+                <th class="dish dishType" colspan="2">Горячие блюда</th>
+                <th class="dish dishType" rowspan="2">Десерты</th>
+            </tr>
+            <tr>
+                <th class="dish dishType">Салаты</th>
+                <th class="dish dishType">Закуски</th>
+                <th class="dish dishType">Первые блюда</th>
+                <th class="dish dishType">Вторые <br>блюда</th>
+            </tr>
+            <tr>
+                <th class="dish" rowspan="3">Русская</th>
+                <td class="dish">Винегрет</td>
+                <td class="dish">Язык с хреном</td>
+                <td class="dish">Щи с квашеной капустой</td>
+                <td class="dish">Вареники с картошкой</td>
+                <td class="dish">Печеные яблоки с медом</td>
+            </tr>
+            <tr>
+                <td class="dish">Оливье</td>
+                <td class="dish">Студень говяжий</td>
+                <td class="dish">Рассольник домашний</td>
+                <td class="dish">Караси запеченые в сметане</td>
+                <td class="dish">Блинчатый пирог</td>
+            </tr>
+            <tr>
+                <td class="dish">Сельдь под шубой</td>
+                <td class="dish">Судак заливной</td>
+                <td class="dish">Мясная солянка</td>
+                <td class="dish">Котлеты пожарские</td>
+                <td class="dish">Пирожное "Картошка"</td>
+            </tr>
+            <tr>
+                <th class="dish" rowspan="3">Испанская</th>
+                <td class="dish">Севиче из гребешков</td>
+                <td class="dish">Эмпанадас</td>
+                <td class="dish">Хлебный суп с чесноком</td>
+                <td class="dish">Паэлья с морепродуктами</td>
+                <td class="dish">Чуррос</td>
+            </tr>
+            <tr>
+                <td class="dish">Тимбал из авокадо и тунца</td>
+                <td class="dish">Ахотомате</td>
+                <td class="dish">Астурийская фабада</td>
+                <td class="dish">Свиное раксо</td>
+                <td class="dish">Альмойшавена</td>
+            </tr>
+            <tr>
+                <td class="dish">Фасоль с ветчиной</td>
+                <td class="dish">Чанфайна</td>
+                <td class="dish">Рыбный суп с манными клецками</td>
+                <td class="dish">Тортилья картофельная</td>
+                <td class="dish">Бунуэлос</td>
+            </tr>
+            <tr>
+                <th class="dish" rowspan="3">Французкая</th>
+                <td class="dish">Вогезский салат</td>
+                <td class="dish">Рийет из курицы</td>
+                <td class="dish">Баклажанный суп "Ренуар"</td>
+                <td class="dish">Картофельный огратен</td>
+                <td class="dish">Бриоши</td>
+            </tr>
+            <tr>
+                <td class="dish">Салат "Панзанелла"</td>
+                <td class="dish">Делисьез из сыра</td>
+                <td class="dish">Французский тыквенный суп</td>
+                <td class="dish">Гратин из птицы</td>
+                <td class="dish">Лигурийский лимонный пирог</td>
+            </tr>
+            <tr>
+                <td class="dish">Тар-тар</td>
+                <td class="dish">Марнованный лосось</td>
+                <td class="dish">Суп "Конти"</td>
+                <td class="dish">Тартифлетт</td>
+                <td class="dish">Саварен "Триумф"</td>
+            </tr>
+        </table>
+    </main>
 </body>
 </html>
