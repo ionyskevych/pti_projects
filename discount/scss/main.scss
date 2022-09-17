@@ -1,0 +1,294 @@
+$module-contacts-background: #3c322f;
+$body-background: #473B38;
+$a-hover-top: #594546;
+$hr-line-color: #6A5455;
+$contact-color: #a28c8b;
+$lable-color: #c2c2c2;
+$discount-color: #cac4c1;
+$a-color: #decacb;
+$white: #ffffff;
+$h-color: #95d0d9;
+
+$border-radius: 5px;
+
+@mixin links {
+    &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin hover-decoration {
+  border-top: 8px solid $a-hover-top
+}
+
+@mixin display {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin blue-header {
+    color: $h-color;
+    font-family: Verdana, sans-serif;
+}
+
+@mixin button {
+  background-image: linear-gradient(180deg, #55c1d1, #168fa1);
+  border-top: 1px solid #b5e4eb;
+  border-left: 1px solid #6abdca;
+  border-bottom: #0d5e6a;
+  border-right: #358e9b;
+  border-radius: $border-radius;
+  width: 250px;
+  height: 35px;
+  text-align: center;
+  color: $white;
+  font-size: 15px;
+  text-shadow: -1px -1px 0 #1e545c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #473B38;
+}
+
+.page {
+  width: 950px;
+  margin: 0 auto;
+  min-height: 100%;
+  padding-bottom: 120px;
+  position: relative;
+}
+
+.containerContent {
+    background-image: url("../images/discount-cart.jpg");
+    background-repeat: no-repeat;
+    width: 650px;
+}
+
+.contacts {
+  width: 300px;
+}
+
+.moduleRegistrationForm {
+  text-align: right;
+}
+
+.grid img {
+  margin: 10px 10px 10px 0;
+  border: 10px solid $module-contacts-background;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid $contact-color;
+  height: 120px;
+  margin-top: 20px;
+  height: 120px;
+}
+
+
+
+body {
+  .page {
+    .header {
+      width: 100%;
+      height: 100px;
+      border-bottom: 1px solid $hr-line-color;
+      padding-bottom: 17px;
+      margin-top: 20px;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .logo {
+        position: absolute;
+        top: 17px;
+        left: 0;
+      }
+
+      .navigation {
+        .activePage {
+          @include hover-decoration;
+        }
+
+        a {
+          color: $a-color;
+          text-decoration: none;
+          margin-left: 12px;
+          padding: 6px;
+          font-size: 15px;
+          &:hover {
+            @include hover-decoration;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    margin: 30px auto;
+    @include display;
+    justify-content: flex-start;
+    width: inherit;
+    .containerContacts {
+      position: relative;
+      width: 300px;
+      .moduleDiscount {
+        @include flex-column;
+        justify-content: center;
+        background-color: $a-hover-top;
+        border: 1px solid #775e60;
+        width: 400px;
+        height: 140px;
+        position: absolute;
+        left: -120px;
+        color: $a-color;
+        h2 {
+          margin: 0 3px 5px 80px;
+          font-size: 20px;
+          span {
+            font-size: 23px;
+          }
+        }
+
+        p {
+          margin: 0 3px 5px 80px;
+          color: $discount-color;
+        }
+      }
+
+    .moduleContacts {
+      position: absolute;
+      top: 150px;
+      margin-right: 20px;
+      margin-top: 28px;
+      margin-bottom: 30px;
+      width: 280px;
+      background-color: #3c322f;
+      border-radius: 5px;
+        .address {
+          font-style: italic;
+          margin: 10px;
+          color: $white;
+          font-weight: bold;
+          font-size: 12px;
+        }
+
+        p {
+          margin: 0 0 5px 10px;
+          padding: 10px 0 10px;
+          font-size: 12px;
+          color: $contact-color;
+        }
+
+        button {
+          @include button;
+          margin: 40px 15px;
+        }
+      }
+    }
+    .containerContent {
+      position: relative;
+      @include flex-column;
+      .moduleRegistrationForm {
+        text-align: right;
+      }
+
+      h4 {
+        margin: 0 45px 15px 0;
+        @include blue-header;
+      }
+
+      label {
+        margin: 11px;
+        vertical-align: middle;
+        color:$lable-color;
+        font-size: 14px;
+      }
+
+      input {
+        border: 1px solid $h-color;
+        width: 170px;
+        height: 20px;
+        margin: 0 20px 10px 10px;
+      }
+
+      button {
+        @include button;
+        margin:20px;
+      }
+    }
+
+    .content {
+      margin: 37px 0 10px 10px;
+      min-height: 360px;
+      p {
+        margin-top: 32px;
+        color: $lable-color;
+        font-size: 13px;
+        text-align: justify;
+      }
+
+      li {
+        color: $lable-color;
+        font-size: 13px;
+        text-align: justify;
+      }
+
+      b {
+        color:$white;
+      }
+
+      a {
+        margin: 0 0 0 282px;
+        color: $a-color;
+        @include links;
+      }
+
+      .images {
+        .grid {
+          @include display;
+          justify-content: space-between;
+          .hidden {
+            visibility: hidden
+          }
+        }
+      }
+    }
+  }
+}
+
+  .footer {
+    div {
+      background-image: url("../images/logo-krp.jpg");
+      background-repeat: no-repeat;
+      margin: 16px 0 ;
+      height: 100px;
+      @include flex-column;
+      justify-content: center;
+    }
+
+    a {
+      color: $white;
+      margin-left: 100px;
+      @include links;
+    }
+  }
