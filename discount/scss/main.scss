@@ -8,287 +8,271 @@ $discount-color: #cac4c1;
 $a-color: #decacb;
 $white: #ffffff;
 $h-color: #95d0d9;
-
 $border-radius: 5px;
 
 @mixin links {
     &:hover {
-    text-decoration: none;
-  }
+        text-decoration: none;
+    }
 }
 
 @mixin hover-decoration {
-  border-top: 8px solid $a-hover-top
+    border-top: 8px solid $a-hover-top;
 }
 
 @mixin display {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 @mixin flex-column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 @mixin blue-header {
     color: $h-color;
     font-family: Verdana, sans-serif;
+    margin-bottom: 30px;
 }
 
 @mixin button {
-  background-image: linear-gradient(180deg, #55c1d1, #168fa1);
-  border-top: 1px solid #b5e4eb;
-  border-left: 1px solid #6abdca;
-  border-bottom: #0d5e6a;
-  border-right: #358e9b;
-  border-radius: $border-radius;
-  width: 250px;
-  height: 35px;
-  text-align: center;
-  color: $white;
-  font-size: 15px;
-  text-shadow: -1px -1px 0 #1e545c;
+    background-image: linear-gradient(180deg, #55c1d1, #168fa1);
+    border-top: 1px solid #b5e4eb;
+    border-left: 1px solid #6abdca;
+    border-bottom: #0d5e6a;
+    border-right: #358e9b;
+    border-radius: $border-radius;
+    width: 250px;
+    height: 35px;
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    text-shadow: -1px -1px 0 #1e545c;
+    cursor: pointer;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #473B38;
+    font-family: Arial, sans-serif;
+    background: #473B38;
 }
 
 .page {
-  width: 950px;
-  margin: 0 auto;
-  min-height: 100%;
-  padding-bottom: 120px;
-  position: relative;
+    width: 950px;
+    margin: 0 auto;
+    min-height: 100%;
+    padding-bottom: 120px;
+    position: relative;
 }
 
-.containerContent {
-    background-image: url("../images/discount-cart.jpg");
-    background-repeat: no-repeat;
-    width: 650px;
+h4 {
+    @include blue-header;
 }
 
-.contacts {
-  width: 300px;
-}
+/* ------------------------------------------ Header */
+.header {
+    height: 100px;
+    border-bottom: 1px solid $hr-line-color;
+    padding-bottom: 17px;
+    padding-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 
-.moduleRegistrationForm {
-  text-align: right;
-}
-
-.grid img {
-  margin: 10px 10px 10px 0;
-  border: 10px solid $module-contacts-background;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid $contact-color;
-  height: 120px;
-  margin-top: 20px;
-  height: 120px;
-}
-
-
-
-body {
-  .page {
-    .header {
-      width: 100%;
-      height: 100px;
-      border-bottom: 1px solid $hr-line-color;
-      padding-bottom: 17px;
-      margin-top: 20px;
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      .logo {
+    .logo {
         position: absolute;
         top: 17px;
         left: 0;
-      }
+    }
 
-      .navigation {
-        .activePage {
-          @include hover-decoration;
-        }
-
+    .navigation {
         a {
-          color: $a-color;
-          text-decoration: none;
-          margin-left: 12px;
-          padding: 6px;
-          font-size: 15px;
-          &:hover {
-            @include hover-decoration;
-          }
-        }
-      }
-    }
-  }
+            color: $a-color;
+            text-decoration: none;
+            margin-left: 12px;
+            padding: 6px;
+            font-size: 15px;
 
-  .main {
-    margin: 30px auto;
-    @include display;
-    justify-content: flex-start;
-    width: inherit;
+            &:hover,
+            &.activePage {
+                @include hover-decoration;
+            }
+        }
+    }
+}
+
+/* ------------------------------------------ Layout */
+.main {
+    padding: 30px 0;
+    display: flex;
+
     .containerContacts {
-      position: relative;
-      width: 300px;
-      .moduleDiscount {
-        @include flex-column;
-        justify-content: center;
-        background-color: $a-hover-top;
-        border: 1px solid #775e60;
-        width: 400px;
-        height: 140px;
-        position: absolute;
-        left: -120px;
-        color: $a-color;
-        h2 {
-          margin: 0 3px 5px 80px;
-          font-size: 20px;
-          span {
-            font-size: 23px;
-          }
-        }
-
-        p {
-          margin: 0 3px 5px 80px;
-          color: $discount-color;
-        }
-      }
-
-    .moduleContacts {
-      position: absolute;
-      top: 150px;
-      margin-right: 20px;
-      margin-top: 28px;
-      margin-bottom: 30px;
-      width: 280px;
-      background-color: #3c322f;
-      border-radius: 5px;
-        .address {
-          font-style: italic;
-          margin: 10px;
-          color: $white;
-          font-weight: bold;
-          font-size: 12px;
-        }
-
-        p {
-          margin: 0 0 5px 10px;
-          padding: 10px 0 10px;
-          font-size: 12px;
-          color: $contact-color;
-        }
-
-        button {
-          @include button;
-          margin: 40px 15px;
-        }
-      }
+        width: 300px;
+        padding-right: 40px;
     }
+
     .containerContent {
-      position: relative;
-      @include flex-column;
-      .moduleRegistrationForm {
-        text-align: right;
-      }
+        width: 650px;
+        padding-right: 20px;
+    }
+}
 
-      h4 {
-        margin: 0 45px 15px 0;
-        @include blue-header;
-      }
+/* ------------------------------------------ Module: Discount */
+.moduleDiscount {
+    background-color: $a-hover-top;
+    border: 1px solid #775e60;
+    width: 400px;
+    height: 140px;
+    position: relative;
+    left: -140px;
+    color: $a-color;
+    margin-bottom: 25px;
+    padding: 20px 3px 0 80px;
 
-      label {
+    h2 {
+        margin-bottom: 5px;
+        font-size: 20px;
+
+        span {
+            font-size: 23px;
+        }
+    }
+
+    p {
+        margin-bottom: 5px;
+        color: $discount-color;
+    }
+}
+
+/* ------------------------------------------ Module: Contacts */
+.moduleContacts {
+    background-color: #3c322f;
+    border-radius: 5px;
+    padding: 15px 10px;
+    font-size: 12px;
+    color: $contact-color;
+    line-height: 18px;
+
+    .address {
+        font-style: italic;
+        color: $white;
+        font-weight: bold;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    button {
+        @include button;
+        width: 100%;
+        margin: 30px 0;
+    }
+}
+
+/* ------------------------------------------ Module: Registration form */
+.moduleRegistrationForm {
+    background-image: url("../images/discount-cart.jpg");
+    background-repeat: no-repeat;
+    text-align: right;
+    min-height: 192px;
+    margin-bottom: 25px;
+
+    h4 {
+        margin: 0 25px 15px 0;
+    }
+
+    label {
         margin: 11px;
         vertical-align: middle;
-        color:$lable-color;
+        color: $lable-color;
         font-size: 14px;
-      }
+    }
 
-      input {
+    input {
         border: 1px solid $h-color;
         width: 170px;
         height: 20px;
-        margin: 0 20px 10px 10px;
-      }
+        margin: 0 0 10px 10px;
+    }
 
-      button {
+    button {
         @include button;
-        margin:20px;
-      }
+        margin: 20px 0;
     }
-
-    .content {
-      margin: 37px 0 10px 10px;
-      min-height: 360px;
-      p {
-        margin-top: 32px;
-        color: $lable-color;
-        font-size: 13px;
-        text-align: justify;
-      }
-
-      li {
-        color: $lable-color;
-        font-size: 13px;
-        text-align: justify;
-      }
-
-      b {
-        color:$white;
-      }
-
-      a {
-        margin: 0 0 0 282px;
-        color: $a-color;
-        @include links;
-      }
-
-      .images {
-        .grid {
-          @include display;
-          justify-content: space-between;
-          .hidden {
-            visibility: hidden
-          }
-        }
-      }
-    }
-  }
 }
 
-  .footer {
-    div {
-      background-image: url("../images/logo-krp.jpg");
-      background-repeat: no-repeat;
-      margin: 16px 0 ;
-      height: 100px;
-      @include flex-column;
-      justify-content: center;
+/* ------------------------------------------ Module: Content */
+.moduleContent {
+    color: $lable-color;
+
+    p {
+        margin-bottom: 30px;
+        font-size: 13px;
+        line-height: 18px;
     }
 
-    a {
-      color: $white;
-      margin-left: 100px;
-      @include links;
+    li {
+        font-size: 13px;
+        line-height: 18px;
     }
-  }
+}
+
+/* ------------------------------------------ Module: Participants */
+.moduleParticipants {
+    h5 {
+        font-size: 15px;
+        color: $white;
+    }
+
+    a.allParticipants {
+        float: right;
+        font-size: 13px;
+        color: $a-color;
+        @include links;
+    }
+
+    .images {
+        display: flex;
+        flex-wrap: wrap;
+
+        img {
+            margin: 13px 26px 13px 0;
+            border: 10px solid $module-contacts-background;
+
+            &:nth-child(5n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+/* ------------------------------------------ Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $contact-color;
+    height: 120px;
+    background: url("../images/logo-krp.jpg") no-repeat 0 16px;
+    padding: 16px 0 16px 100px;
+    display: flex;
+    align-items: center;
+
+    a {
+        color: $white;
+        @include links;
+    }
+}
