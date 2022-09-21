@@ -1,0 +1,372 @@
+$blue-header: #9ac6dd;
+$footer-border: #4d4a4a;
+
+@mixin links {
+      &:hover {
+            text-decoration: none;
+      }
+}
+
+@mixin menu-link {
+      background-size: 153px;
+      width: 155px;
+      position: relative;
+      a {
+          position: absolute;
+          bottom: 76px;
+      }
+}
+
+@mixin width {
+      width: 640px;
+      margin: 0 auto;
+}
+
+@mixin moduleGrey {
+      background-color: #5f5c5c;
+      border-top: 5px solid #7e7e7e;
+      color: #e9f3e9;
+      padding: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    color: #f3f3f3;
+    font-family: Tahoma, sans-serif;
+    background: #535050;
+    position: relative;
+}
+
+.page {
+    min-height: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.container {
+    @include moduleGrey;
+}
+
+h4 {
+    color: #e5cfa5;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+a {
+    color: #e5cfa5;
+}
+
+li {
+    list-style: none;
+}
+
+dd {
+    padding-left: 10px;
+}
+
+/* ------------------------------------------ Header */
+.header {
+    @include width;
+    display: flex;
+    justify-content: space-between;
+    height: 160px;
+    .home {
+        background: url("../images/menu_1.gif") no-repeat;
+        background-size: 153px;
+        width: 155px;
+        position: relative;
+        a {
+            position: absolute;
+            bottom: 76px;
+            left: 8px;;
+            img {
+                width: 55px;
+            }
+        }
+    }
+
+    .portfolio {
+        background: url("../images/menu_2.gif") no-repeat;
+        @include menu-link;
+        a {
+            left: 14px;
+
+            img {
+                  width: 81px;
+            }
+        }
+    }
+
+    .contacts {
+        background: url("../images/menu_3.gif") no-repeat;
+        @include menu-link;
+        a {
+            left: 22px;
+            img {
+                width: 89px;
+            }
+        }
+    }
+
+    .pricing {
+        background: url("../images/menu_4.gif") no-repeat;
+        @include menu-link;
+        a {
+            bottom: 70px;
+            left: 39px;
+            img {
+                width: 68px;
+            }
+        }
+    }
+}
+
+/* ------------------------------------------ Layout */
+.main {
+    @include width;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -15px;
+
+    .columnLeft {
+        width: 400px;
+        padding-right: 10px;
+    }
+
+    .columnRight {
+       width: 230px;
+    }
+}
+
+/*--------------------------------------------Module: About*/
+.moduleAbout {
+    width: 394px;
+    padding-right: 21px;
+
+    p {
+        @include moduleGrey;
+        font-size: 13px;
+        line-height: 16px;
+    }
+}
+
+/* ------------------------------------------ Module: Testimonials */
+.moduleTestimonials {
+    align-self: flex-end;
+    div {
+        border-top: 5px solid #7e7e7e;
+        padding: 10px 25px 0 14px;
+        p {
+            font-size: 10px;
+            line-height: 16px;
+            color: #f3f3f3;
+        }
+
+            .quotation {
+                color: $blue-header;
+                font-weight: bold;
+                font-size: 11px;
+                text-align: right;
+                margin: 10px 0 10px;
+            }
+        }
+
+        h4 {
+            color: $blue-header;
+        }
+}
+
+/*--------------------------------------------Module: Featured Projects*/
+.moduleFeaturedProjects {
+    width: 353px;
+    padding-right: 14px;
+    margin-top: -36px;
+    margin-right: 10px;
+
+    .container{
+        p {
+            font-size: 13px;
+            padding: 0 0 5px ;
+        }
+        div {
+            display: flex;
+            text-align: right;
+            img {
+                width: 167px;
+                border: 5px solid #ede1d2;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------Module: Recent Projects*/
+.moduleRecentProjects {
+    width: 224px;
+    .container {
+        padding-bottom: 24px;
+        p {
+            font-size: 13px;
+            padding-bottom: 6px;
+        }
+
+        img {
+            width: 167px;
+            border: 5px solid #ede1d2;
+        }
+    }
+}
+
+/*--------------------------------------------Module: Our Projects*/
+.moduleOurProjects {
+    .container {
+        font-size: 13px;
+        padding-bottom: 6px;
+        p {
+              padding: 5px 0;
+        }
+
+        div {
+            display: flex;
+            p {
+               padding: 0 7px;
+            }
+
+            img {
+                width: 167px;
+                border: 5px solid #ede1d2;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------Module: Our FAQ*/
+.moduleFAQ {
+    dl {
+        @include moduleGrey;
+        font-size: 11px;
+        line-height: 16px;
+
+        dt {
+            color: #a7a7a7;
+            text-decoration: underline;
+            @include links;
+            &::before {
+                content: url("../images/dot.gif");
+                padding-right: 5px;
+            }
+
+            dd {
+                color: #f3f3f3;
+                padding: 10px;
+
+
+            }
+        }
+    }
+}
+
+/*--------------------------------------------Module: Form*/
+.moduleForm {
+    form {
+        @include moduleGrey;
+        [placeholder] {
+            color: #5f5c5c;
+            font-size: 11px;
+        }
+
+        input {
+            width: 157px;
+            height: 21px;
+            margin-bottom: 9px;
+            border: 2px solid #7e7e7e;
+            padding: 0 5px;
+        }
+
+        textarea {
+            color: #5f5c5c;
+            padding: 3px 5px;
+            font-size: 13px;
+            width: 100%;
+            min-height: 168px;
+        }
+
+        button {
+            border: 2px solid #ffffff;
+            color: #201d1d;
+            width: 158px;
+            background-color: #7e7e7e;
+        }
+    }
+}
+
+/*--------------------------------------------Module: Pricing*/
+.modulePricing {
+    .product {
+        background: url("../images/pricing_desk.gif") no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 15px;
+
+        ul {
+            padding: 5px 30px;
+        }
+
+        li {
+            list-style-image: url("../images/dot.png");
+            color: #6ca83e;
+            font-size: 14px;
+        }
+
+        h2 {
+            color: #508b23;
+            font-weight: normal;
+            font-size: 18px;
+        }
+
+        .price,
+        .only {
+            text-align: center;
+            color: #508b23;
+        }
+
+        .price {
+            font-size: 24px;
+        }
+
+        button {
+            border: none;
+            width: 132px;
+            height: 50px;
+            background: url("../images/purchase.png") no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+/*--------------------Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $footer-border;
+    display: flex;
+    justify-content: center;
+
+    a {
+        padding: 0 6px;
+        font-size: 11px;
+        @include links;
+    }
+}
