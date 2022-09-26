@@ -1,0 +1,479 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    color: #4f4f4f;
+    font: 13px Tahoma, sans-serif;
+    background: #ededed;
+    width: 1020px;
+    margin: 0 auto;
+}
+
+@mixin links-module-contacts {
+    display: block;
+    width: 100px;
+    height: 1.23rem;
+    padding-left: 1.77rem;
+    color: #2faed8;
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: none;
+        background-position: 0 3px;
+    }
+}
+
+@mixin header3-columnCenter {
+    color: #6d6d6d;
+    border-bottom: 0.077rem solid #6d6d6d;
+    font-weight: bold;
+    font-size: 1.23rem;
+}
+
+@mixin avatar-decoration {
+    width: 90px;
+    border: 0.3rem solid #dddddd;
+    box-shadow: 0 0 0 0.077rem #b3b3b3;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 3.8rem;
+    border-left: 0.077rem solid #d4d4d4;
+    border-right: 0.077rem solid #d4d4d4;
+    box-shadow: 0 -0.077rem 0.46rem -0.077rem;
+}
+
+.blueHeader {
+    color: #2faed8;
+    font-weight: bold;
+    margin-top: 1.15rem;
+
+}
+
+/*------------------------ Header */
+.header {
+    .headerMenu {
+        background-color: #ffffff;
+        height: 96px;
+        display: flex;
+        justify-content: space-between;
+        padding: 2.23rem 3.8rem;
+
+        div {
+            padding-top: 0.77rem;
+
+            .headerMenuHome {
+                margin: 0 1.54rem;
+                height: 1.54rem;
+                padding-left: 1.38rem;
+                background: url("../images/home-icon.gif") no-repeat 0 3px;
+
+                &:hover {
+                    color: #2faed8 ;
+                    background: url("../images/home-icon.gif") no-repeat 0 -14px;
+                    cursor: pointer;
+                }
+            }
+
+            .headerMenuContacts {
+                margin: 0 1.54rem;
+                padding-left: 1.38rem;
+                background: url("../images/mail-small-icon.gif") no-repeat 0 3px;
+
+                &:hover {
+                    color: #2faed8 ;
+                    background: url("../images/mail-small-icon.gif") no-repeat 0 -14px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+/*------------------------ Module: Banner */
+.moduleBanner {
+        background-image: url("../images/baner.jpg");
+        height: 167px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding-right: 0.154rem;;
+
+    .activePage {
+        color: #2faed8;
+        background-color: #ffffff;
+        height: 27px;
+        border: 0.077rem solid #afafaf;
+        border-bottom: none;
+        padding: 0.3rem 1.23rem;
+        text-align: center;
+        justify-content: center;
+        border-radius: 0.38rem 0.38rem 0 0 ;
+        font-weight: bold;
+    }
+
+    .headerMenuLinks {
+            height: 27px;
+            border: 0.077rem solid #afafaf;
+            background: #2faed8;
+            padding: 0.3rem 1.23rem;
+            text-align: center;
+            justify-content: center;
+            border-radius: 0.38rem 0.38rem 0 0 ;
+            color:#ffffff;
+            font-weight: bold;
+            text-decoration: none;
+    }
+}
+
+/* ------------------------------------------ Layout */
+.main {
+    display: flex;
+    background: #ffffff;
+    padding-bottom: 7.7rem;
+
+    .columnLeft {
+        width: 224px;
+        padding-top: 1.7rem;
+    }
+
+    .columnCenter {
+        width: 550px;
+        margin: 0 auto;
+        padding-top: 1.7rem;
+    }
+
+    .columnRight {
+        width: 224px;
+        padding-top: 1.7rem;
+    }
+}
+
+/*------------------------ Module: Content */
+.moduleContent {
+    padding-top: 1.07rem;
+
+    h3 {
+        @include header3-columnCenter;
+    }
+
+    .content {
+        line-height: 1.54rem;
+        padding-left: 0.92rem;
+        color: #4f4f4f;
+
+        a {
+            color: #2faed8;
+            text-decoration: underline;
+        }
+    }
+}
+
+/*------------------------ Module: Main Menu */
+.moduleMainMenu {
+    width: 198px;
+    margin: 0 auto;
+    color: #6d6d6d;
+    border: 0.077rem solid #d8d8d8;
+    background-color: #ededed;
+    border-radius: 0.38rem;
+
+    ul {
+        padding: 0.54rem 1.6rem;
+
+        li {
+            list-style-image: url("../images/dot.gif");
+            padding: 0.46rem 0.38rem 0.23rem;
+
+            a {
+                color: #6d6d6d;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+/*------------------------ Module: Contact Us */
+.moduleContactUs {
+    width: 198px;
+    margin: 0 auto;
+    color: #6d6d6d;
+    border: 0.077rem solid #d8d8d8;
+    background-color: #ededed;
+    border-radius: 0.38rem;
+    padding: 0.62rem 1rem;
+
+    p {
+        padding-bottom: 1.07rem;
+    }
+
+    .mainLinkContactUs {
+        @include links-module-contacts;
+        background: url("../images/mail-icon.gif") no-repeat 0 -15px;
+        padding-bottom: 1.7rem;
+        text-decoration: underline;
+    }
+
+    .mainLinkCallUs {
+        @include links-module-contacts;
+        background: url(../images/phone-icon.gif) no-repeat 0 -24px;
+        padding-top: 0.77rem;
+        padding-bottom: 1.54rem;
+        text-decoration: underline;
+
+        &:hover {
+            background-position: 0 6px;
+        }
+    }
+}
+
+/*------------------------ Module: About Us */
+.moduleAboutUs {
+    padding: 0.38rem 0;
+
+    p {
+        font-size: 1.15rem;
+
+        a {
+            color: #2faed8;
+            border-bottom: 0.077rem dashed #2faed8;
+        }
+    }
+
+    .columnsDevelopment {
+        display:flex;
+        padding: 1.46rem 0.54rem 1.23rem 0;
+        border-bottom: 0.077rem dotted #d8d8d8;
+
+        .columnRightContent {
+            margin-right: 1.92rem;
+            width: 261px;
+            display: flex;
+            flex-direction: column;
+
+            .blueHeader {
+                padding-bottom: 0.38rem;
+            }
+
+            p:not(.blueHeader) {
+                border-top: 0.077rem solid #d8d8d8;
+                background: linear-gradient(#f4f4f4, #ffffff);
+                padding: 0.77rem 0.54rem 0.77rem 0.38rem;
+                line-height: 1.54rem;
+                font-size: 1rem;
+                color: #6d6d6d;
+            }
+
+            a {
+                align-self: flex-end;
+                margin-top: 1.23rem;
+                padding-right: 1.54rem;
+                color: #2faed8;
+                background: url("../images/arows.gif") right 7px no-repeat;
+
+                &:hover {
+                    color: #6d6d6d;
+                    background-position: right -8px;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .columnLeftContent {
+            padding-right: 0.154rem;
+            width: 261px;
+            display: flex;
+            flex-direction: column;
+
+            .blueHeader {
+                padding-bottom: 0.38rem;
+            }
+
+            p:not(.blueHeader) {
+                border-top: 0.077rem solid #d8d8d8;
+                background: linear-gradient(#f4f4f4, #ffffff);
+                color: #6d6d6d;
+                padding: 0.77rem 0.3rem 0.54rem 0.38rem;
+                line-height: 1.54rem;
+                font-size: 1rem;
+            }
+
+            a {
+                align-self: flex-end;
+                margin-top: 1.23rem;
+                padding-right: 1.54rem;
+                color: #2faed8;
+                background: url("../images/arows.gif") right 0.54rem no-repeat;
+
+                &:hover {
+                    color: #6d6d6d;
+                    background-position: right -8px;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .featuredProjects {
+        .blueHeader {
+            padding-top: 0;
+            font-size: 0.92rem;
+        }
+
+        .column {
+            float: left;
+            width: 232px;
+            margin-right: 2.46rem;
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.77rem 0 0.77rem 0.77rem;
+
+                img {
+                    @include avatar-decoration;
+                }
+
+                p {
+                    font-size: 1rem;
+                    padding-left: 0.77rem;
+                }
+            }
+        }
+    }
+}
+
+/*------------------------ Module: FAQ*/
+.moduleFAQ {
+    padding-top: 1.07rem;
+    padding-bottom: 1.15rem;
+    position: relative;
+
+    h3 {
+        @include header3-columnCenter;
+        padding-bottom: 0.38rem;
+        width: 535px;
+    }
+
+    dl {
+        position: relative;
+        left: -1.15rem;
+        padding: 0 0 0 1.23rem;
+        background-color: #f2f2f2;
+        line-height: 1.54rem;
+
+        a {
+            color: #2faed8;
+            text-decoration: underline;
+        }
+    }
+}
+
+/*------------------------ Module: Form Contact Us*/
+.moduleFormContactUs {
+    padding-top: 0.77rem;
+    padding-bottom: 3.8rem;
+
+    h3 {
+        @include header3-columnCenter;
+        padding-bottom: 0.38rem;
+    }
+
+    form {
+        padding: 1.46rem 2.77rem;
+
+        span {
+            color: #00a7ff;
+        }
+
+        label {
+            color: #9d9d9d;
+            font-size: 0.85rem;
+        }
+
+        input {
+            border: 0.077rem solid #9d9d9d;
+            width: 273px;
+            height: 18px;
+        }
+
+        input[type="file"] {
+            height: 22px;
+        }
+
+        textarea {
+            border: 0.077rem solid #9d9d9d;
+            height: 145px;
+            width: 273px;
+            resize: vertical;
+        }
+
+        img {
+            border: 0.077rem solid #9d9d9d;
+            margin: 0.77rem auto 0.77rem 6.3rem;
+        }
+
+        button {
+            margin: 0.77rem 0;
+            width: 94px;
+            height: 27px;
+            font-weight: bold;
+            border: 0.077rem solid #d8d8d8;
+            border-radius: 0.38rem;
+            background-color: #ececec;
+            color: #6d6d6d;
+            &:hover {
+                cursor: pointer;
+                border: 0.077rem solid #2faed8;
+                color: #2faed8;
+            }
+        }
+    }
+}
+
+/*------------------------ Module: Footer */
+.footer{
+    position: absolute;
+    height: 69px;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    border-top: 0.077rem solid #d4d4d4;
+    background-color: #eeeeee;
+    padding: 1.3rem 1.7rem 0.77rem 2.3rem;
+    justify-content: space-between;
+
+    .footerMenu {
+        color: #6d6d6d;
+
+        a {
+            color: #6d6d6d;
+        }
+    }
+
+    p {
+        background: url("../images/logo-small.gif") no-repeat;
+        color: #2faed8;
+        font-family: Arial, sans-serif;
+        font-size: 1.15rem;
+        padding-left: 3.8rem;
+        align-self: flex-start;
+        height: 30px;
+        padding-top: 0.77rem;
+    }
+}
