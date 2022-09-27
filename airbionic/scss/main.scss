@@ -6,11 +6,15 @@
 
 html,
 body {
-    color: #4f4f4f;
-    font: 13px Tahoma, sans-serif;
+    height: 100%;
+}
+
+html {
+    font-size: 13px;
+}
+
+body {
     background: #ededed;
-    width: 1020px;
-    margin: 0 auto;
 }
 
 @mixin links-module-contacts {
@@ -27,11 +31,13 @@ body {
     }
 }
 
-@mixin header3-columnCenter {
+@mixin moduleTitle {
     color: #6d6d6d;
     border-bottom: 0.077rem solid #6d6d6d;
     font-weight: bold;
     font-size: 1.23rem;
+    padding-top: 1.07rem;
+    margin-bottom: 1rem;
 }
 
 @mixin avatar-decoration {
@@ -51,23 +57,26 @@ a {
 .page {
     min-height: 100%;
     position: relative;
-    padding-bottom: 3.8rem;
+    padding-bottom: 7rem;
     border-left: 0.077rem solid #d4d4d4;
     border-right: 0.077rem solid #d4d4d4;
     box-shadow: 0 -0.077rem 0.46rem -0.077rem;
+    color: #4f4f4f;
+    font-family: Tahoma, sans-serif;
+    background: #fff;
+    width: 1020px;
+    margin: 0 auto;
 }
 
 .blueHeader {
     color: #2faed8;
     font-weight: bold;
     margin-top: 1.15rem;
-
 }
 
 /*------------------------ Header */
 .header {
     .headerMenu {
-        background-color: #ffffff;
         height: 96px;
         display: flex;
         justify-content: space-between;
@@ -76,117 +85,103 @@ a {
         div {
             padding-top: 0.77rem;
 
-            .headerMenuHome {
+            a {
                 margin: 0 1.54rem;
-                height: 1.54rem;
                 padding-left: 1.38rem;
-                background: url("../images/home-icon.gif") no-repeat 0 3px;
+                background-position: 0 3px;
+                background-repeat: no-repeat;
+                cursor: pointer;
 
                 &:hover {
-                    color: #2faed8 ;
-                    background: url("../images/home-icon.gif") no-repeat 0 -14px;
-                    cursor: pointer;
+                    color: #2faed8;
+                    background-position: 0 -14px;
                 }
-            }
 
-            .headerMenuContacts {
-                margin: 0 1.54rem;
-                padding-left: 1.38rem;
-                background: url("../images/mail-small-icon.gif") no-repeat 0 3px;
+                &.headerMenuHome {
+                    background-image: url("../images/home-icon.gif");
+                }
 
-                &:hover {
-                    color: #2faed8 ;
-                    background: url("../images/mail-small-icon.gif") no-repeat 0 -14px;
-                    cursor: pointer;
+                &.headerMenuContacts {
+                    background-image: url("../images/mail-small-icon.gif");
                 }
             }
         }
     }
-}
 
-/*------------------------ Module: Banner */
-.moduleBanner {
+    .menu {
         background-image: url("../images/baner.jpg");
         height: 167px;
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
-        padding-right: 0.154rem;;
+        padding-right: 0.154rem;
 
-    .activePage {
-        color: #2faed8;
-        background-color: #ffffff;
-        height: 27px;
-        border: 0.077rem solid #afafaf;
-        border-bottom: none;
-        padding: 0.3rem 1.23rem;
-        text-align: center;
-        justify-content: center;
-        border-radius: 0.38rem 0.38rem 0 0 ;
-        font-weight: bold;
-    }
-
-    .headerMenuLinks {
+        a {
             height: 27px;
             border: 0.077rem solid #afafaf;
             background: #2faed8;
             padding: 0.3rem 1.23rem;
-            text-align: center;
-            justify-content: center;
-            border-radius: 0.38rem 0.38rem 0 0 ;
-            color:#ffffff;
+            border-radius: 0.38rem 0.38rem 0 0;
+            color: #ffffff;
             font-weight: bold;
-            text-decoration: none;
+
+            &.active {
+                color: #2faed8;
+                background-color: #ffffff;
+                border-bottom: none;
+            }
+        }
     }
 }
 
 /* ------------------------------------------ Layout */
 .main {
+    padding-top: 1.7rem;
     display: flex;
-    background: #ffffff;
-    padding-bottom: 7.7rem;
 
     .columnLeft {
-        width: 224px;
-        padding-top: 1.7rem;
+        width: 22%;
+        padding: 0 1rem;
     }
 
     .columnCenter {
-        width: 550px;
-        margin: 0 auto;
-        padding-top: 1.7rem;
+        width: 56%;
     }
 
     .columnRight {
-        width: 224px;
-        padding-top: 1.7rem;
+        width: 22%;
+        padding: 0 1rem;
     }
 }
 
-/*------------------------ Module: Content */
-.moduleContent {
-    padding-top: 1.07rem;
-
-    h3 {
-        @include header3-columnCenter;
+/*------------------------ Module: Our Advantages */
+.moduleOurAdvantages {
+    .moduleTitle {
+        @include moduleTitle;
     }
 
-    .content {
+    .moduleContent {
         line-height: 1.54rem;
         padding-left: 0.92rem;
         color: #4f4f4f;
 
+        h4 {
+            color: #2faed8;
+        }
+
         a {
             color: #2faed8;
             text-decoration: underline;
+        }
+
+        p {
+            margin-bottom: 1rem;
         }
     }
 }
 
 /*------------------------ Module: Main Menu */
 .moduleMainMenu {
-    width: 198px;
-    margin: 0 auto;
     color: #6d6d6d;
     border: 0.077rem solid #d8d8d8;
     background-color: #ededed;
@@ -203,6 +198,10 @@ a {
                 color: #6d6d6d;
                 font-weight: bold;
                 font-size: 1.1rem;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -210,8 +209,6 @@ a {
 
 /*------------------------ Module: Contact Us */
 .moduleContactUs {
-    width: 198px;
-    margin: 0 auto;
     color: #6d6d6d;
     border: 0.077rem solid #d8d8d8;
     background-color: #ededed;
@@ -219,9 +216,10 @@ a {
     padding: 0.62rem 1rem;
 
     p {
-        padding-bottom: 1.07rem;
+        margin-bottom: 1.07rem;
     }
 
+    // without refactoring
     .mainLinkContactUs {
         @include links-module-contacts;
         background: url("../images/mail-icon.gif") no-repeat 0 -15px;
@@ -256,13 +254,13 @@ a {
     }
 
     .columnsDevelopment {
-        display:flex;
-        padding: 1.46rem 0.54rem 1.23rem 0;
+        display: flex;
+        gap: 4%;
+        padding: 1.46rem 0 1.23rem 0;
         border-bottom: 0.077rem dotted #d8d8d8;
 
-        .columnRightContent {
-            margin-right: 1.92rem;
-            width: 261px;
+        .column {
+            width: 48%;
             display: flex;
             flex-direction: column;
 
@@ -293,43 +291,15 @@ a {
                 }
             }
         }
-
-        .columnLeftContent {
-            padding-right: 0.154rem;
-            width: 261px;
-            display: flex;
-            flex-direction: column;
-
-            .blueHeader {
-                padding-bottom: 0.38rem;
-            }
-
-            p:not(.blueHeader) {
-                border-top: 0.077rem solid #d8d8d8;
-                background: linear-gradient(#f4f4f4, #ffffff);
-                color: #6d6d6d;
-                padding: 0.77rem 0.3rem 0.54rem 0.38rem;
-                line-height: 1.54rem;
-                font-size: 1rem;
-            }
-
-            a {
-                align-self: flex-end;
-                margin-top: 1.23rem;
-                padding-right: 1.54rem;
-                color: #2faed8;
-                background: url("../images/arows.gif") right 0.54rem no-repeat;
-
-                &:hover {
-                    color: #6d6d6d;
-                    background-position: right -8px;
-                    text-decoration: underline;
-                }
-            }
-        }
     }
 
     .featuredProjects {
+        &::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
         .blueHeader {
             padding-top: 0;
             font-size: 0.92rem;
@@ -337,12 +307,10 @@ a {
 
         .column {
             float: left;
-            width: 232px;
-            margin-right: 2.46rem;
+            width: 50%;
 
             .container {
                 display: flex;
-                justify-content: space-between;
                 padding: 0.77rem 0 0.77rem 0.77rem;
 
                 img {
@@ -360,22 +328,37 @@ a {
 
 /*------------------------ Module: FAQ*/
 .moduleFAQ {
-    padding-top: 1.07rem;
-    padding-bottom: 1.15rem;
-    position: relative;
-
-    h3 {
-        @include header3-columnCenter;
-        padding-bottom: 0.38rem;
-        width: 535px;
+    .moduleTitle {
+        @include moduleTitle;
     }
 
     dl {
-        position: relative;
-        left: -1.15rem;
-        padding: 0 0 0 1.23rem;
-        background-color: #f2f2f2;
         line-height: 1.54rem;
+        margin-left: -5px;
+
+        dt,
+        dd {
+            padding-left: 2rem;
+        }
+
+        dt {
+            color: #2faed8;
+            font-weight: bold;
+        }
+
+        dd {
+            padding-bottom: 1rem;
+            display: none;
+        }
+
+        dt.open,
+        dt.open + dd {
+            background-color: #f2f2f2;
+        }
+
+        dt.open + dd {
+            display: block;
+        }
 
         a {
             color: #2faed8;
@@ -386,12 +369,9 @@ a {
 
 /*------------------------ Module: Form Contact Us*/
 .moduleFormContactUs {
-    padding-top: 0.77rem;
-    padding-bottom: 3.8rem;
 
-    h3 {
-        @include header3-columnCenter;
-        padding-bottom: 0.38rem;
+    .moduleTitle {
+        @include moduleTitle;
     }
 
     form {
@@ -437,8 +417,9 @@ a {
             border-radius: 0.38rem;
             background-color: #ececec;
             color: #6d6d6d;
+            cursor: pointer;
+
             &:hover {
-                cursor: pointer;
                 border: 0.077rem solid #2faed8;
                 color: #2faed8;
             }
@@ -458,22 +439,25 @@ a {
     padding: 1.3rem 1.7rem 0.77rem 2.3rem;
     justify-content: space-between;
 
-    .footerMenu {
-        color: #6d6d6d;
-
-        a {
-            color: #6d6d6d;
-        }
-    }
-
     p {
         background: url("../images/logo-small.gif") no-repeat;
         color: #2faed8;
         font-family: Arial, sans-serif;
         font-size: 1.15rem;
         padding-left: 3.8rem;
-        align-self: flex-start;
         height: 30px;
         padding-top: 0.77rem;
+    }
+
+    .footerMenu {
+        color: #6d6d6d;
+
+        a {
+            color: #6d6d6d;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
