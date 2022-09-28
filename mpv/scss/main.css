@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  font-family: Tahoma, sans-serif;
+  background: linear-gradient(180deg, #2f3339 11px, #17181b 80px, #000 80px, #000 233px, #2f3339 233px, #16181b 321px, #000);
+}
+
+/* -------------------------- Page */
+.page {
+  height: 100%;
+  padding-bottom: 120px;
+  position: relative;
+}
+
+/* -------------------------- Header */
+.header {
+  background: url("../images/car.png") no-repeat 729px 0;
+  height: 315px;
+}
+.header .logo {
+  position: relative;
+  top: 81px;
+  left: 97px;
+  width: 1014px;
+  margin: 0 auto;
+}
+.header .logo p {
+  color: #a8aebe;
+  font-size: 17px;
+}
+.header .menu {
+  background: linear-gradient(#fd6d03, #fd5203);
+  height: 38px;
+  border: 1px solid #000000;
+  position: relative;
+  top: 222px;
+}
+.header .menu div {
+  width: 1014px;
+  margin: 0 auto;
+  display: flex;
+  padding-left: 24px;
+}
+.header .menu div a {
+  color: #23262b;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  width: 171px;
+  height: 32px;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 10px;
+}
+.header .menu div a.active {
+  color: #fd6703;
+  background: linear-gradient(#202328, #16171a);
+  border: 1px solid #000000;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  margin-top: -1px;
+}
+
+/* -------------------------- Main */
+.main {
+  background: #2f3239;
+  margin-top: 25px;
+}
+.main .content {
+  display: flex;
+  width: 1014px;
+  margin: 0 auto;
+  padding: 0 22px;
+  color: #e5e5e5;
+  font-weight: normal;
+}
+.main .content h2 {
+  color: #fd6703;
+  font-size: 20px;
+  font-weight: normal;
+}
+.main .content p {
+  font-size: 12px;
+  line-height: 15px;
+  padding: 10px 13px 7px 0;
+}
+.main .content .about {
+  width: 33.3%;
+  padding: 19px;
+  border-left: 1px dashed #a9a9a9;
+}
+.main .content .about a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.main .content .about a:hover {
+  text-decoration: none;
+}
+.main .content .services {
+  width: 33.3%;
+  padding: 19px;
+  border-left: 1px dashed #a9a9a9;
+  border-right: 1px dashed #a9a9a9;
+}
+.main .content .services ul {
+  padding-left: 22px;
+}
+.main .content .services ul li {
+  font-size: 12px;
+  list-style-image: url("../images/dot.png");
+  padding: 8px 0 8px 0;
+}
+.main .content .gallery {
+  width: 33.3%;
+  padding: 19px;
+  border-right: 1px dashed #a9a9a9;
+}
+.main .content .gallery img {
+  padding: 10px 0 10px 0;
+}
+
+/* -------------------------- Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, #000000 80%, #fd6703 15%);
+}
+.footer .contacts {
+  width: 1014px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 37px;
+  left: 44px;
+}
+.footer .contacts h2 {
+  color: #fd6703;
+  font-size: 17px;
+  font-weight: normal;
+}
+.footer .contacts p {
+  color: #e5e5e5;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=main.css.map */
