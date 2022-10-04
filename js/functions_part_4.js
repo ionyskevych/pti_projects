@@ -12,10 +12,10 @@
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
 var obj = {
     x: 5,
-    getX: function () {
+    getX: function() {
         return this.x;
     },
-    changeX: function (number) {
+    changeX: function(number) {
         this.x = number;
     }
 };
@@ -34,21 +34,21 @@ var obj = {
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
-var Circle = function (x, y, radius) {
+var Circle = function(x, y, radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
 };
 
-Circle.prototype.getDiameter = function () {
+Circle.prototype.getDiameter = function() {
     return 2 * this.radius;
 };
 
-Circle.prototype.getPerimeter = function () {
+Circle.prototype.getPerimeter = function() {
     return this.getDiameter() * 3.14;
 };
 
-Circle.prototype.getSquare = function () {
+Circle.prototype.getSquare = function() {
     return this.radius * this.radius * 3.14;
 };
 
@@ -80,11 +80,11 @@ var circle = new Circle(5, 5, 5);
 // => 650
 // pear.getCashbackAmount();
 // => 0
-var Product = function (prop) {
-    this.title = prop['title'];
-    this.price = prop['price'];
-    this.discountRate = prop['discountRate'] || 0;
-    this.cashbackRate = prop['cashbackRate'] || 0;
+var Product = function(options) {
+    this.title = options.title;
+    this.price = options.price;
+    this.discountRate = options.discountRate || 0;
+    this.cashbackRate = options.cashbackRate || 0;
 };
 
 Product.prototype.getPriceWithDiscount = function() {
@@ -116,13 +116,13 @@ Array.prototype.size = function() {
 // [5, 4, 3, 2, 1].last();
 // => 1
 Array.prototype.last = function() {
-    return  this[this.length - 1];
+    return this[this.length - 1];
 };
 // console.log([5, 4, 3, 2, 1].last());
 
 // [10, -5, 100, -2, 1000].getPositiveNumbers();
 // => [10, 100, 1000]
-Array.prototype.getPositiveNumbers = function () {
+Array.prototype.getPositiveNumbers = function() {
     var result = [];
     var i = 0;
     while (i < this.length) {
@@ -136,7 +136,7 @@ Array.prototype.getPositiveNumbers = function () {
 
 // [3, 6, 7, 'rere'].without(6);
 // => [3, 7, 'rere']
-Array.prototype.without = function (value) {
+Array.prototype.without = function(value) {
     var result = [];
     var i = 0;
     while (i < this.length) {
@@ -151,7 +151,7 @@ Array.prototype.without = function (value) {
 
 // [10, 5, 100, 2, 1000].min();
 // => 2
-Array.prototype.min = function () {
+Array.prototype.min = function() {
     var result = this[0];
     var i = 1;
     while (i < this.length) {
@@ -166,7 +166,7 @@ Array.prototype.min = function () {
 
 // [2, 2, 3].sum();
 // => 7
-Array.prototype.sum = function () {
+Array.prototype.sum = function() {
     var i = 0;
     var result = 0;
     while (i < this.length) {
@@ -181,23 +181,25 @@ Array.prototype.sum = function () {
 
 
 // Создать функции keys, values, pairs, extend, как методы объектов
-Object.prototype.keys = function () {
+Object.prototype.keys = function() {
     var result = [];
     for (var prop in this) {
-        result[result.length] = prop;
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = prop;
+        }
     }
     return result;
 };
 // console.log({one: 1, two: 2, three: 3}.keys());
 
-
+// TODO: add functions
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-var charAt = function (string, number) {
-    return string[number];
+var charAt = function(string, index) {
+    return string[index];
 };
 // console.log(charAt('March', 0));
 
@@ -209,12 +211,12 @@ var charAt = function (string, number) {
 // => "1,lol,5,dro"
 // join([1, 'lol', 5, 'dro'], '+');
 // => "1+lol+5+dro"
-var join = function (array, el) {
+var join = function(array, separator) {
     var i = 0;
     var str = '';
-    el = el || ',';
+    separator = separator || ',';
     while (i < array.length - 1) {
-        str += array[i] + el;
+        str += array[i] + separator;
         i++;
     }
     return str + array[array.length - 1];
@@ -240,7 +242,7 @@ var join = function (array, el) {
 
 // Привести примеры использования ниже
 
-// Number toFixe
+// Number toFixed
 var number = 10.954589;
 // console.log(number.toFixed());
 // console.log(number.toFixed(1));
@@ -394,41 +396,37 @@ var colors = ['green', 'red', 'azul', 'black'];
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.sort();
 // console.log(fruits);
+
 // map
-var array = [1, 4, 12, 3];
-var myF = function (el) {
-    console.log(el);
-};
-// array.map(myF);
+[1, 2, 3, 4].map(function(n) { return n * n; });
 
 
 // filter
 function biggerThenTen(value) {
     return value >= 10;
-};
+}
 // console.log([100, 2, 38, 49, 5, 68].filter(biggerThenTen));
 
 // every
-function big (element, index, array) {
+function big(element, index, array) {
     return element >= 10;
-};
+}
 // console.log([12, 5, 8, 130, 44].every(big));
 // console.log([12, 54, 18, 130, 44].every(big));
 
 
 // some
-function big (element, index, array) {
+function big(element, index, array) {
     return element >= 10;
-};
+}
 // console.log([2, 5, 8, 1, 4].some(big));
 // console.log([12, 54, 18, 130, 44].some(big));
 
 
 // reduce
-var array = [1, 2, 3, 4];
-var result = array.reduce(function (elem, sum) {
-    // return memo * number;
-    return sum + elem;
+var result = [1, 2, 3, 4].reduce(function(memo, n) {
+    //return memo * n;
+    return memo + n;
 });
 // console.log(result);
 
@@ -448,23 +446,23 @@ var car = {
     sits: 7,
     electro: true
 };
-// console.log(car.keys());
+// console.log(Object.keys(car));
 
 // values
-// console.log(car.values());
+// console.log(Object.values(car));
 
 // create
-var person = { name: 'Ivan', secondName: 'Ivanenko', age: 30};
-var protoPerson = Object.create(person);
+var protoPerson = { name: 'Ivan', secondName: 'Ivanenko', age: 30 };
+var person = Object.create(protoPerson);
 // console.log(person);
 // console.log(protoPerson);
 
 
 // assign
-// console.log(Object.assign(person, copy));
+// console.log(Object.assign({x: 2, y: 2, z: 2}, {z: 4, radius: 5}));
 
 // entries
-var person = { name: 'Ivan', secondName: 'Ivanenko', age: 10};
+var person = { name: 'Ivan', secondName: 'Ivanenko', age: 10 };
 // console.log(Object.entries(person));
 
 // Object.prototype: hasOwnProperty
@@ -472,28 +470,26 @@ var person = { name: 'Ivan', secondName: 'Ivanenko', age: 10};
 // console.log(person.hasOwnProperty('name'));
 
 
-// Function.prototype
-// apply,
-var sayHi = function (name1, name2) {
-    return 'Hi ' + name1 + ' and ' + name2 + '!';
+// Function
+var book = {
+    year: 1984,
+    name: 'Unknown'
+};
+var book2 = {
+    year: 1984,
+    name: 'Timmy'
+};
+var func = function(before, after) {
+    before = before === undefined ? '' : before;
+    after = after === undefined ? '' : after;
+    console.log(before + 'Год ' + this.year + ' Автор ' + this.name + after);
 };
 
-// console.log(sayHi.apply(this,['Masha', 'Grisha']));
+func.apply(book, ['-> ', '!!']);
+func.apply(book2);
+func.call(book, '=> ', '??');
 
-//call,
-// var sayHi = function (name) {
-//     return 'Hi ' + name + '!';
-// };
-
-// console.log(sayHi.call(this, 'Masha', 'Grisha'));
-
-// bind
-var myF = function (x){
-    return this.value+x;
-}
-var obj = {value:3};
-var newBind= myF.bind(obj);
-// console.log(newBind(3));
+var newFunc = func.bind(book);
 
 
 // Создать функцию reduce...
@@ -554,7 +550,8 @@ var count = function(list) {
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
 
-var getSearchParams = function (text){
+// TODO: wrong code
+var getSearchParams = function(text){
     var result = {};
     var re = /[a-z]=[0-9]/g;
     var list = text.match(re);

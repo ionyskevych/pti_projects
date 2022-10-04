@@ -26,10 +26,10 @@
 
 // 3. Создать 10 объектов представляющих объекты реального мира. В каждом объекте должно быть не меньше 4 свойств.
 var employee = {
-    firstName:"Ivan",
+    firstName: "Ivan",
     secondName: "Ivanov",
     age: 30,
-    married:false
+    married: false
 };
 
 var car = {
@@ -69,14 +69,14 @@ var room = {
 };
 
 var pupil = {
-    firstName:"Ivan",
+    firstName: "Ivan",
     secondName: "Ivanov",
     age: 10,
     class: 4
 };
 
 var student = {
-    firstName:"Ivan",
+    firstName: "Ivan",
     secondName: "Ivanov",
     age: 20,
     sex: null
@@ -90,7 +90,7 @@ var country = {
 };
 
 var person = {
-    firstName:"Ivan",
+    firstName: "Ivan",
     secondName: "Ivanov",
     cell: "+3809556987",
     id: 77777777
@@ -119,8 +119,7 @@ var left;
 var carName = "Volvo";
 var a = null;
 var name = 'Inna';
-var age = 33;
-var married = true;
+var age = 33, married = true;
 
 // 7. Создать массив из элементов, значения которых представлены всеми изученными типами данных в JavaScript.
 var array = [1, "number", null, undefined, false, {}, [1, 5, 8]];
@@ -133,11 +132,11 @@ var book = {
     publisher: {
         city: "Kharkiv",
         year: 2004
-        },
-        library: {
-            city: "Kyiv",
-            ID: 238756
-            }
+    },
+    library: {
+        city: "Kyiv",
+        ID: 238756
+    }
 };
 
 // 9. Написать выражения использующие все изученные арифметические операторы
@@ -156,8 +155,6 @@ var c = a < b;
 var c = a > b;
 var c = a >= b;
 var c = a <= b;
-var c = b != a;
-var c = a == b;
 var c = a === b;
 var c = a !== b;
 
@@ -197,7 +194,7 @@ fibonacci[6] = 911;
 // 16. Создать объект из 5 свойств и написать 3 выражения возвращающие значения произвольных свойств
 var person = {firstName: "Olga", surname: "Kovalenko", age: 33, sex: "Female", married: true};
 person.firstName;
-person.sex;
+person['sex'];
 person.age;
 
 // 17. Создать объект и написать 3 выражения меняющие значения его свойств

@@ -43,6 +43,9 @@ var getMatrixSum = function(matrix) {
 // console.log([].includes.call([1,3,5,7], 3));
 // console.log([].includes.apply([1,3,5,7], [3]));
 
+Array.prototype.includes.call([1,3,5,7], 3);
+Array.prototype.includes.apply([1,3,5,7], [3]);
+
 // console.log([].indexOf.call([1,3,5,7], 5));
 // console.log([].indexOf.apply([1,3,5,7], [5]));
 
@@ -52,8 +55,8 @@ var getMatrixSum = function(matrix) {
 // console.log(''.replace.call('Вася любит яблоки', 'яблоки', 'Киев'));
 // console.log(''.replace.apply('Вася любит яблоки', ['яблоки', 'Киев']));
 
-// console.log(' '.slice.apply('Киев — столица Украины', [7, 14]));
 // console.log(' '.slice.call('Киев — столица Украины', 7, 14));
+// console.log(' '.slice.apply('Киев — столица Украины', [7, 14]));
 
 
 // Создать функцию sumOfAllArguments которая принимает произвольное количество чисел и возвращает их сумму.
@@ -75,33 +78,30 @@ var sumOfAllArguments = function() {
 // Пример работы:
 // trim('   Hello world!   ');
 // => 'Hello world!'
-var trim = function (string) {
-    var i = 0;
+var trim = function(string) {
+    var i;
     var begin;
     var end;
     var result = '';
-    while (i < string.length) {
-        if (string[i] === ' ') {
-            i++;
-        } else {
+
+    for (i = 0; i < string.length; i++) {
+        if (string[i] !== ' ') {
             begin = i;
-            i = string.length;
+            break;
         }
     }
-    i = string.length - 1;
-    while (i > 0) {
-        if (string[i] === ' ') {
-            i--;
-        } else {
+
+    for (i = string.length - 1; i >= 0; i--) {
+        if (string[i] !== ' ') {
             end = i;
-            i = 0;
+            break;
         }
     }
-    i = begin;
-    while(i <= end) {
+
+    for (i = begin; i <= end; i++) {
         result += string[i];
-        i++;
     }
+
     return result;
 };
 
@@ -137,7 +137,7 @@ var a = function(number) {
 // console.log(Math.pow(5, 2));
 
 // random
-// console.log(Math.random(0, 1));
+// console.log(Math.random());
 
 // round
 // console.log(Math.round(34.5));
@@ -154,4 +154,4 @@ var a = {x: 4, y: 6};
 // console.log(JSON.stringify(a));
 
 // parse
-// console.log(JSON.parse('{\"x\":4,\"y\":6}'));
+// console.log(JSON.parse('{"x":4,"y":6}'));
