@@ -96,13 +96,13 @@ Product.prototype.getCashbackAmount = function() {
 };
 
 var apple = new Product({title: 'Apple', price: 250, discountRate: 10, cashbackRate: 1});
-console.log(apple.price);
-console.log(apple.getPriceWithDiscount());
-console.log(apple.getCashbackAmount());
+// console.log(apple.price);
+// console.log(apple.getPriceWithDiscount());
+// console.log(apple.getCashbackAmount());
 
 var pear = new Product({title: 'Pear', price: 650});
-console.log(pear.getPriceWithDiscount());
-console.log(pear.getCashbackAmount());
+// console.log(pear.getPriceWithDiscount());
+// console.log(pear.getCashbackAmount());
 
 
 // Создать функции size, last, getPositiveNumbers, without, min, sum, как методы массивов
@@ -192,7 +192,43 @@ Object.prototype.keys = function() {
 };
 // console.log({one: 1, two: 2, three: 3}.keys());
 
-// TODO: add functions
+// values
+Object.prototype.values = function () {
+    var result = [];
+    for (var prop in this) {
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = this[prop];
+        }
+    }
+    return result;
+};
+// console.log({one: 1, two: 2, three: 3}.values());
+
+// pairs
+Object.prototype.pairs = function() {
+    var result = [];
+    for (var prop in this) {
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = [prop, this[prop]];
+        }
+    }
+    return result;
+};
+// console.log({one: 1, two: 2, three: 3}.pairs());
+
+//extend
+
+Object.prototype.extend = function(source) {
+    for (var prop in source) {
+        if (this.hasOwnProperty(prop)) {
+            this[prop] = source[prop];
+        }
+    }
+    return this;
+};
+console.log({name: 'moe', age: 50}.extend({sex: "female"}));
+
+// TODO: add functions ---DONE
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
@@ -485,9 +521,9 @@ var func = function(before, after) {
     console.log(before + 'Год ' + this.year + ' Автор ' + this.name + after);
 };
 
-func.apply(book, ['-> ', '!!']);
-func.apply(book2);
-func.call(book, '=> ', '??');
+// func.apply(book, ['-> ', '!!']);
+// func.apply(book2);
+// func.call(book, '=> ', '??');
 
 var newFunc = func.bind(book);
 
@@ -550,14 +586,12 @@ var count = function(list) {
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
 
-// TODO: wrong code
+// TODO: wrong code ----done
 var getSearchParams = function(text){
-    var result = {};
-    var re = /[a-z]=[0-9]/g;
-    var list = text.match(re);
-    for (var i = 0; i < list.length; i++) {
-        result[list[i][0]] = list[i][2];
-    }
-    return result;
+   var list = text.slice(1, text.length).split('&');
+   return list.reduce((memo, item) => {
+       memo[item[0]] = item[2];
+       return memo;
+   },{});
 };
-// console.log(getSearchParams('?a=1&b=2&c=3&d=4'));
+console.log(getSearchParams('?a=1&b=2&c=3&d=4'));
