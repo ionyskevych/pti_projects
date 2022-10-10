@@ -226,9 +226,7 @@ Object.prototype.extend = function(source) {
     }
     return this;
 };
-console.log({name: 'moe', age: 50}.extend({sex: "female"}));
-
-// TODO: add functions ---DONE
+//console.log({name: 'moe', age: 50}.extend({sex: "female"}));
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
@@ -586,12 +584,11 @@ var count = function(list) {
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
 
-// TODO: wrong code ----done
-var getSearchParams = function(text){
-   var list = text.slice(1, text.length).split('&');
-   return list.reduce((memo, item) => {
-       memo[item[0]] = item[2];
+var getSearchParams = function(text) {
+   return text.slice(1).split('&').reduce((memo, item) => {
+       let parts = item.split('=');
+       memo[parts[0]] = parts[1];
        return memo;
-   },{});
+   }, {});
 };
-console.log(getSearchParams('?a=1&b=2&c=3&d=4'));
+//console.log(getSearchParams('?radius=120&b=2&c=3&d=4'));
