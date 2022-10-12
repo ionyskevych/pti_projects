@@ -1,9 +1,9 @@
 // Написать примеры использование функций из cheatsheets/cheat_sheet_underscore.txt
 // Коллекции
 // each
-_.each([3, 2, 1]), function(el, index) {
+_.each([3, 2, 1], function(el, index) {
     console.log(el * index);
-};
+});
  // => [0, 2, 2]
 
 // map
@@ -13,16 +13,16 @@ _.map({one: 1, two: 2, three: 3}, function(num, key) {
 // => [5, 10, 15]
 
 // reduce
-_.reduce([1, 2, 3], 0, function(memo, num) {
+_.reduce([1, 2, 3], function(memo, num) {
     return memo + num;
-});
+}, 0);
 // => 6
 
 // reduceRight
 var list = [[0, 1], [2, 3], [15, 20]];
-var flat = _.reduceRight(list, function(a, b) {
-    return a.concat(b);
-    }, []);
+var flat = _.reduceRight(list, function(memo, array) {
+    return memo.concat(array);
+}, []);
 // => [15, 20, 2, 3, 0, 1]
 
 // find
@@ -38,7 +38,12 @@ _.filter([1, 2, 3, 4, 5, 6], function(num) {
 // => [1, 3, 5]
 
 // where
-var cars = [{audi: 'red', year: 2020, fuel: '-'}, {acura: 'green', year: 2020, fuel: '-'}, {bmw: 'red', year: 2018, fuel: '-'}, {audi: 'red', year: 2010, fuel: '-'}]
+var cars = [
+    {audi: 'red', year: 2020, fuel: '-'},
+    {acura: 'green', year: 2020, fuel: '-'},
+    {bmw: 'red', year: 2018, fuel: '-'},
+    {audi: 'red', year: 2010, fuel: '-'}
+];
 _.where(cars, {year: 2020, fuel: '-'});
 // => [{audi: 'red', year: 2020, fuel: '-'},
 //     {acura: 'green', year: 2020, fuel: '-'}]
@@ -55,7 +60,7 @@ var movies = [
 // => { title: 'Тёмный рыцарь', director: 'Кристофер Нолан', year: '2008', budget: 185000000 },
 
 // reject
-var odds = _.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 === 0; });
+var odds = _.reject([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => [1, 3, 5]
 
 // every
@@ -63,7 +68,7 @@ _.every([2, 4, 5], function(num) { return num % 2 === 0; });
 // => false
 
 // some
-_.some([null, 0, 'yes', false]);
+_.some([2, 4, 5], function(num) { return num % 2 === 0; });
 // => true
 
 // contains
@@ -71,23 +76,30 @@ _.contains([1, 2, 3], 3);
 // => true
 
 // pluck
-var persons = [{name: 'Anna', age: 40}, {name: 'Hanna', age: 50}, {name: 'Inna', age: 60}];
+var persons = [
+    {name: 'Anna', age: 40},
+    {name: 'Hanna', age: 50},
+    {name: 'Inna', age: 60}
+];
 _.pluck(persons, 'name');
 //=> ["Anna", "Hanna", "Inna"]
 
 // max
-var numbers = [ 1, 3, 5, 900, 2, 1000];
-_.max(numbers);
+_.max([1, 3, 5, 900, 2, 1000]);
 // => 1000
 
 // min
-_.min(numbers);
+_.min([1, 3, 5, 900, 2, 1000]);
 // => 1
 
 // sortBy
-var stooges = [{color: 'red', quantity: 2}, {color: 'blue', quantity: 4}, {color: 'green', quantity: 6}];
+var stooges = [
+    {color: 'red', quantity: 2},
+    {color: 'blue', quantity: 4},
+    {color: 'green', quantity: 6}
+];
 _.sortBy(stooges, 'color');
-=> [{color: 'blue', quantity: 4}, {color: 'green', quantity: 6}, {color: 'red', quantity: 2}];
+//=> [{color: 'blue', quantity: 4}, {color: 'green', quantity: 6}, {color: 'red', quantity: 2}];
 
 // shuffle
 _.shuffle([1, 2, 3, 4, 5, 6]);
@@ -106,13 +118,14 @@ _.size({red: 1, blue: 2, yellow: 3});
 // => 3
 
 // partition
+var isOdd = function(n) { return n % 2 === 0 };
 _.partition([0, 3, 2, 5, 4, 1], isOdd);
 // => [[3, 5, 1], [0, 2, 4]]
 
 // Массивы
 // first
-_.first([5, 4, 3, 2, 1]);
-// => 5
+_.first([5, 4, 3, 2, 1], 3);
+// => [5, 4, 3]
 
 // last
 _.last([5, 4, 3, 2, 1]);
@@ -159,7 +172,7 @@ _.lastIndexOf([1, 7, 3, 1, 7, 3], 7);
 // => 4
 
 // findIndex
-_.findIndex(cars, {audi: 'red'});
+_.findIndex(cars, function(car) { return car.audi === 'red' });
 //=> 0
 
 // findLastIndex
@@ -168,39 +181,38 @@ _.findLastIndex(cars, {audi: 'red'});
 
 // Функции
 // bind
-var someObj1 = {};
-var someObj2 = {};
-var someObj3 = {};
-someObj1.name = 'Peter';
-someObj2.name = 'Mary';
-someObj3.name = 'John';
-var greeting = function (el) {
-    console.log( el + ', ' + this.name );
+var guy = {
+    name: 'John'
 };
-var greetingBind = _.bind( greeting, someObj3 );
+var greeting = function(text) {
+    console.log(text + ', ' + this.name);
+};
+var greetingBind = _.bind(greeting, guy);
 greetingBind('Welcome');
 greetingBind('Chao');
-
-// Welcome, John
-// Chao, John
+// => Welcome, John
+// => Chao, John
 
 // throttle
 var optimization = _.throttle(function() {
     console.log('!');
-}, 300);
-window.addEventListener('resize',throttled);
+}, 3000);
+window.addEventListener('resize', optimization);
 // => функция будет выводить '!' только раз в 300 милисикунд
 
 // compose
-var hi = function(name) {
-    return 'Hello: ' + name;
+var f1 = function(n) {
+    return n + 1;
 };
-var exclaim = function(statement) {
-    return statement.toUpperCase() + '!';
+var f2 = function(n) {
+    return n * 4;
 };
-var welcome = _.compose(hi, exclaim);
-welcome('iuliia');
-// => 'Hello: IULIIA!'
+var f3 = function(n) {
+    return n - 5;
+};
+var pipe = _.compose(f3, f2, f1);
+pipe(5);
+// => 19
 
 // Объекты
 // keys
@@ -212,8 +224,7 @@ _.values({one : 1, two : 2, three : 3});
 // => [1, 2, 3]
 
 // pairs
-var fruits = {apple: 10, melon: 20, potato: 30, tomato: 50 };
-var fruitsPairs = _.pairs( fruits );
+var fruitsPairs = _.pairs({apple: 10, melon: 20, potato: 30, tomato: 50 });
 //[['apple', 10], ['melon', 20], ['three', 30], ['tomato', 50]]
 
 // invert
@@ -221,8 +232,8 @@ _.invert({red: 'apple', green: "kiwi", yellow: 'lemon'});
 //=> {apple: 'red', kiwi: 'green', lemon: 'yellow'};
 
 // create
-var a = {red: 'apple', green: 'kiwi', yellow: 'lemon'};
-_.create(a, {violet: 'grape'});
+var proto = {red: 'apple', green: 'kiwi', yellow: 'lemon'};
+_.create(proto, {violet: 'grape'});
 // => {violet: 'grape'}
 // _proto_:
 //     red: apple
@@ -234,7 +245,7 @@ _.extend({name : 'Iuliia'}, {age : 33});
 // => {name : 'Iuliia', age : 33}
 
 // pick
- _.pick( fruits, [ 'melon', 'tomato' ] );
+ _.pick(fruits, ['melon', 'tomato']);
  // => {melon: 20, tomato: 50}
 
 // omit
@@ -302,6 +313,7 @@ _.isUndefined(window.missingVariable);
 // noConflict
 var underscore = _.noConflict();
 //=> Отвяжет переменную _ от объекта Underscore. Вернёт ссылку на объект
+
 // noop
 _.noop();
 //=> function() {}; - функция заглушка, всегда возвращает undefined
@@ -316,10 +328,12 @@ _.uniqueId('contact_');
 // для на клиентской стороне
 
 // result
-_.result(fruits, 'red');
-// => 'apple'
+var obj = {x: 2, getX: function() { return this.x; }};
+_.result(obj, 'x');
+// or
+_.result(obj, 'getX');
+// => 2
 
 // now
 _.now();
 // => время в милисикундах от 01/01/1970
-
