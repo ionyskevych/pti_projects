@@ -2,27 +2,27 @@
 console.log('Hello world!');
 
 //-----button 1
-$('.b1').click(function()  {
+$('.b1').on('click', function() {
     $('.t1').css('color', 'green');
 });
 
 //-----button 2
-$('.b2').click(function()  {
+$('.b2').on('click', function() {
     $('.t2').css('background-color', 'green');
 });
 
 //-----button 3
-$('.b3').click(function() {
+$('.b3').on('click', function() {
     $('.t3 a').attr('href', 'https://developer.mozilla.org/ru/docs/Web/API');
 });
 
 //-----button 4
-$('.b4').click(function() {
+$('.b4').on('click', function() {
     $('.t4 img').attr('src', 'images/bro.jpg');
 });
 
 // //-----button 5
-$('.b5').click(function() {
+$('.b5').on('click', function() {
     $('.t5').attr('id', 'cd');
 });
 
@@ -63,12 +63,12 @@ $('body').click(function(e) {
 
 // //-----button 13
 $('.b13').click(function() {
-    var translation = $('.t13').attr('data-en')
+    var translation = $('.t13').data('en');
     $('.t13').text(translation);
 });
-//
-// // //-----task 14
-$( window ).resize(function() {
+
+// //-----task 14
+$(window).on('resize', function() {
     var red = Math.round(Math.random() * 255);
     var green = Math.round(Math.random() * 255);
     var blue = Math.round(Math.random() * 255);
@@ -76,21 +76,17 @@ $( window ).resize(function() {
 });
 
 // //-----count
-$('.t98 input').on('input',function(e) {
-  $('.t98-2').text(e.currentTarget.value.length);
+$('.t98 input').on('input', function(e) {
+    $('.t98-2').text(e.currentTarget.value.length);
 });
 
 // //-----whore2
 $('.b14').click(function() {
     var whore2 = $('<div>').addClass('whore');
-    var name = $('<div>').addClass('whore-name').text(jasmine.name);
-    whore2.append(name);
-    var photo = $('<img>').attr('src', jasmine.photo).css('width', '200px');
-    whore2.append(photo);
-    var age = $('<div>').addClass('whore-age').text('Возраст: ' + jasmine.age);
-    whore2.append(age);
-    var boobs = $('<div>').addClass('whore-boobs').text('Размер груди: ' + jasmine.boobs);
-    whore2.append(boobs);
+    $('<div>').addClass('whore-name').text(jasmine.name).appendTo(whore2);
+    $('<img alt="">').attr('src', jasmine.photo).css('width', '200px').appendTo(whore2);
+    $('<div>').addClass('whore-age').text('Возраст: ' + jasmine.age).appendTo(whore2);
+    $('<div>').addClass('whore-boobs').text('Размер груди: ' + jasmine.boobs).appendTo(whore2);
     var height = $('<div>').addClass('whore-height').text('Рост:' + jasmine.height);
     whore2.append(height);
     var weight = $('<div>').addClass('whore-weight').text('Вес: ' + jasmine.weight);
@@ -99,33 +95,33 @@ $('.b14').click(function() {
     whore2.append(phone);
     var come = $('<div>').addClass('whore-can-come').text('Выезд: ' + (jasmine.can_come ? '+' : '-'));
     whore2.append(come);
-    var teaser = $('<div>').addClass('whore-teasers').text(jasmine.teaser);
+    var teaser = $('<div>').addClass('whore-teaser').text(jasmine.teaser);
     whore2.append(teaser);
 
     $('.whores-container').append(whore2);
 });
-//
+
 $('.b14').click(function() {
     var whore3 =
         '<div class="whore">' +
-        '<div class="whore-name">' + jasmine.name + '</div>' +
-        '<img src="' + jasmine.photo + '"width="200">' +
-        '<div class="whore-age">Возраст: ' + jasmine.age + '</div>' +
-        '<div class="whore-boobs">Размер груди: ' + jasmine.boobs + '</div>' +
-        '<div class="whore-height">Рост: ' + jasmine.height + '</div>' +
-        '<div class="whore-weight">Вес: ' + jasmine.weight + '</div>' +
-        '<div class="whore-phone">' + jasmine.phone + '</div>' +
-        '<div class="whore-can-come">Выезд: ' + (jasmine.can_come ? '+' : '-') + '</div>' +
-        '<div class="whore-teaser">' + jasmine.teaser + '</div>' +
+            '<div class="whore-name">' + jasmine.name + '</div>' +
+            '<img src="' + jasmine.photo + '"width="200">' +
+            '<div class="whore-age">Возраст: ' + jasmine.age + '</div>' +
+            '<div class="whore-boobs">Размер груди: ' + jasmine.boobs + '</div>' +
+            '<div class="whore-height">Рост: ' + jasmine.height + '</div>' +
+            '<div class="whore-weight">Вес: ' + jasmine.weight + '</div>' +
+            '<div class="whore-phone">' + jasmine.phone + '</div>' +
+            '<div class="whore-can-come">Выезд: ' + (jasmine.can_come ? '+' : '-') + '</div>' +
+            '<div class="whore-teaser">' + jasmine.teaser + '</div>' +
         '</div>';
     $('.whores-container').append(whore3);
 });
 //
 //-----task fish
-var fish = $('.fish');
 $('.b15').click(function() {
+    var fish = $('.fish');
 
-    if ($('.cat-container-1 .fish' )) {
+    if ($('.cat-container-1 .fish').length) {
         $('.cat-container-2').append(fish);
     } else {
         $('.cat-container-1').append(fish);
@@ -134,7 +130,7 @@ $('.b15').click(function() {
 //
 //------ task tooth
 $('.b16').click(function() {
-        $('.tooth').remove();
+    $('.tooth').remove();
 });
 
 //-----skier
@@ -167,7 +163,7 @@ for (var i = 0; i< mikki.length; i++) {
 $('.b18').click(function() {
     for (var i = 0; i < map.length; i++) {
         for (var j = 0; j < map[i].length; j++) {
-            var tile = $('<div>').addClass('tile');;
+            var tile = $('<div>').addClass('tile');
             tile.css('top', i * 16 + 'px');
             tile.css('left', j * 16 + 'px');
 
@@ -207,50 +203,44 @@ $('.b18').click(function() {
 });
 //
 //------Slider
-$('.pagination .next').click(function(){
-    var activeSlide = $('.slider .active');
-    if (activeSlide.next().length) {
-        activeSlide.removeClass('active');
-        activeSlide.next().addClass('active');
+$('.pagination .next').on('click', function() {
+    var $activeSlide = $('.slider .active');
+    if ($activeSlide.next().length) {
+        $activeSlide.removeClass('active');
+        $activeSlide.next().addClass('active');
     }
 });
 
-$('.pagination .previous').click(function(){
-    var activeSlide = $('.slider .active');
-    if (activeSlide.prev().length) {
-        activeSlide.removeClass('active');
-        activeSlide.prev().addClass('active');
+$('.pagination .previous').on('click', function() {
+    var $activeSlide = $('.slider .active');
+    if ($activeSlide.prev().length) {
+        $activeSlide.removeClass('active');
+        $activeSlide.prev().addClass('active');
     }
 });
 //
 //------Questions
-// var questions = $('.question');
-// questions.each(function(question) {
-//     question.click(function() {
-//         this.classList.toggle('active');
+// $('.question').each(function(idx, question) {
+//     $(question).click(function() {
 //         $(this).toggleClass('active');
 //     });
 // });
 
-// var questions = document.querySelectorAll('.question');
-questions.forEach(function(question) {
-    question.addEventListener('click', function() {
-        this.classList.toggle('active');
-    });
+$('.question').on('click', function() {
+    $(this).toggleClass('active');
 });
 
 //------ Tabs
 $('.tabs').click(function(e) {
-    if (!e.target.classList.contains('item')) {
+    if (!$(e.target).hasClass('item')) {
         return;
     }
 
     $('.tabs .active').removeClass('active');
     $('.tabs-content .active').removeClass('active');
 
-    e.target.classList.add('active');
-    // e.target.addClass('active');
-    $('.tabs-content .item[data-tab="' + e.target.dataset.tab + '"]').addClass('active');
+    $(e.target).addClass('active');
+    $('.tabs-content .item[data-tab="' + $(e.target).data('tab') + '"]').addClass('active');
 });
 //
 //------Login
