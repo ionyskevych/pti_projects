@@ -75,7 +75,16 @@
     </script>
 
     <script type="text/template" id="game-template">
-        Write your code here
+        {{~ it.games :game:index}}
+        <div class="game">
+            <div class="game-flags">
+                <span class="item item-hot">{{? game.flagHot}}HOT{{?}}</span>
+                <span class="item item-new">{{? game.flagNew}}NEW{{?}}</span>
+            </div>
+        <img src="{{= game.imageURL}}">
+        <h6>{{= game.name}}</h6>
+        </div>
+        {{~}}
     </script>
 
     <style>
@@ -333,7 +342,68 @@
     </script>
 
     <script type="text/template" id="nav-template">
-        Write your code here
+        {{~ it :navEnglish:index}}
+        <ul class="nav-level-first">
+            <li>
+                <a href="{{= navEnglish.url}}">{{= navEnglish.title}}</a>
+               <ul class="nav-level-second">{{= navEnglish.children}}
+                    <li>
+                        <a href="#">{{= navEnglish.title.children.title}}</a>
+                    </li>
+                    <li>
+                       <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"></a>
+                <ul class="nav-level-second">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"></a>
+                <ul class="nav-level-second">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"></a>
+                <ul class="nav-level-second">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#"></a>
+                </li>
+            </ul>
+            {{~}}
     </script>
 
     <style>
@@ -447,8 +517,20 @@
     </script>
 
     <script type="text/template" id="whore-template">
-        Write your code here
-    </script>
+       {{~ it.whores :whore:index}}
+        <div class="whore">
+            <div class="whore-name">{{= whore.name}}</div>
+            <img src="{{= whore.photo}}" width="200">
+            <div class="whore-age">Возраст: {{= whore.age}}</div>
+            <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
+            <div class="whore-height">Рост: {{= whore.height}}</div>
+            <div class="whore-weight">Вес: {{= whore.weight}}</div>
+            <div class="whore-phone">{{= whore.phone}}</div>
+            <div class="whore-can-come">Выезд: {{? whore.can_come}}+{{??}}-{{?}}</div>
+            <div class="whore-teaser">{{= whore.teaser}}</div>
+            </div>
+            {{~}}
+        </script>
 
     <style>
         .whores {
@@ -766,7 +848,20 @@
     </script>
 
     <script type="text/template" id="movie-template">
-        Write your code here
+        {{~ it.movies :movie:index}}
+        <div class="movie">
+            <div class="movie-image-container">
+                <a href="#">
+                    <img src="images/movies/{{= movie.id}}.jpg">
+                </a>
+            </div>
+            <a class="movie-title" href="#">{{= movie.title}}</a>
+            <div class="movie-details">
+                <span>{{= movie.year}}</span>
+            </div>
+        </div>
+        {{~}}
+    </script>
     </script>
 
     <style>
