@@ -343,9 +343,18 @@
 
     <script type="text/template" id="nav-template">
         <ul class="nav-level-first">
-            {{~ it :firstLevel:index}}
+            {{~ it :firstLevel:i}}
                 <li>
                     <a href="{{= firstLevel.url}}">{{= firstLevel.title}}</a>
+                    {{? firstLevel.children}}
+                        <ul class="nav-level-second">
+                            {{~ firstLevel.children :secondLevel:j}}
+                                <li>
+                                    <a href="{{= secondLevel.url}}">{{= secondLevel.title}}</a>
+                                </li>
+                            {{~}}
+                        </ul>
+                    {{?}}
                 </li>
             {{~}}
         </ul>
