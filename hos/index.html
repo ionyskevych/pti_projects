@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hos</title>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <main>
+        <div class="columnLeft">
+            <button class="buttonAdd">Добавить </button>
+            <div id="moduleWithoutDeveloper" class="block">
+                <p>Программистов пока нет</p>
+            </div>
+
+            <div id="moduleDevelopers" class="hidden block">
+                <ul id="developerList">
+                    <li data-developerid="s45mzc3q8" class="developerListItem">Юля  </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="columnRight">
+            <div class="moduleAddDeveloper hidden block">
+                <form id="formAdd">
+                    <input name="firstName" placeholder="Имя" type="text" required><br>
+                    <input name="lastName" placeholder="Фамилия" type="text" required><br>
+                    <input name="nickName" placeholder="Псевдоним" type="text" required><br>
+                    <input name="age" placeholder="Возраст" type="number" required><br>
+                    <input name="price" placeholder="Цена" type="number" required><br>
+                    <button type="submit" class="buttonSave">Сохранить</button>
+                </form>
+            </div>
+
+            <div class="moduleEditForm hidden block">
+                <form id="formEdit">
+                    <input name="firstName" placeholder="Имя" type="text"><br>
+                    <input name="lastName" placeholder="Фамилия" type="text"><br>
+                    <input name="nickName" placeholder="Псевдоним" type="text"><br>
+                    <input name="age" placeholder="Возраст" type="number"><br>
+                    <input name="price" placeholder="Цена" type="number"><br>
+                    <button class="buttonDelete">Удалить</button>
+                    <button type="submit" class="buttonUpdate">Обновить</button>
+                </form>
+            </div>
+        </div>
+    </main>
+<script src="js/main.js"></script>
+</body>
+</html>
