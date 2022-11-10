@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC App (Developers)</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/dot.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <main>
+        <div class="columnLeft">
+            <button class="buttonAdd">Добавить</button>
+            <div class="developerList block"></div>
+        </div>
+
+        <div class="columnRight">
+            <div id="addForm" class="block hidden">
+                <form>
+                    <input class="id" type="hidden" name="id">
+                    <input class="name" type="text" placeholder="Имя">
+                    <input class="lastName" type="text" placeholder="Фамилия">
+                    <input class="nickname" type="text" placeholder="Псевдоним">
+                    <input class="age" type="text" placeholder="Возраст">
+                    <input class="price" type="text" placeholder="Цена">
+                    <button class="buttonSave" type="button">Сохранить</button>
+                </form>
+            </div>
+
+            <div id="editForm" class="block hidden">
+                <form>
+                    <input class="id" type="hidden" name="id">
+                    <input class="name" type="text">
+                    <input class="lastName" type="text">
+                    <input class="nickname" type="text">
+                    <input class="age" type="text">
+                    <input class="price" type="text">
+                    <button class="buttonDelete" type="button">Удалить</button>
+                    <button class="buttonUpdate" type="button">Обновить</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="text/template" id="developerTemplate">
+        {{? it.length}}
+            <p>Программистов пока нет</p>
+        {{??}}
+            {{~ it :developer:index}}
+                <ul>
+                    <li class="developer" data-id="{{= developer.id}}">{{= developer.nickname}} {{= developer.age}}, ${{= developer.price}}</li>
+                </ul>
+            {{~}}
+        {{?}}
+    </script>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

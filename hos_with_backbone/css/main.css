@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+main {
+    width: 500px;
+    height: 100%;
+    margin: 200px auto;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.columnLeft {
+    display: flex;
+    flex-direction: column;
+}
+
+.block {
+    background-color: #bfd9f5;
+    padding: 20px;
+    border-radius: 7px;
+    text-align: center;
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/*.button-delete,*/
+/*.button-update {*/
+/*    display: none;*/
+/*}*/
+
+/*form {*/
+/*    display: none;*/
+/*}*/
+
+input {
+    width: 170px;
+    height: 21px;
+    margin-bottom: 9px;
+    border: 1px solid #7e7e7e;
+    padding: 0 5px;
+}
+
+ul {
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+}
+
+li,
+.developer {
+    list-style: none;
+
+}
+
+li:hover,
+.developer:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+button {
+    border-radius: 5px;
+    border: 1px solid #5f5c5c;
+    box-shadow: 1px 1px 1px;
+    color: #5f5c5c;
+    font-size: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.buttonAdd {
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
+.buttonSave {
+    margin-left: 79px;
+}
+
+.buttonUpdate {
+    margin-left: 25px;
+
+}
