@@ -3,16 +3,12 @@ var developers = {
 
     add: function(developer) {
         this.models.push(developer);
-        this.setModelsToStorage();
         $(this).trigger('change');
     },
 
     update: function(updatedDeveloper) {
         var developer = _.findWhere(this.models, {id: updatedDeveloper.id});
-        console.log(developer)
-        console.log(updatedDeveloper)
         _.extend(developer, updatedDeveloper);
-        this.setModelsToStorage();
         $(this).trigger('change');
     }, 
     
@@ -20,7 +16,6 @@ var developers = {
         this.models = _.reject(this.models, function(developer) {
             return developer.id === id;
         });
-        this.setModelsToStorage();
         $(this).trigger('change');
     },
 
@@ -38,10 +33,9 @@ var developers = {
 
     init: function() {
         this.models = this.getModelsFromStorage();
-        this.setModelsToStorage();
+        $(this).on('change', this.setModelsToStorage.bind(this))
     }
 };
-
 developers.init();
 
 var listView = {
@@ -49,43 +43,42 @@ var listView = {
 
     collection: developers,
 
-    renderDevelopers: function() {
+    render: function() {
         $('.developerList').html(this.tmplFn(this.collection.models));
     },
 
     subscribe: function() {
-        $('.buttonAdd').on('click', function() {
-            formView.showAddForm();
-        }.bind(this));
+        $('.buttonAdd').on('click', this.handleClickOnAddBtn.bind(this));
+        $('.developerList').on('click', this.handleClickOnWhore.bind(this));
+        $(this.collection).on('change', this.render.bind(this));
+    },
 
-        $('.developerList').on('click', function(e) {
-            if ($(e.target).hasClass('developer')) {
-                var developer = this.collection.get(e.target.id);
-                formView.showEditRemoveForm(developer);
-            }
-        }.bind(this));
+    handleClickOnAddBtn: function() {
+        formView.showAddForm();
+    },
 
-        $(this.collection).on('change', function() {
-            this.renderDevelopers();
-        }.bind(this));
+    handleClickOnWhore: function(e) {
+        if ($(e.target).hasClass('developer')) {
+            var developer = this.collection.get(e.target.dataset.id);
+            formView.showEditRemoveForm(developer);
+        }
     },
 
     init: function() {
         this.subscribe();
-        this.renderDevelopers();
+        this.render();
     }
-
 };
 listView.init();
 
-
 var formView = {
-    $fields: $('#addForm input[type="text"]'),
+    $addFormFields: $('#addForm input[type="text"]'),
+
+    $editFormFields: $('#editForm input[type="text"]'),
 
     collection: developers,
 
     showAddForm: function() {
-        // $('input').val('');
         this.resetForm();
         this.hideEditRemoveForm();
         $('#addForm').removeClass('hidden');
@@ -95,47 +88,42 @@ var formView = {
         return '_' + Math.random().toString(36).substr(2, 9);
     },
 
-    highlightFields: function() {
-        this.$fields.each(function(index, field) {
-            field.style.border = field.value === '' ? '1px solid red' : '';
+    highlightFields: function($fields) {
+        $fields.each(function(index, field) {
+            field.style.border = field.value === '' ? '1px solid red' : ''; // or add|remove class
         });
     },
 
-    isFormDataValid: function() {
-        return this.$fields.toArray().every(function(field) {
+    isFormDataValid: function($fields) {
+        return $fields.toArray().every(function(field) {
             return field.value !== '';
         });
     },
 
-    getFormData: function() {
-        var id = $('#addForm .id').val();
-
+    getAddFormData: function() {
         return {
-            id: id === '' ? this.getUniqId() : id,
-            name: document.querySelector('#addForm .name').value,
-            lastName: document.querySelector('#addForm .lastName').value,
-            nickname: document.querySelector('#addForm .nickname').value,
-            age: document.querySelector('#addForm .age').value,
-            price: document.querySelector('#addForm .price').value,
+            id: this.getUniqId(),
+            name: $('#addForm .name').val(),
+            lastName: $('#addForm .lastName').val(),
+            nickname: $('#addForm .nickname').val(),
+            age: $('#addForm .age').val(),
+            price: $('#addForm .price').val(),
         }
     },
 
     getEditFormData: function() {
-        var id = $('#editForm .id').val();
-        console.log(id);
-
         return {
-            id: id === '' ? this.getUniqId() : id,
-            name: document.querySelector('#editForm .name').value,
-            lastName: document.querySelector('#editForm .lastName').value,
-            nickname: document.querySelector('#editForm .nickname').value,
-            age: document.querySelector('#editForm .age').value,
-            price: document.querySelector('#editForm .price').value,
+            id: $('#editForm .id').val(),
+            name: $('#editForm .name').val(),
+            lastName: $('#editForm .lastName').val(),
+            nickname: $('#editForm .nickname').val(),
+            age: $('#editForm .age').val(),
+            price: $('#editForm .price').val(),
         }
     },
 
     showEditRemoveForm: function(developer) {
-        $('input').val('');
+        this.resetForm();
 
         $('.id').val(developer.id);
         $('.name').val(developer.name);
@@ -148,45 +136,54 @@ var formView = {
         $('#addForm').addClass('hidden');
     },
 
-    hideEditRemoveForm: function(developer) {
+    hideEditRemoveForm: function() {
         $('#editForm').addClass('hidden');
     },
 
+    hideAddForm: function() {
+        $('#addForm').addClass('hidden');
+    },
 
     resetForm: function() {
         $('input').val('');
     },
 
-    init: function() {
-        $('.buttonSave').on('click', function() {
-            if (this.isFormDataValid()) {
-                this.collection.add(this.getFormData());
-                listView.renderDevelopers();
-                this.resetForm();
-            } else {
-                this.highlightFields();
-            }
-            $('#addForm').addClass('hidden');
-        }.bind(this));
-       
-        $('.buttonDelete').on('click', function() {
-            var id = $('.id').val();
-            this.collection.remove(id);
-            this.resetForm();
-            this.hideEditRemoveForm();
-            listView.renderDevelopers();
-        }.bind(this));
+    subscribe: function() {
+        $('.buttonSave').on('click', this.handleSave.bind(this));
+        $('.buttonDelete').on('click', this.handleDelete.bind(this));
+        $('.buttonUpdate').on('click', this.handleUpdate.bind(this));
+    },
 
-        $('.buttonUpdate').on('click', function() {
+    init: function() {
+        this.subscribe();
+    },
+
+    handleSave: function() {
+        if (this.isFormDataValid(this.$addFormFields)) {
+            this.collection.add(this.getAddFormData());
+            this.resetForm();
+            this.hideAddForm();
+        } else {
+            this.highlightFields(this.$addFormFields);
+        }
+    },
+
+    handleUpdate: function() {
+        if (this.isFormDataValid(this.$editFormFields)) {
             var updatedDeveloper = this.getEditFormData();
-            console.log(updatedDeveloper)
             this.collection.update(updatedDeveloper);
             this.resetForm();
             this.hideEditRemoveForm();
-            listView.renderDevelopers();
-        }.bind(this));
+        } else {
+            this.highlightFields(this.$editFormFields);
+        }
+    },
+
+    handleDelete: function() {
+        var id = $('.id').val();
+        this.collection.remove(id);
+        this.resetForm();
+        this.hideEditRemoveForm();
     }
 };
-
 formView.init();
-
