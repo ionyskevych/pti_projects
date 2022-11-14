@@ -46,8 +46,8 @@
     </main>
 
     <script type="text/template" id="developerTemplate">
-        {{? it.length === 0}}
-            <p> Программистов пока нет</p>
+        {{? it.length}}
+            <p>Программистов пока нет</p>
         {{??}}
             {{~ it :developer:index}}
                 <ul>
@@ -57,6 +57,6 @@
         {{?}}
     </script>
 
-    <script src="js/hosMVC.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
