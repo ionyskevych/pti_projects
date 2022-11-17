@@ -3,11 +3,7 @@ var Developer = Backbone.Model;
 var Developers = Backbone.Collection.extend({
     initialize: function() {
         this.reset(this.getModelsFromStorage());
-        this.setModelsToStorage();
-
-        this.on('all', function() {
-            this.setModelsToStorage();
-        });
+        this.on('all', this.setModelsToStorage);
     },
 
     setModelsToStorage: function() {
@@ -27,11 +23,8 @@ var ListView = Backbone.View.extend({
     el: '#listView',
 
     initialize: function() {
-        this.listenTo(this.collection, 'all', function() {
-            this.render()
-        });
-
-        this.render()
+        this.listenTo(this.collection, 'all', this.render);
+        this.render();
     },
 
     events: {
@@ -44,136 +37,136 @@ var ListView = Backbone.View.extend({
     },
 
     handleClickOnWhore: function(e) {
-
-        if ($(e.target).hasClass('developer')) {
-            var developer = this.collection.get(e.target.dataset.id);
-            console.log(developer);
-            formView.showEditRemoveForm(developer);
-        }
+        var developer = this.collection.get(e.target.dataset.id);
+        formView.showEditRemoveForm(developer);
     },
 
     render: function() {
         this.$('.developerList').html(this.tmplFn(this.collection.toJSON()));
-    },
+    }
 });
 
 var listView = new ListView({
-    collection: developers,
+    collection: developers
 });
 
 var FormView = Backbone.View.extend({
-        $addFormFields: this.$('#addForm input[type="text"]'),
+    $addFormFields: this.$('#addForm input[type="text"]'),
 
-        $editFormFields: this.$('#editForm input[type="text"]'),
+    $editFormFields: this.$('#editForm input[type="text"]'),
 
-       el: '#forms',
+    el: '#forms',
 
-        showAddForm: function() {
+    showAddForm: function() {
+        this.resetForm();
+        this.hideEditRemoveForm();
+        this.$('#addForm').removeClass('hidden');
+    },
+
+    getUniqId: function() {
+        return '_' + Math.random().toString(36).substr(2, 9);
+    },
+
+    highlightFields: function($fields) {
+        $fields.each(function(index, field) {
+            field.style.border = field.value === '' ? '1px solid red' : '';
+        });
+    },
+
+    isFormDataValid: function($fields) {
+        return $fields.toArray().every(function(field) {
+            return field.value !== '';
+        });
+    },
+
+    getAddFormData: function() {
+        return {
+            id: this.getUniqId(),
+            name: this.$('#addForm .name').val(),
+            lastName: this.$('#addForm .lastName').val(),
+            nickname: this.$('#addForm .nickname').val(),
+            age: this.$('#addForm .age').val(),
+            price: this.$('#addForm .price').val(),
+        };
+    },
+
+    getEditFormData: function() {
+        return {
+            id: this.$('#editForm .id').val(),
+            name: this.$('#editForm .name').val(),
+            lastName: this.$('#editForm .lastName').val(),
+            nickname: this.$('#editForm .nickname').val(),
+            age: this.$('#editForm .age').val(),
+            price: this.$('#editForm .price').val(),
+        };
+    },
+
+    showEditRemoveForm: function(developer) {
+        this.resetForm();
+        this.prefillFormData(developer.toJSON());
+
+        this.$('#editForm').removeClass('hidden');
+        this.$('#addForm').addClass('hidden');
+    },
+
+    prefillFormData: function(developer) {
+        this.$('.id').val(developer.id);
+        this.$('.name').val(developer.name);
+        this.$('.lastName').val(developer.lastName);
+        this.$('.nickname').val(developer.nickname);
+        this.$('.age').val(developer.age);
+        this.$('.price').val(developer.price);
+    },
+
+    hideEditRemoveForm: function() {
+        this.$('#editForm').addClass('hidden');
+    },
+
+    hideAddForm: function() {
+        this.$('#addForm').addClass('hidden');
+    },
+
+    resetForm: function() {
+        this.$('input').val('');
+
+        this.$addFormFields.each(function(index, field) {
+            field.style.border = '';
+        });
+    },
+
+    events: {
+        'click .buttonSave': 'handleSave',
+        'click .buttonDelete': 'handleDelete',
+        'click .buttonUpdate': 'handleUpdate'
+    },
+
+    handleSave: function() {
+        if (this.isFormDataValid(this.$addFormFields)) {
+            this.collection.add(this.getAddFormData());
             this.resetForm();
-            this.hideEditRemoveForm();
-            $('#addForm').removeClass('hidden');
-        },
-
-        getUniqId: function() {
-            return '_' + Math.random().toString(36).substr(2, 9);
-        },
-
-        highlightFields: function($fields) {
-            this.$fields.each(function(index, field) {
-                field.style.border = field.value === '' ? '1px solid red' : '';
-            });
-        },
-
-        isFormDataValid: function($fields) {
-            return $fields.toArray().every(function(field) {
-                return field.value !== '';
-            });
-        },
-
-        getAddFormData: function() {
-            return {
-                id: this.getUniqId(),
-                name: $('#addForm .name').val(),
-                lastName: $('#addForm .lastName').val(),
-                nickname: $('#addForm .nickname').val(),
-                age: $('#addForm .age').val(),
-                price: $('#addForm .price').val(),
-            }
-        },
-
-        getEditFormData: function() {
-            return {
-                id: $('#editForm .id').val(),
-                name: $('#editForm .name').val(),
-                lastName: $('#editForm .lastName').val(),
-                nickname: $('#editForm .nickname').val(),
-                age: $('#editForm .age').val(),
-                price: $('#editForm .price').val(),
-            }
-        },
-
-        showEditRemoveForm: function(developer) {
-            this.resetForm();
-
-            developer = developer.toJSON();
-
-            this.$('.id').val(developer.id);
-            this.$('.name').val(developer.name);
-            this.$('.lastName').val(developer.lastName);
-            this.$('.nickname').val(developer.nickname);
-            this.$('.age').val(developer.age);
-            this.$('.price').val(developer.price);
-
-            $('#editForm').removeClass('hidden');
-            $('#addForm').addClass('hidden');
-        },
-
-        hideEditRemoveForm: function() {
-            $('#editForm').addClass('hidden');
-        },
-
-        hideAddForm: function() {
-            $('#addForm').addClass('hidden');
-        },
-
-        resetForm: function() {
-            this.$('input').val('');
-        },
-
-        events: {
-            'click .buttonSave': 'handleSave',
-            'click .buttonDelete': 'handleDelete',
-            'click .buttonUpdate': 'handleUpdate',
-        },
-
-        handleSave: function() {
-            if (this.isFormDataValid(this.$addFormFields)) {
-                this.collection.add(this.getAddFormData());
-                this.resetForm();
-                this.hideAddForm();
-            } else {
-                this.highlightFields(this.$addFormFields);
-            }
-        },
-
-        handleUpdate: function() {
-            if (this.isFormDataValid(this.$editFormFields)) {
-                var updatedDeveloper = this.getEditFormData();
-                console.log(updatedDeveloper);
-                this.collection.add(updatedDeveloper, {merge: true});
-                this.resetForm();
-                this.hideEditRemoveForm();
-            } else {
-                this.highlightFields(this.$editFormFields);
-            }
-        },
-
-        handleDelete: function() {
-            var id = $('.id').val();
-            this.collection.remove(id);
-            this.resetForm();
-            this.hideEditRemoveForm();
+            this.hideAddForm();
+        } else {
+            this.highlightFields(this.$addFormFields);
         }
+    },
+
+    handleUpdate: function() {
+        if (this.isFormDataValid(this.$editFormFields)) {
+            var updatedDeveloper = this.getEditFormData();
+            this.collection.add(updatedDeveloper, {merge: true});
+            this.resetForm();
+            this.hideEditRemoveForm();
+        } else {
+            this.highlightFields(this.$editFormFields);
+        }
+    },
+
+    handleDelete: function() {
+        var id = this.$('.id').val();
+        this.collection.remove(id);
+        this.resetForm();
+        this.hideEditRemoveForm();
+    }
 });
 
 var formView = new FormView({

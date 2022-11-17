@@ -47,13 +47,14 @@
     </main>
 
     <script type="text/template" id="developerTemplate">
-        {{? it.length === 0}}
-            <p> Программистов пока нет</p>
-        {{??}}
-        <ul></ul>
-            {{~ it :developer:index}}
+        {{? it.length}}
+            <ul>
+                {{~ it :developer:index}}
                     <li class="developer" data-id="{{= developer.id}}">{{= developer.nickname}} {{= developer.age}}, ${{= developer.price}}</li>
-            {{~}}
+                {{~}}
+            </ul>
+        {{??}}
+            <p>Программистов пока нет</p>
         {{?}}
     </script>
 
