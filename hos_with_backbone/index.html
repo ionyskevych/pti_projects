@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MVC App (Developers)</title>
+    <title>Backbone App (Developers)</title>
     <script src="js/jquery.js"></script>
     <script src="js/underscore.js"></script>
     <script src="js/dot.js"></script>
+    <script src="js/backbone.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <main>
-        <div class="columnLeft">
+        <div class="columnLeft" id="listView">
             <button class="buttonAdd">Добавить</button>
             <div class="developerList block"></div>
         </div>
 
-        <div class="columnRight">
+        <div id="forms" class="columnRight">
             <div id="addForm" class="block hidden">
                 <form>
                     <input class="id" type="hidden" name="id">
@@ -46,17 +47,16 @@
     </main>
 
     <script type="text/template" id="developerTemplate">
-        {{? it.length}}
-            <p>Программистов пока нет</p>
+        {{? it.length === 0}}
+            <p> Программистов пока нет</p>
         {{??}}
+        <ul></ul>
             {{~ it :developer:index}}
-                <ul>
                     <li class="developer" data-id="{{= developer.id}}">{{= developer.nickname}} {{= developer.age}}, ${{= developer.price}}</li>
-                </ul>
             {{~}}
         {{?}}
     </script>
 
-    <script src="js/index.js"></script>
+    <script src="js/hos.js"></script>
 </body>
 </html>
