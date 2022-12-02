@@ -6,7 +6,7 @@
 // };
 
 // TODO: Write your code here
-var f = function(a=7, b=4) {
+var f = function(a = 7, b = 4) {
     console.log(a, b);
 };
 
@@ -41,7 +41,7 @@ var jasmine = {
 // TODO: Write your code here
 var whore = `
     <div class="whore">
-        <div class="whore-name"> ${jasmine.name}</div>
+        <div class="whore-name">${jasmine.name}</div>
         <img src="${jasmine.photo}" width="200">
         <div class="whore-age">Возраст: ${jasmine.age}</div>
         <div class="whore-boobs">Размер груди: ${jasmine.boobs}</div>
@@ -51,7 +51,7 @@ var whore = `
         <div class="whore-can-come"> Выезд: ${(jasmine.can_come ? '+' : '-')}</div>
         <div class="whore-teaser">${jasmine.teaser}</div>
     </div>
-    `;
+`;
 
 
 
@@ -65,12 +65,9 @@ var name = 'Вася';
 
 // TODO: Write your code here
 var o = {
-    name: name,
-    getName() {
-        return this.name;
-    }
+    name,
+    getName() { return this.name; }
 };
-o.getName();
 
 
 // Перепиши выражения используя оператор ...
@@ -103,7 +100,10 @@ whores = [...whores, {name: 'Ванесса', age: 22 }];
 
 var fruits3 = [...fruits1, ...fruits2];
 
-var person = {...vasya, ...{age: 31}};
+var person = {
+    ...vasya,
+    age: 31
+};
 
 
 
@@ -129,7 +129,7 @@ var f3 = (a, b) => {
     return c * c;
 };
 
-var f4 = () => 'Хуй мусорам!'
+var f4 = () => 'Хуй мусорам!';
 
 // Перепиши класс Circle из файла js/functions_part_4.js используя синтаксис классов
 
@@ -141,19 +141,23 @@ class Circle {
         this.y = y;
         this.radius = radius;
     }
+
     getDiameter() {
         return 2 * this.radius;
     }
+
     getPerimeter() {
         return this.getDiameter() * 3.14;
     }
+
     getSquare() {
         return this.radius * this.radius * 3.14;
     }
+
     static cool() {
         console.log('cool');
     }
-};
+}
 
 var circle = new Circle(5, 5, 5);
 
@@ -170,5 +174,4 @@ var config = {
 
 // TODO: Write your code here
 
-var {host, port, dbName = 'default'} = config;
-
+var {host, port: port2, dbName = 'default'} = config;
