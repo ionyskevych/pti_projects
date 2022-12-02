@@ -18,8 +18,8 @@ var ajax = function(method, url, data, callback) {
 // ------------------ Games
 
 $('.add-games').on('click', function() {
-    ajax('GET', 'http://127.0.0.1:3001/games', null, function(body) {
-        var games = JSON.parse(body);
+    ajax('GET', 'http://127.0.0.1:3001/games', null, function(response) {
+        var games = JSON.parse(response);
         var gameTemplate = $('#game-template').html();
         $('#games').html(doT.template(gameTemplate)({games: games}));
     });
@@ -27,34 +27,32 @@ $('.add-games').on('click', function() {
 
 //-------------------- Menu
 
-$('.btn-nav-en').on('click', function () {
+$('.btn-nav-en').on('click', function() {
     $.ajax({
         method: 'GET',
         url: 'http://127.0.0.1:3001/menu/en',
         dataType: 'json'
-    }).done(function (body) {
-        console.log('success', body);
-        var navTemplate = document.querySelector('#nav-template').innerHTML;
-        document.querySelector('#nav').innerHTML = doT.template(navTemplate)(body);
-    }).fail(function () {
+    }).done(function(response) {
+        var navTemplate = $('#nav-template').html();
+        $('#nav').html(doT.template(navTemplate)(response));
+    }).fail(function() {
         console.log('error');
-    }).always(function () {
+    }).always(function() {
         console.log('complete');
     });
 });
 
-$('.btn-nav-ru').on('click', function () {
+$('.btn-nav-ru').on('click', function() {
     $.ajax({
         method: 'GET',
         url: 'http://127.0.0.1:3001/menu/ru',
         dataType: 'json'
-    }).done(function (body) {
-        console.log('success', body);
-        var navTemplate = document.querySelector('#nav-template').innerHTML;
-        document.querySelector('#nav').innerHTML = doT.template(navTemplate)(body);
-    }).fail(function () {
+    }).done(function(response) {
+        var navTemplate = $('#nav-template').html();
+        $('#nav').html(doT.template(navTemplate)(response));
+    }).fail(function() {
         console.log('error');
-    }).always(function () {
+    }).always(function() {
         console.log('complete');
     });
 });
@@ -62,8 +60,8 @@ $('.btn-nav-ru').on('click', function () {
 //------------- Whores
 
 $('.add-whores').on('click', function() {
-    ajax('GET', 'http://127.0.0.1:3001/whores', null, function(body) {
-        var whores = JSON.parse(body);
+    ajax('GET', 'http://127.0.0.1:3001/whores', null, function(response) {
+        var whores = JSON.parse(response);
         var whoreTemplate = $('#whore-template').html();
         $('#whores').html(doT.template(whoreTemplate)({whores: whores}));
     });
@@ -76,13 +74,12 @@ $('.add-movies').on('click', function() {
         method: 'GET',
         url: 'http://127.0.0.1:3001/movies',
         dataType: 'json'
-    }).done(function (body) {
-        console.log('success', body);
+    }).done(function(movies) {
         var gameTemplate = $('#movie-template').html();
-        $('#movies').html(doT.template(gameTemplate)({movies: body}));
-    }).fail(function () {
+        $('#movies').html(doT.template(gameTemplate)({movies: movies}));
+    }).fail(function() {
         console.log('error');
-    }).always(function () {
+    }).always(function() {
         console.log('complete');
     });
 });

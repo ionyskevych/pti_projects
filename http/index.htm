@@ -33,14 +33,14 @@
 
     <script type="text/template" id="game-template">
         {{~ it.games :game:index}}
-        <div class="game">
-            <div class="game-flags">
-                {{? game.flagHot}}<span class="item item-hot">Hot</span>{{?}}
-                {{? game.flagNew}}<span class="item item-new">New</span>{{?}}
+            <div class="game">
+                <div class="game-flags">
+                    {{? game.flagHot}}<span class="item item-hot">Hot</span>{{?}}
+                    {{? game.flagNew}}<span class="item item-new">New</span>{{?}}
+                </div>
+                <img src="{{= game.imageURL}}">
+                <h6>{{= game.name}}</h6>
             </div>
-            <img src="{{= game.imageURL}}">
-            <h6>{{= game.name}}</h6>
-        </div>
         {{~}}
     </script>
 
@@ -142,18 +142,18 @@
     <script type="text/template" id="nav-template">
         <ul class="nav-level-first">
             {{~ it :firstLevel:i}}
-            <li>
-                <a href="{{= firstLevel.url}}">{{= firstLevel.title}}</a>
-                {{? firstLevel.children}}
-                <ul class="nav-level-second">
-                    {{~ firstLevel.children :secondLevel:j}}
-                    <li>
-                        <a href="{{= secondLevel.url}}">{{= secondLevel.title}}</a>
-                    </li>
-                    {{~}}
-                </ul>
-                {{?}}
-            </li>
+                <li>
+                    <a href="{{= firstLevel.url}}">{{= firstLevel.title}}</a>
+                    {{? firstLevel.children}}
+                        <ul class="nav-level-second">
+                            {{~ firstLevel.children :secondLevel:j}}
+                                <li>
+                                    <a href="{{= secondLevel.url}}">{{= secondLevel.title}}</a>
+                                </li>
+                            {{~}}
+                        </ul>
+                    {{?}}
+                </li>
             {{~}}
         </ul>
     </script>
@@ -221,17 +221,17 @@
 
     <script type="text/template" id="whore-template">
         {{~ it.whores :whore:index}}
-        <div class="whore">
-            <div class="whore-name">{{= whore.name}}</div>
-            <img src="{{= whore.photo}}" width="200">
-            <div class="whore-age">Возраст: {{= whore.age}}</div>
-            <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
-            <div class="whore-height">Рост: {{= whore.height}}</div>
-            <div class="whore-weight">Вес: {{= whore.weight}}</div>
-            <div class="whore-phone">{{= whore.phone}}</div>
-            <div class="whore-can-come">Выезд: {{? whore.can_come}}+{{??}}-{{?}}</div>
-            <div class="whore-teaser">{{= whore.teaser}}</div>
-        </div>
+            <div class="whore">
+                <div class="whore-name">{{= whore.name}}</div>
+                <img src="{{= whore.photo}}" width="200">
+                <div class="whore-age">Возраст: {{= whore.age}}</div>
+                <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
+                <div class="whore-height">Рост: {{= whore.height}}</div>
+                <div class="whore-weight">Вес: {{= whore.weight}}</div>
+                <div class="whore-phone">{{= whore.phone}}</div>
+                <div class="whore-can-come">Выезд: {{? whore.can_come}}+{{??}}-{{?}}</div>
+                <div class="whore-teaser">{{= whore.teaser}}</div>
+            </div>
         {{~}}
     </script>
 
@@ -307,17 +307,17 @@
 
     <script type="text/template" id="movie-template">
         {{~ it.movies :movie:index}}
-        <div class="movie">
-            <div class="movie-image-container">
-                <a href="#">
-                    <img src="images/movies/{{= movie.id}}.jpg">
-                </a>
+            <div class="movie">
+                <div class="movie-image-container">
+                    <a href="#">
+                        <img src="images/movies/{{= movie.id}}.jpg">
+                    </a>
+                </div>
+                <a class="movie-title" href="#">{{= movie.title}}</a>
+                <div class="movie-details">
+                    <span>{{= movie.year}}</span>
+                </div>
             </div>
-            <a class="movie-title" href="#">{{= movie.title}}</a>
-            <div class="movie-details">
-                <span>{{= movie.year}}</span>
-            </div>
-        </div>
         {{~}}
     </script>
 
