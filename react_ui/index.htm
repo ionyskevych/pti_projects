@@ -83,7 +83,7 @@
 
     <script type="text/babel">
         $('.add-list-1').on('click', function() {
-            var list = React.createElement('ul', {
+            var ul = React.createElement('ul', {
                 className: 'nuts'
             }, [
                 React.createElement('li', null, 'Арахис'),
@@ -92,8 +92,7 @@
                 React.createElement('li', null, 'Миндаль')
             ]);
 
-            ReactDOM.render(list, document.querySelector('#list-1'));
-
+            ReactDOM.render(ul, document.querySelector('#list-1'));
         });
 
         $('.add-list-2').on('click', function() {
@@ -101,17 +100,16 @@
                 return (
                     React.createElement('ul', {
                             className: 'nuts'
-                        }, props.items.map((item, idx) => React.createElement('li', null, item))
+                        }, props.items.map((name, idx) => React.createElement('li', null, name))
                     )
                 );
             };
 
             var ul = React.createElement(Ul, {
-                items: ['Арахис', 'Кешью', 'Фундук', 'Миндаль']
+                items: nuts
             });
 
             ReactDOM.render(ul, document.querySelector('#list-2'));
-
         });
 
         $('.add-list-3').on('click', function() {
@@ -120,14 +118,14 @@
                     return (
                         React.createElement('ul', {
                                 className: 'nuts'
-                            }, this.props.items.map((item, idx) => React.createElement('li', {key: idx}, item))
+                            }, this.props.items.map((name, idx) => React.createElement('li', {key: idx}, name))
                         )
                     );
                 }
             }
 
             var ul = React.createElement(Ul, {
-                items: ['Арахис', 'Кешью', 'Фундук', 'Миндаль']
+                items: nuts
             });
 
             ReactDOM.render(ul, document.querySelector('#list-3'));
@@ -159,14 +157,13 @@
 
     <script type="text/babel">
         $('.add-list-4').on('click', function() {
-            var list = React.createElement('ul', {
+            var ul = React.createElement('ul', {
                     className: 'nuts'
                 },
                 nuts.map(nut => React.createElement('li', null, nut))
             );
 
-            ReactDOM.render(list, document.querySelector('#list-4'));
-
+            ReactDOM.render(ul, document.querySelector('#list-4'));
         });
 
         $('.add-list-5').on('click', function() {
@@ -174,7 +171,7 @@
                 return (
                     React.createElement('ul', {
                             className: 'nuts'
-                        }, props.items.map((item, idx) => React.createElement('li', null, item))
+                        }, props.items.map((nut, idx) => React.createElement('li', null, nut))
                     )
                 );
             };
@@ -184,7 +181,6 @@
             });
 
             ReactDOM.render(ul, document.querySelector('#list-5'));
-
         });
 
         $('.add-list-6').on('click', function() {
@@ -193,7 +189,7 @@
                     return (
                         React.createElement('ul', {
                                 className: 'nuts'
-                            }, this.props.items.map((item, idx) => React.createElement('li', {key: idx}, item))
+                            }, this.props.items.map((name, idx) => React.createElement('li', {key: idx}, name))
                         )
                     );
                 }
@@ -204,7 +200,6 @@
             });
 
             ReactDOM.render(ul, document.querySelector('#list-6'));
-
         });
     </script>
 
@@ -233,31 +228,26 @@
     <script type="text/babel">
         // Write your code here
         $('.add-list-7').on('click', function() {
-            var list = <ul className="nuts">
+            var ul = <ul className="nuts">
                 <li>Арахис</li>
                 <li>Кешью</li>
                 <li>Фундук</li>
                 <li>Миндаль</li>
             </ul>;
 
-            ReactDOM.render(list, document.querySelector('#list-7'));
-
+            ReactDOM.render(ul, document.querySelector('#list-7'));
         });
 
         $('.add-list-8').on('click', function() {
             var Ul = function(props) {
                 return (
                     <ul className="nuts">
-                        {
-                            props.items.map((item, idx) => <li key={idx}>{item}</li>)
-                        }
+                        { props.items.map((item, idx) => <li key={idx}>{item}</li>) }
                     </ul>
                 );
             };
 
-            var ul = <Ul items={['Арахис', 'Кешью', 'Фундук', 'Миндаль']} />;
-
-            ReactDOM.render(ul, document.querySelector('#list-8'));
+            ReactDOM.render(<Ul items={nuts} />, document.querySelector('#list-8'));
         });
 
         $('.add-list-9').on('click', function() {
@@ -265,18 +255,13 @@
                 render() {
                     return (
                         <ul className="nuts">
-                            {
-                                this.props.items.map((item, idx) => <li key={idx}>{item}</li>)
-                            }
+                            { this.props.items.map((item, idx) => <li key={idx}>{item}</li>) }
                         </ul>
                     );
                 }
             }
 
-            var ul = <Ul items={['Арахис', 'Кешью', 'Фундук', 'Миндаль']} />;
-
-            ReactDOM.render(ul, document.querySelector('#list-9'));
-
+            ReactDOM.render(<Ul items={nuts} />, document.querySelector('#list-9'));
         });
     </script>
 
@@ -305,30 +290,23 @@
     <script type="text/babel">
         // Write your code here
         $('.add-list-10').on('click', function() {
-            var list = <ul className="nuts">
-                {
-                    nuts.map((item,idx) => <li key={idx}>{item}</li>)
-                }
+            var ul = <ul className="nuts">
+                { nuts.map((item,idx) => <li key={idx}>{item}</li>) }
             </ul>;
 
-            ReactDOM.render(list, document.querySelector('#list-10'));
-
+            ReactDOM.render(ul, document.querySelector('#list-10'));
         });
 
         $('.add-list-11').on('click', function() {
             var Ul = function(props) {
                 return (
                     <ul className="nuts">
-                        {
-                            props.items.map((item, idx) => <li key={idx}>{item}</li>)
-                        }
+                        { props.items.map((item, idx) => <li key={idx}>{item}</li>) }
                     </ul>
                 );
             };
 
-            var ul = <Ul items={nuts} />;
-
-            ReactDOM.render(ul, document.querySelector('#list-11'));
+            ReactDOM.render(<Ul items={nuts} />, document.querySelector('#list-11'));
         });
 
         $('.add-list-12').on('click', function() {
@@ -336,18 +314,13 @@
                 render() {
                     return (
                         <ul className="nuts">
-                            {
-                                this.props.items.map((item, idx) => <li key={idx}>{item}</li>)
-                            }
+                            { this.props.items.map((item, idx) => <li key={idx}>{item}</li>) }
                         </ul>
                     );
                 }
             }
 
-            var ul = <Ul items={nuts} />;
-
-            ReactDOM.render(ul, document.querySelector('#list-12'));
-
+            ReactDOM.render(<Ul items={nuts} />, document.querySelector('#list-12'));
         });
     </script>
 
@@ -404,13 +377,11 @@
         ];
     </script>
 
-    </script><script type="text/babel">
-        // Write your code here
+    <script type="text/babel">
         $('.add-games').on('click', function() {
-            console.log(6);
             var Game = function(props) {
                 return (
-                    <div className='game'>
+                    <div className="game">
                         <div className="game-flags">
                             {props.flagHot ? <span className="item item-hot">Hot</span> : null}
                             {props.flagNew ? <span className="item item-new">New</span> : null}
@@ -424,6 +395,7 @@
             var Games = function({games}) {
                 return games.map((game, idx) => <Game key={idx} {...game} />);
             };
+
             ReactDOM.render(<Games games={games} />, document.querySelector('#games'));
         });
     </script>
@@ -572,13 +544,12 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
         $('.add-whores').on('click', function() {
-        var Whore = function(props) {
-            return (
-                <div className="whore">
-                    <div className="whore-name">{props.name}</div>
-                    <img src={props.photo}/>
+            var Whore = function(props) {
+                return (
+                    <div className="whore">
+                        <div className="whore-name">{props.name}</div>
+                        <img src={props.photo}/>
                         <div className="whore-age">Возраст: {props.age}</div>
                         <div className="whore-boobs">Размер груди: {props.boobs}</div>
                         <div className="whore-height">Рост: {props.height}</div>
@@ -586,14 +557,15 @@
                         <div className="whore-phone">{props.phone}</div>
                         <div className="whore-can-come">Выезд: {props.can_come ? '+' : '-'}</div>
                         <div className="whore-teaser">{props.teaser}</div>
-                </div>
-            );
-        };
+                    </div>
+                );
+            };
 
-        var Whores = function({whores}) {
-            return whores.map((whore, idx) => <Whore key={idx} {...whore} />);
-        };
-        ReactDOM.render(<Whores whores={whores} />, document.querySelector('#whores'));
+            var Whores = function({whores}) {
+                return whores.map((whore, idx) => <Whore key={idx} {...whore} />);
+            };
+
+            ReactDOM.render(<Whores whores={whores} />, document.querySelector('#whores'));
         });
     </script>
 
@@ -943,15 +915,13 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
         $('.add-movies').on('click', function() {
             var Movie = function(props) {
-                var imgSrc = 'images/movies/' + props.id + '.jpg';
                 return (
                     <div className="movie">
                         <div className="movie-image-container">
                             <a href="#">
-                               <img src={imgSrc} />
+                               <img src={`images/movies/${props.id}.jpg`} />
                             </a>
                         </div>
                         <a className="movie-title" href="#">{props.title}</a>
@@ -965,6 +935,7 @@
             var Movies = function({movies}) {
                 return movies.map((movie, idx) => <Movie key={idx} {...movie} />);
             };
+
             ReactDOM.render(<Movies movies={movies} />, document.querySelector('#movies'));
         });
     </script>
@@ -1284,29 +1255,25 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
         $('.add-rich').on('click', function() {
-            var Rich = function(rich) {
+            var Rich = function({headings, data: persons}) {
                 return (
                     <table>
-                            <tr>
-                                {
-                                    rich.headings.map((item, idx) => <th key={idx}>{item}</th>)
-                                }
-                            </tr>
-                        {
-                            rich.data.map((item, idx) => <tr key={idx}>
-                                <td>{item.position}</td>
-                                <td>{item.fio}</td>
-                                <td>{item.money}</td>
-                                <td>{item.sourceOfFunds}</td>
-                                <td>{item.age}</td>
-                                <td>{item.country}</td>
-                            </tr>)
-                        }
+                        <tr>
+                            { headings.map((item, idx) => <th key={idx}>{item}</th>) }
+                        </tr>
+                        { persons.map((item, idx) => <tr key={idx}>
+                            <td>{item.position}</td>
+                            <td>{item.fio}</td>
+                            <td>{item.money}</td>
+                            <td>{item.sourceOfFunds}</td>
+                            <td>{item.age}</td>
+                            <td>{item.country}</td>
+                        </tr>)}
                     </table>
                 );
             };
+
             ReactDOM.render(<Rich {...rich} />, document.querySelector('#rich'));
         });
     </script>
