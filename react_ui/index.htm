@@ -34,7 +34,7 @@
             clear: left;
             padding: 5px;
         }
-        
+
         .nuts li:nth-child(odd) {
             background: #d1d1d1;
         }
@@ -82,7 +82,57 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-1').on('click', function() {
+            var list = React.createElement('ul', {
+                className: 'nuts'
+            }, [
+                React.createElement('li', null, 'Арахис'),
+                React.createElement('li', null, 'Кешью'),
+                React.createElement('li', null, 'Фундук'),
+                React.createElement('li', null, 'Миндаль')
+            ]);
+
+            ReactDOM.render(list, document.querySelector('#list-1'));
+
+        });
+
+        $('.add-list-2').on('click', function() {
+            var Ul = function(props) {
+                return (
+                    React.createElement('ul', {
+                            className: 'nuts'
+                        }, props.items.map((item, idx) => React.createElement('li', null, item))
+                    )
+                );
+            };
+
+            var ul = React.createElement(Ul, {
+                items: ['Арахис', 'Кешью', 'Фундук', 'Миндаль']
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-2'));
+
+        });
+
+        $('.add-list-3').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        React.createElement('ul', {
+                                className: 'nuts'
+                            }, this.props.items.map((item, idx) => React.createElement('li', {key: idx}, item))
+                        )
+                    );
+                }
+            }
+
+            var ul = React.createElement(Ul, {
+                items: ['Арахис', 'Кешью', 'Фундук', 'Миндаль']
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-3'));
+
+        });
     </script>
 
     <p class="z">
@@ -108,7 +158,54 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-4').on('click', function() {
+            var list = React.createElement('ul', {
+                    className: 'nuts'
+                },
+                nuts.map(nut => React.createElement('li', null, nut))
+            );
+
+            ReactDOM.render(list, document.querySelector('#list-4'));
+
+        });
+
+        $('.add-list-5').on('click', function() {
+            var Ul = function(props) {
+                return (
+                    React.createElement('ul', {
+                            className: 'nuts'
+                        }, props.items.map((item, idx) => React.createElement('li', null, item))
+                    )
+                );
+            };
+
+            var ul = React.createElement(Ul, {
+                items: nuts
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-5'));
+
+        });
+
+        $('.add-list-6').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        React.createElement('ul', {
+                                className: 'nuts'
+                            }, this.props.items.map((item, idx) => React.createElement('li', {key: idx}, item))
+                        )
+                    );
+                }
+            }
+
+            var ul = React.createElement(Ul, {
+                items: nuts
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-6'));
+
+        });
     </script>
 
     <p class="z">
@@ -135,6 +232,52 @@
 
     <script type="text/babel">
         // Write your code here
+        $('.add-list-7').on('click', function() {
+            var list = <ul className="nuts">
+                <li>Арахис</li>
+                <li>Кешью</li>
+                <li>Фундук</li>
+                <li>Миндаль</li>
+            </ul>;
+
+            ReactDOM.render(list, document.querySelector('#list-7'));
+
+        });
+
+        $('.add-list-8').on('click', function() {
+            var Ul = function(props) {
+                return (
+                    <ul className="nuts">
+                        {
+                            props.items.map((item, idx) => <li key={idx}>{item}</li>)
+                        }
+                    </ul>
+                );
+            };
+
+            var ul = <Ul items={['Арахис', 'Кешью', 'Фундук', 'Миндаль']} />;
+
+            ReactDOM.render(ul, document.querySelector('#list-8'));
+        });
+
+        $('.add-list-9').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        <ul className="nuts">
+                            {
+                                this.props.items.map((item, idx) => <li key={idx}>{item}</li>)
+                            }
+                        </ul>
+                    );
+                }
+            }
+
+            var ul = <Ul items={['Арахис', 'Кешью', 'Фундук', 'Миндаль']} />;
+
+            ReactDOM.render(ul, document.querySelector('#list-9'));
+
+        });
     </script>
 
     <p class="z">
@@ -147,6 +290,12 @@
         <li>Классовый компонент</li>
     </ul>
 
+    <div class="lists">
+        <div id="list-10"></div>
+        <div id="list-11"></div>
+        <div id="list-12"></div>
+    </div>
+
     <p>
         <button class="add-list-10">Без компонентов</button>
         <button class="add-list-11">Функциональный компонент</button>
@@ -155,6 +304,51 @@
 
     <script type="text/babel">
         // Write your code here
+        $('.add-list-10').on('click', function() {
+            var list = <ul className="nuts">
+                {
+                    nuts.map((item,idx) => <li key={idx}>{item}</li>)
+                }
+            </ul>;
+
+            ReactDOM.render(list, document.querySelector('#list-10'));
+
+        });
+
+        $('.add-list-11').on('click', function() {
+            var Ul = function(props) {
+                return (
+                    <ul className="nuts">
+                        {
+                            props.items.map((item, idx) => <li key={idx}>{item}</li>)
+                        }
+                    </ul>
+                );
+            };
+
+            var ul = <Ul items={nuts} />;
+
+            ReactDOM.render(ul, document.querySelector('#list-11'));
+        });
+
+        $('.add-list-12').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        <ul className="nuts">
+                            {
+                                this.props.items.map((item, idx) => <li key={idx}>{item}</li>)
+                            }
+                        </ul>
+                    );
+                }
+            }
+
+            var ul = <Ul items={nuts} />;
+
+            ReactDOM.render(ul, document.querySelector('#list-12'));
+
+        });
     </script>
 
     <div class="games"><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Batman-v-Superman-Dawn-of-Justice-290x180.jpg"><h6>Batman v Superman Dawn of Justice</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Batman-Begins-290x180.jpg"><h6>Batman Begins</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/jackpot-giant-290x180.jpg"><h6>Jackpot Giant</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span><span class="item item-new">New</span></div><img src="images/games/european-roulette-290x180.jpg"><h6>Premium European Roulette</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Da-vinci-Vault-290x180.jpg"><h6>Da Vinci’s Vault</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Murder-Mystery-290x180.jpg"><h6>Murder Mystery</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/PremiumBlackjack-290x180.jpg"><h6>Premium Blackjack</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Gladiator-road-to-rome-290x180.jpg"><h6>Gladiator 2</h6></div></div>
@@ -210,8 +404,28 @@
         ];
     </script>
 
-    <script type="text/babel">
+    </script><script type="text/babel">
         // Write your code here
+        $('.add-games').on('click', function() {
+            console.log(6);
+            var Game = function(props) {
+                return (
+                    <div className='game'>
+                        <div className="game-flags">
+                            {props.flagHot ? <span className="item item-hot">Hot</span> : null}
+                            {props.flagNew ? <span className="item item-new">New</span> : null}
+                        </div>
+                        <img src={props.imageURL} />
+                        <h6>{props.name}</h6>
+                    </div>
+                );
+            };
+
+            var Games = function({games}) {
+                return games.map((game, idx) => <Game key={idx} {...game} />);
+            };
+            ReactDOM.render(<Games games={games} />, document.querySelector('#games'));
+        });
     </script>
 
     <style>
@@ -359,6 +573,28 @@
 
     <script type="text/babel">
         // Write your code here
+        $('.add-whores').on('click', function() {
+        var Whore = function(props) {
+            return (
+                <div className="whore">
+                    <div className="whore-name">{props.name}</div>
+                    <img src={props.photo}/>
+                        <div className="whore-age">Возраст: {props.age}</div>
+                        <div className="whore-boobs">Размер груди: {props.boobs}</div>
+                        <div className="whore-height">Рост: {props.height}</div>
+                        <div className="whore-weight">Вес: {props.weight}</div>
+                        <div className="whore-phone">{props.phone}</div>
+                        <div className="whore-can-come">Выезд: {props.can_come ? '+' : '-'}</div>
+                        <div className="whore-teaser">{props.teaser}</div>
+                </div>
+            );
+        };
+
+        var Whores = function({whores}) {
+            return whores.map((whore, idx) => <Whore key={idx} {...whore} />);
+        };
+        ReactDOM.render(<Whores whores={whores} />, document.querySelector('#whores'));
+        });
     </script>
 
     <style>
@@ -425,7 +661,33 @@
         }
     </style>
 
-    <div class="movies"><div class="movie"><div class="movie-image-container"><a href="#"><img src="images/movies/1580980803_e29f9c3.jpg"></a></div><a class="movie-title" href="#">Джентльмены</a><div class="movie-details"><span>2020</span></div></div><div class="movie"><div class="movie-image-container"><a href="#"><img src="images/movies/1437566539_88761604.jpg"></a></div><a class="movie-title" href="#">Джентльмены удачи</a><div class="movie-details"><span>1971</span></div></div><div class="movie"><div class="movie-image-container"><a href="#"><img src="images/movies/1533155746_20b5bd3.jpg"></a></div><a class="movie-title" href="#">Мстители: Война бесконечности</a><div class="movie-details"><span>2018</span></div></div><div class="movie"><div class="movie-image-container"><a href="#"><img src="images/movies/1538682174_690d454.jpg"></a></div><a class="movie-title" href="#">Веном</a><div class="movie-details"><span>2018</span></div></div><div class="movie"><div class="movie-image-container"><a href="#"><img src="images/movies/1530651906_9226a04.jpg"></a></div><a class="movie-title" href="#">Первому игроку приготовиться</a><div class="movie-details"><span>2018</span></div></div></div>
+    <div class="movies">
+        <div class="movie">
+            <div class="movie-image-container"><a href="#"><img src="images/movies/1580980803_e29f9c3.jpg"></a></div>
+            <a class="movie-title" href="#">Джентльмены</a>
+            <div class="movie-details"><span>2020</span></div>
+        </div>
+        <div class="movie">
+            <div class="movie-image-container"><a href="#"><img src="images/movies/1437566539_88761604.jpg"></a></div>
+            <a class="movie-title" href="#">Джентльмены удачи</a>
+            <div class="movie-details"><span>1971</span></div>
+        </div>
+        <div class="movie">
+            <div class="movie-image-container"><a href="#"><img src="images/movies/1533155746_20b5bd3.jpg"></a></div>
+            <a class="movie-title" href="#">Мстители: Война бесконечности</a>
+            <div class="movie-details"><span>2018</span></div>
+        </div>
+        <div class="movie">
+            <div class="movie-image-container"><a href="#"><img src="images/movies/1538682174_690d454.jpg"></a></div>
+            <a class="movie-title" href="#">Веном</a>
+            <div class="movie-details"><span>2018</span></div>
+        </div>
+        <div class="movie">
+            <div class="movie-image-container"><a href="#"><img src="images/movies/1530651906_9226a04.jpg"></a></div>
+            <a class="movie-title" href="#">Первому игроку приготовиться</a>
+            <div class="movie-details"><span>2018</span></div>
+        </div>
+    </div>
 
     <p class="z">Используй JSX и функциональные компоненты. Создай 2 компонента: Movies и Movie (компонент одного фильма). Используй переменную movies в качестве свойств для компонента Movies. При клике на кнопку, отобрази компонент Movies в контейнере #movies.</p>
 
@@ -682,6 +944,29 @@
 
     <script type="text/babel">
         // Write your code here
+        $('.add-movies').on('click', function() {
+            var Movie = function(props) {
+                var imgSrc = 'images/movies/' + props.id + '.jpg';
+                return (
+                    <div className="movie">
+                        <div className="movie-image-container">
+                            <a href="#">
+                               <img src={imgSrc} />
+                            </a>
+                        </div>
+                        <a className="movie-title" href="#">{props.title}</a>
+                        <div className="movie-details">
+                            <span>{props.year}</span>
+                        </div>
+                    </div>
+                );
+            };
+
+            var Movies = function({movies}) {
+                return movies.map((movie, idx) => <Movie key={idx} {...movie} />);
+            };
+            ReactDOM.render(<Movies movies={movies} />, document.querySelector('#movies'));
+        });
     </script>
 
     <style>
@@ -746,7 +1031,128 @@
     </style>
 
     <div class="rich">
-        <table><tr><th>№</th><th>ФИО</th><th>Состояние (в млрд $)</th><th>Источник состояния</th><th>Возраст</th><th>Страна</th></tr><tr><td>1</td><td>Джефф Безос</td><td>177</td><td>Amazon.com</td><td>57</td><td>США</td></tr><tr><td>2</td><td>Илон Маск</td><td>151</td><td>Tesla</td><td>49</td><td>США</td></tr><tr><td>3</td><td>Бернар Арно и семья</td><td>150</td><td>LVMH</td><td>72</td><td>Франция</td></tr><tr><td>4</td><td>Билл Гейтс</td><td>124</td><td>Microsoft, инвестиции</td><td>65</td><td>США</td></tr><tr><td>5</td><td>Марк Цукерберг</td><td>97</td><td>Facebook</td><td>36</td><td>США</td></tr><tr><td>6</td><td>Уоррен Баффет</td><td>96</td><td>Berkshire Hathaway</td><td>90</td><td>США</td></tr><tr><td>7</td><td>Ларри Эллисон</td><td>93</td><td>Oracle</td><td>76</td><td>США</td></tr><tr><td>8</td><td>Ларри Пейдж</td><td>91.5</td><td>Google</td><td>48</td><td>США</td></tr><tr><td>9</td><td>Сергей Брин</td><td>89</td><td>Google</td><td>47</td><td>США</td></tr><tr><td>10</td><td>Мукеш Амбани</td><td>84.5</td><td>Reliance Industries</td><td>63</td><td>Индия</td></tr><tr><td>11</td><td>Амансио Ортега</td><td>77</td><td>Inditex</td><td>85</td><td>Испания</td></tr><tr><td>12</td><td>Франсуаза Беттанкур-Майерс и семья</td><td>73.6</td><td>L'Oreal</td><td>67</td><td>Франция</td></tr><tr><td>13</td><td>Чжун Шаньшань</td><td>68.9</td><td>Nongfu Spring, Wantai</td><td>66</td><td>Китай</td></tr><tr><td>14</td><td>Стив Балмер</td><td>68.7</td><td>Microsoft</td><td>65</td><td>США</td></tr></table>
+        <table>
+            <tr>
+                <th>№</th>
+                <th>ФИО</th>
+                <th>Состояние (в млрд $)</th>
+                <th>Источник состояния</th>
+                <th>Возраст</th>
+                <th>Страна</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Джефф Безос</td>
+                <td>177</td>
+                <td>Amazon.com</td>
+                <td>57</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Илон Маск</td>
+                <td>151</td>
+                <td>Tesla</td>
+                <td>49</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Бернар Арно и семья</td>
+                <td>150</td>
+                <td>LVMH</td>
+                <td>72</td>
+                <td>Франция</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Билл Гейтс</td>
+                <td>124</td>
+                <td>Microsoft, инвестиции</td>
+                <td>65</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Марк Цукерберг</td>
+                <td>97</td>
+                <td>Facebook</td>
+                <td>36</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Уоррен Баффет</td>
+                <td>96</td>
+                <td>Berkshire Hathaway</td>
+                <td>90</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Ларри Эллисон</td>
+                <td>93</td>
+                <td>Oracle</td>
+                <td>76</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Ларри Пейдж</td>
+                <td>91.5</td>
+                <td>Google</td>
+                <td>48</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Сергей Брин</td>
+                <td>89</td>
+                <td>Google</td>
+                <td>47</td>
+                <td>США</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Мукеш Амбани</td>
+                <td>84.5</td>
+                <td>Reliance Industries</td>
+                <td>63</td>
+                <td>Индия</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Амансио Ортега</td>
+                <td>77</td>
+                <td>Inditex</td>
+                <td>85</td>
+                <td>Испания</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Франсуаза Беттанкур-Майерс и семья</td>
+                <td>73.6</td>
+                <td>L'Oreal</td>
+                <td>67</td>
+                <td>Франция</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Чжун Шаньшань</td>
+                <td>68.9</td>
+                <td>Nongfu Spring, Wantai</td>
+                <td>66</td>
+                <td>Китай</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Стив Балмер</td>
+                <td>68.7</td>
+                <td>Microsoft</td>
+                <td>65</td>
+                <td>США</td>
+            </tr>
+        </table>
     </div>
 
     <p class="z">Используй JSX и функциональные компоненты. Создай компонент: Rich. Используй переменную rich в качестве свойств для компонента Rich. При клике на кнопку, отобрази компонент Rich в контейнере #rich.</p>
@@ -879,6 +1285,30 @@
 
     <script type="text/babel">
         // Write your code here
+        $('.add-rich').on('click', function() {
+            var Rich = function(rich) {
+                return (
+                    <table>
+                            <tr>
+                                {
+                                    rich.headings.map((item, idx) => <th key={idx}>{item}</th>)
+                                }
+                            </tr>
+                        {
+                            rich.data.map((item, idx) => <tr key={idx}>
+                                <td>{item.position}</td>
+                                <td>{item.fio}</td>
+                                <td>{item.money}</td>
+                                <td>{item.sourceOfFunds}</td>
+                                <td>{item.age}</td>
+                                <td>{item.country}</td>
+                            </tr>)
+                        }
+                    </table>
+                );
+            };
+            ReactDOM.render(<Rich {...rich} />, document.querySelector('#rich'));
+        });
     </script>
 
     <style>
