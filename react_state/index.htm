@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
 </head>
 
 <body>
@@ -433,36 +434,78 @@
 
     <script type="text/babel">
         class TaskChangeColor extends React.Component {
+            state = {
+                color:'black'
+            };
+
+            handleClick = () => {
+               this.setState({
+                   color:'green'
+               });
+            };
+
             render() {
+                const { handleClick, state } = this;
+                const style = {
+                    color: state.color
+                }
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет текста</p>
-                        <p className="t t1">Тест</p>
-                        <button className="b b1">Изменить цвет текста</button>
+                        <p className="t t1" style={style}>Тест</p>
+                        <button onClick={handleClick} className="b b1">Изменить цвет текста</button>
                     </>
                 );
             }
         }
 
         class TaskChangeBackgroundColor extends React.Component {
+            state = {
+                background: 'none'
+            };
+
+            handleClick = () => {
+                this.setState({
+                    background: 'red'
+                });
+            };
+
             render() {
+                const { handleClick, state } = this;
+                const style = {
+                    background: state.background
+                }
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет фона</p>
-                        <p className="t t2">Тест</p>
-                        <button className="b b2">Изменить цвет фона</button>
+                        <p className="t t2" style={style}>Тест</p>
+                        <button onClick={handleClick} className="b b2">Изменить цвет фона</button>
                     </>
                 );
             }
         }
 
         class TaskChangeHref extends React.Component {
+            state = {
+                href:'https://habrahabr.ru/'
+            }
+
+            handleClick = () => {
+                this.setState({
+                    href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator'
+                });
+            };
             render() {
+                const { handleClick, state } = this;
+                const link = {
+                    href: state.href
+                }
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить путь ссылки</p>
-                        <p className="t t3"><a href="https://habrahabr.ru/">Тест</a></p>
-                        <button className="b b3">Изменить путь ссылки</button>
+                        <p className="t t3"><a href={link}>Тест</a></p>
+                        <button onClick={handleClick} className="b b3">Изменить путь ссылки</button>
                     </>
                 );
             }
