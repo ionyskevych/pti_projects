@@ -435,26 +435,26 @@
     <script type="text/babel">
         class TaskChangeColor extends React.Component {
             state = {
-                color:'black'
+                color: 'black'
             };
 
-            handleClick = () => {
+            onClick = () => {
                this.setState({
-                   color:'green'
+                   color: 'green'
                });
             };
 
             render() {
-                const { handleClick, state } = this;
+                const { onClick, state } = this;
                 const style = {
                     color: state.color
-                }
+                };
 
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет текста</p>
                         <p className="t t1" style={style}>Тест</p>
-                        <button onClick={handleClick} className="b b1">Изменить цвет текста</button>
+                        <button onClick={onClick} className="b b1">Изменить цвет текста</button>
                     </>
                 );
             }
@@ -472,14 +472,12 @@
             };
 
             render() {
-                const { handleClick, state } = this;
-                const style = {
-                    background: state.background
-                }
+                const { handleClick, state: {background} } = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет фона</p>
-                        <p className="t t2" style={style}>Тест</p>
+                        <p className="t t2" style={{background}}>Тест</p>
                         <button onClick={handleClick} className="b b2">Изменить цвет фона</button>
                     </>
                 );
@@ -489,23 +487,22 @@
         class TaskChangeHref extends React.Component {
             state = {
                 href:'https://habrahabr.ru/'
-            }
+            };
 
-            handleClick = () => {
+            onClick = () => {
                 this.setState({
                     href: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator'
                 });
             };
+
             render() {
-                const { handleClick, state } = this;
-                const link = {
-                    href: state.href
-                }
+                const { onClick, state: {href} } = this;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить путь ссылки</p>
-                        <p className="t t3"><a href={link}>Тест</a></p>
-                        <button onClick={handleClick} className="b b3">Изменить путь ссылки</button>
+                        <p className="t t3"><a href={href}>Тест</a></p>
+                        <button onClick={onClick} className="b b3">Изменить путь ссылки</button>
                     </>
                 );
             }
