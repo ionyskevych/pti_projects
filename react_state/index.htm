@@ -1135,7 +1135,7 @@
                 this.setState((state) => ({
                     activeQuestionIdxs: state.activeQuestionIdxs.includes(idx) ?
                         state.activeQuestionIdxs.filter((item) => item !== idx) :
-                        state.activeQuestionIdxs.concat([idx])
+                        [...state.activeQuestionIdxs, idx]
                 }));
             };
 
@@ -1204,11 +1204,10 @@
             };
 
             onClick = (idx) => {
-                this.setState((state) => ({
+                this.setState({
                     activeDayIdx: idx
-                }));
+                });
             };
-
 
             render() {
                 const { onClick, items, state: {activeDayIdx} } = this;
@@ -1218,22 +1217,16 @@
 
                         <h2>Сеансы</h2>
                         <div className="tabs">
-
                             {items.map((item, idx) => {
-                                const dayClassName = `${idx === activeDayIdx ? 'active item' : 'item'}`;
+                                const dayClassName = idx === activeDayIdx ? 'active item' : 'item';
 
                                 return (
-                                    <>
-                                        <div onClick={() => {onClick(idx)
-                                        }} dangerouslySetInnerHTML={{__html: item.day}}
-                                             className={dayClassName}></div>
-
-                                    </>
+                                    <div className={dayClassName} dangerouslySetInnerHTML={{__html: item.day}} onClick={() => onClick(idx)} />
                                 );
                             })}
                         </div>
                         <div className="tabs-content" >
-                            <div className="active item" dangerouslySetInnerHTML={{__html: items[activeDayIdx].films}}/>
+                            <div className="active item" dangerouslySetInnerHTML={{__html: items[activeDayIdx].films}} />
                         </div>
                     </>
                 );
