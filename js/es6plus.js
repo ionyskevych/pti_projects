@@ -5,7 +5,6 @@
 //     console.log(a, b);
 // };
 
-// TODO: Write your code here
 var f = function(a = 7, b = 4) {
     console.log(a, b);
 };
@@ -38,7 +37,6 @@ var jasmine = {
 //         '<div class="whore-teaser">' + jasmine.teaser + '</div>'+
 //     '</div>';
 
-// TODO: Write your code here
 var whore = `
     <div class="whore">
         <div class="whore-name">${jasmine.name}</div>
@@ -63,7 +61,6 @@ var name = 'Вася';
 //     getName: function() { return this.name; }
 // };
 
-// TODO: Write your code here
 var o = {
     name,
     getName() { return this.name; }
@@ -93,9 +90,6 @@ var vasya = {
 //     age: 31
 // });
 
-// TODO: Write your code here
-
-
 whores = [...whores, {name: 'Ванесса', age: 22 }];
 
 var fruits3 = [...fruits1, ...fruits2];
@@ -120,7 +114,6 @@ var person = {
 // };
 // var f4 = function() { return 'Хуй мусорам!'; };
 
-// TODO: Write your code here
 var f1 = () => {};
 var f2 = (x) => x * x;
 
@@ -132,8 +125,6 @@ var f3 = (a, b) => {
 var f4 = () => 'Хуй мусорам!';
 
 // Перепиши класс Circle из файла js/functions_part_4.js используя синтаксис классов
-
-// TODO: Write your code here
 
 class Circle {
     constructor(x, y, radius) {
@@ -171,7 +162,5 @@ var config = {
 // var host = config.host;
 // var port2 = config.port;
 // var dbName = config.dbName !== undefined ? config.dbName : 'default';
-
-// TODO: Write your code here
 
 var {host, port: port2, dbName = 'default'} = config;
