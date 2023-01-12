@@ -1128,19 +1128,19 @@
             ];
 
             state = {
-                activeQuestionIdxs: []
+                activeQuestionIdxs: [] // [0, 1, 2]
             };
 
             onClick = (idx) => {
-                //console.log('idx = ', idx);
-
                 this.setState((state) => ({
-                    activeQuestionIdxs: [2] // TODO:
+                    activeQuestionIdxs: state.activeQuestionIdxs.includes(idx) ?
+                        state.activeQuestionIdxs.filter((item) => item !== idx) :
+                        state.activeQuestionIdxs.concat([idx])
                 }));
             };
 
             render() {
-                const { onClick, items, state: {activeQuestionIdxs}} = this;
+                const { onClick, items, state: {activeQuestionIdxs} } = this;
 
                 return (
                     <>
@@ -1166,59 +1166,74 @@
         }
 
         class TaskTabs extends React.Component { // TODO:
+            items = [
+                {
+                    day: `Сегодня`,
+                    films: `
+                        <ul>
+                            <li>Звёздные войны: Последние джедаи</li>
+                            <li>Счастливый день смерти</li>
+                            <li>Дыши</li>
+                        </ul>
+                    `
+                },
+                {
+                    day: `Завтра`,
+                    films: `
+                        <ul>
+                            <li>Киборги</li>
+                            <li>Земля троллей</li>
+                            <li>За пропастью во ржи</li>
+                        </ul>
+                    `
+                },
+                {
+                    day: `23 Декабря`,
+                    films:`
+                       <ul>
+                            <li>Мой любимый динозавр</li>
+                            <li>Фердинанд</li>
+                            <li>Джуманджи: Зов джунглей</li>
+                        </ul>
+                    `
+                },
+            ];
+
             state = {
-                // activeTabIdx
-                classNames: ['item active', 'item', 'item']
+                activeDayIdx: 0
             };
 
-            toggleClassName = (idx) => {
-                let result = ['item', 'item', 'item'];
-                result[idx] = 'item active';
-                return result;
+            onClick = (idx) => {
+                this.setState((state) => ({
+                    activeDayIdx: idx
+                }));
             };
 
-            fn = (pointer) => {
-                this.setState({
-                    classNames: this.toggleClassName(pointer)
-                })
-            };
 
             render() {
-                const { fn, state: {classNames}} = this;
+                const { onClick, items, state: {activeDayIdx} } = this;
                 return (
                     <>
                         <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
 
                         <h2>Сеансы</h2>
-
                         <div className="tabs">
-                            <div onClick={() => {fn(0)}} className={classNames[0]}>Сегодня</div>
-                            <div onClick={() => {fn(1)}} className={classNames[1]}>Завтра</div>
-                            <div onClick={() => {fn(2)}} className={classNames[2]}>23 декабря</div>
-                        </div>
 
-                        <div className="tabs-content">
-                            <div className={classNames[0]}>
-                                <ul>
-                                    <li>Звёздные войны: Последние джедаи</li>
-                                    <li>Счастливый день смерти</li>
-                                    <li>Дыши</li>
-                                </ul>
-                            </div>
-                            <div className={classNames[1]}>
-                                <ul>
-                                    <li>Киборги</li>
-                                    <li>Земля троллей</li>
-                                    <li>За пропастью во ржи</li>
-                                </ul>
-                            </div>
-                            <div className={classNames[2]}>
-                                <ul>
-                                    <li>Мой любимый динозавр</li>
-                                    <li>Фердинанд</li>
-                                    <li>Джуманджи: Зов джунглей</li>
-                                </ul>
-                            </div>
+                            {items.map((item, idx) => {
+                                const dayClassName = `${idx === activeDayIdx ? 'active item' : 'item'}`;
+
+                                return (
+                                    <>
+                                        <div onClick={() => {onClick(idx)
+                                        }} dangerouslySetInnerHTML={{__html: item.day}}
+                                             className={dayClassName}></div>
+
+                                    </>
+                                );
+                            })}
+                        </div>
+                        <div className="tabs-content" >
+                            <div className="active item" dangerouslySetInnerHTML={{__html: items[activeDayIdx].films}}/>
                         </div>
                     </>
                 );
